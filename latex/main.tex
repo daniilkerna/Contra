@@ -38,6 +38,40 @@ The games user interface will be as closely resembled to the original game as po
 \includegraphics[scale=1]{images/Contra.png} 
 \end{center}
 
+\titleline{Enemies List}
+Some of the common enemies present in the game.
+
+\begin{itemize}
+	\item Charges at the player, suicide style 
+	\begin{center}
+		\includegraphics[scale=1]{images/runner.png} 
+	\end{center}
+	
+	\item Stationary enemy, shoots at the player 
+	\begin{center}
+		\includegraphics[scale=1]{images/shooter.png} 
+	\end{center}
+
+	\item Hides in the water and shoots explosives
+	\begin{center}
+		\includegraphics[scale=1]{images/waterEnemy.png} 
+	\end{center}
+
+	\item Sniper: slow shot frequency but high accuracy. 
+	\begin{center}
+		\includegraphics[scale=1]{images/sniper.png} 
+	\end{center}
+
+	\item Alien bug: charges at the player with high velocity and agility.
+	\begin{center}
+		\includegraphics[scale=.7]{images/alien.png} 
+	\end{center}
+
+	
+	
+	
+\end{itemize}
+
 \section*{\titleline{Architecture} } 
 For our networking component we plan to use a peer to peer system. The will use the dumb client model for our implementation. We will use TCP as our means of network communication. This will ensure reliability of information but may have issues with consistencies over long distance communication. The client will issue commands to move, jump or fire. The server will respond with the information pertaining to the entities on the server and the client will render these entities accordingly. The server will have to send entity position, velocity and state. Entities will primarily include players, enemies and projectiles. To ensure consistency we will use the server delta as the time standard for the client. This will ensure that the client is updated in the same increments as the server.
 
