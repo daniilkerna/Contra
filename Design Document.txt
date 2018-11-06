@@ -1,4 +1,4 @@
-﻿Contra Arcade
+Contra Arcade
 Project 2 Proposal
 Aleksandr Khavarovskiy
 Daniil Kernazhytski
@@ -61,7 +61,8 @@ Architecture
 
 Development Strategy        
 
-
+Alex - will focus on the networking side of things as well as level design
+Daniil - will focus on animations / collisions and game logic. Ie making the game work.
 
 
 
@@ -78,3 +79,6 @@ High Bar
 
 
 Low Bar
+
+Inlcude the Ability for Coop mode (2 players) to play over a network 
+Have infinite waves of enemies attack the players
