@@ -78,7 +78,8 @@ public class ContraGame extends StateBasedGame {
 			app = new AppGameContainer(new ContraGame("Contra", 600, 600));
 			app.setDisplayMode(600, 600, false);
 			app.setVSync(true);
-			app.setShowFPS(false);
+			app.setAlwaysRender(true);
+			app.setShowFPS(true);
 			app.start();
 		} catch (SlickException e) {
 			e.printStackTrace();
