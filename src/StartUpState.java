@@ -41,7 +41,7 @@ class StartUpState extends BasicGameState {
 
 		//g.drawImage(ResourceManager.getImage(ContraGame.STARTUP_BANNER_RSC), bg.ScreenWidth/2 - 150, bg.ScreenHeight/2 + 150);
 		ResourceManager.getImage(ContraGame.Contra_Banner_RSC).draw( 100, 50);
-		g.drawString(message, bg.ScreenWidth/2 - 50 , 400);
+		g.drawString(message, container.getWidth()  /2 - 50 , 400);
 
 	}
 

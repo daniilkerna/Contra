@@ -21,6 +21,7 @@ import org.newdawn.slick.state.StateBasedGame;
  */
 
 class PlayingState extends BasicGameState {
+	mainPlayer player1;
 
 
 	@Override
@@ -31,15 +32,16 @@ class PlayingState extends BasicGameState {
 	@Override
 	public void enter(GameContainer container, StateBasedGame game) {
 		container.setSoundOn(true);
-		ContraGame tg = (ContraGame) game;
+		ContraGame cg = (ContraGame) game;
 
+		player1 = new mainPlayer(container.getWidth() /2, container.getHeight() / 2);
 	}
 	@Override
 	public void render(GameContainer container, StateBasedGame game,
 			Graphics g) throws SlickException {
 		ContraGame tg = (ContraGame)game;
 
-
+		player1.render(g);
 	}
 
 	@Override
@@ -49,7 +51,7 @@ class PlayingState extends BasicGameState {
 		Input input = container.getInput();
 		ContraGame tg = (ContraGame)game;
 
-
+		player1.update(container, game, delta );
 	}
 
 
