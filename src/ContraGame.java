@@ -62,8 +62,8 @@ public class ContraGame extends StateBasedGame {
 		ResourceManager.loadImage( PLAYER_RUN_RIGHT_RSC );
 		ResourceManager.getImage( PLAYER_RUN_RIGHT_RSC ).setFilter(Image.FILTER_NEAREST);
 
-		spriteSheetHashMap.put( "PLAYER_RUN_RIGHT_SS", new SpriteSheet( ResourceManager.getImage( PLAYER_RUN_RIGHT_RSC ), 37 , 45 ) );
-        spriteSheetHashMap.put( "PLAYER_RUN_LEFT_SS" , new SpriteSheet( ResourceManager.getImage( PLAYER_RUN_RIGHT_RSC ).getFlippedCopy( true, false ), 37 , 45 ) );
+		spriteSheetHashMap.put( "PLAYER_RUN_RIGHT_SS", new SpriteSheet( ResourceManager.getImage( PLAYER_RUN_RIGHT_RSC ), 20 , 36 ) );
+        spriteSheetHashMap.put( "PLAYER_RUN_LEFT_SS" , new SpriteSheet( ResourceManager.getImage( PLAYER_RUN_RIGHT_RSC ).getFlippedCopy( true, false ), 20 , 36 ) );
 
         //spriteSheetHashMap.put( "PLAYER_RUN_LEFT_SS ", new SpriteSheet( ResourceManager.getImage( PLAYER_RUN_RIGHT_RSC ).getFlippedCopy( true, false ), 37 , 45 ) );
 

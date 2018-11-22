@@ -12,8 +12,12 @@ public class Player extends Entity {
     private PlayerVerticalFacingDirection   playerVerticalFacingDirection;
 
     private Vector playerVelocity;
-    private Animation runningLeft,
-                      runningRight;
+    private Animation   runningLeft,
+                        runningLeftGunUp,
+                        runningLeftGunDown,
+                        runningRight,
+                        runningRightGunUp,
+                        runningRightGunDown;
 
 
     public Player(final float x, final float y) {
@@ -23,12 +27,28 @@ public class Player extends Entity {
         addImageWithBoundingBox(ContraGame.getSpriteSheetHashMap().get("PLAYER_RUN_RIGHT_SS").getSprite(5, 0));
         this.setScale(1.5f);
 
-        runningRight = new Animation(ContraGame.getSpriteSheetHashMap().get("PLAYER_RUN_RIGHT_SS"), 1, 0, 5, 0, true, 150,
+        runningRight = new Animation(ContraGame.getSpriteSheetHashMap().get("PLAYER_RUN_RIGHT_SS"), 0, 0, 5, 0, true, 150,
                 true);
 
-        runningLeft = new Animation(ContraGame.getSpriteSheetHashMap().get("PLAYER_RUN_LEFT_SS"), 4, 0, 7, 0, true, 150,
+        runningRightGunUp = new Animation(ContraGame.getSpriteSheetHashMap().get("PLAYER_RUN_RIGHT_SS"), 6, 0, 8, 0, true, 150,
                 true);
 
+        runningRightGunDown = new Animation(ContraGame.getSpriteSheetHashMap().get("PLAYER_RUN_RIGHT_SS"), 9, 0, 11, 0, true, 150,
+                true);
+
+        runningLeft = new Animation(ContraGame.getSpriteSheetHashMap().get("PLAYER_RUN_LEFT_SS"), 0, 0, 8, 0, true, 150,
+                true);
+
+        runningLeftGunUp = new Animation(ContraGame.getSpriteSheetHashMap().get("PLAYER_RUN_LEFT_SS"), 7, 0, 11, 0, true, 150,
+                true);
+
+        runningLeftGunDown = new Animation(ContraGame.getSpriteSheetHashMap().get("PLAYER_RUN_LEFT_SS"), 7, 0, 11, 0, true, 150,
+                true);
+
+        runningRight.setLooping(true);
+        runningRightGunDown.setLooping(true);
+        runningRightGunUp.setLooping(true);
+        runningLeft.setLooping(true);
         playerState             = PlayerState.IDLE;
         playerMovementDirection = PlayerMovementDirection.RIGHT;
         playerVerticalFacingDirection = PlayerVerticalFacingDirection.NONE;
@@ -65,7 +85,7 @@ public class Player extends Entity {
         }
 
         //jumping or prone
-        if ( gc.getInput().isKeyDown( Input.KEY_S )) {
+        if ( gc.getInput().isKeyDown( Input.KEY_S ) && playerState == PlayerState.IDLE) {
             playerState = PlayerState.PRONE;
         }
         else if ( gc.getInput().isKeyDown( Input.KEY_SPACE ) ) {
@@ -89,13 +109,30 @@ public class Player extends Entity {
                 if (playerMovementDirection == PlayerMovementDirection.LEFT) {
                     this.setPlayerVelocity(new Vector(-DEFAULT_PLAYER_VELOCITY_X, 0.0f));
                     this.removeAllImages();
-                    addAnimation(runningLeft);
+                    if (playerVerticalFacingDirection == PlayerVerticalFacingDirection.UP){
+                        addAnimation(runningLeftGunUp);
+                    }
+                    else if (playerVerticalFacingDirection == PlayerVerticalFacingDirection.DOWN){
+                        addAnimation(runningLeftGunDown);
+                    }
+                    else{
+                        addAnimation(runningLeft);
+                    }
+
                 }
 
                 if (playerMovementDirection == PlayerMovementDirection.RIGHT) {
                     this.setPlayerVelocity(new Vector(DEFAULT_PLAYER_VELOCITY_X, 0.0f));
                     this.removeAllImages();
-                    addAnimation(runningRight);
+                    if (playerVerticalFacingDirection == PlayerVerticalFacingDirection.UP){
+                        addAnimation(runningRightGunUp);
+                    }
+                    else if (playerVerticalFacingDirection == PlayerVerticalFacingDirection.DOWN){
+                        addAnimation(runningRightGunDown);
+                    }
+                    else{
+                        addAnimation(runningRight);
+                    }
                 }
                 break;
 
