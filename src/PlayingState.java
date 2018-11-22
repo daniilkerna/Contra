@@ -1,17 +1,7 @@
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.PriorityQueue;
 import java.util.Random;
 
-import jig.Collision;
-import jig.Entity;
-import jig.Vector;
-
-import org.lwjgl.Sys;
-import org.newdawn.slick.GameContainer;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Input;
-import org.newdawn.slick.SlickException;
+import jig.ResourceManager;
+import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -21,7 +11,7 @@ import org.newdawn.slick.state.StateBasedGame;
  */
 
 class PlayingState extends BasicGameState {
-	mainPlayer player1;
+	Player player1;
 
 
 	@Override
@@ -34,7 +24,7 @@ class PlayingState extends BasicGameState {
 		container.setSoundOn(true);
 		ContraGame cg = (ContraGame) game;
 
-		player1 = new mainPlayer(container.getWidth() /2, container.getHeight() / 2);
+		player1 = new Player(container.getWidth() /2, container.getHeight() / 2);
 	}
 	@Override
 	public void render(GameContainer container, StateBasedGame game,
@@ -42,6 +32,9 @@ class PlayingState extends BasicGameState {
 		ContraGame tg = (ContraGame)game;
 
 		player1.render(g);
+
+		//SpriteSheet ss = new SpriteSheet( ResourceManager.getImage( ContraGame.PLAYER_RUN_RIGHT_RSC ).getFlippedCopy( true, false ), 37, 45 );
+		//ss.getSprite( 3, 0).draw( 100, 100 );
 	}
 
 	@Override

@@ -27,7 +27,8 @@ public class ContraGame extends StateBasedGame {
 	public static final int GAMEOVERSTATE = 3;
 
 	public static final String Contra_Banner_RSC = "resource/contra_banner.png";
-	public static final String PlayerSprite_RSC = "resource/playerSprite.png";
+	public static final String PLAYER_RUN_RIGHT_RSC = "resource/playerRunningRight.png";
+    public static final String PLAYER_RUN_LEFT_RSC = "resource/playerRunningLeft.png";
 
 
 
@@ -58,9 +59,17 @@ public class ContraGame extends StateBasedGame {
 		addState(new GameOverState());
 		addState(new PlayingState());
 
-		ResourceManager.loadImage( PlayerSprite_RSC );
-		ResourceManager.getImage(PlayerSprite_RSC).setFilter(Image.FILTER_NEAREST);
-		spriteSheetHashMap.put( "PLAYER_SS", ResourceManager.getSpriteSheet(PlayerSprite_RSC , 37 , 45) );
+		ResourceManager.loadImage( PLAYER_RUN_RIGHT_RSC );
+		ResourceManager.getImage( PLAYER_RUN_RIGHT_RSC ).setFilter(Image.FILTER_NEAREST);
+
+		spriteSheetHashMap.put( "PLAYER_RUN_RIGHT_SS", new SpriteSheet( ResourceManager.getImage( PLAYER_RUN_RIGHT_RSC ), 37 , 45 ) );
+        spriteSheetHashMap.put( "PLAYER_RUN_LEFT_SS" , new SpriteSheet( ResourceManager.getImage( PLAYER_RUN_RIGHT_RSC ).getFlippedCopy( true, false ), 37 , 45 ) );
+
+        //spriteSheetHashMap.put( "PLAYER_RUN_LEFT_SS ", new SpriteSheet( ResourceManager.getImage( PLAYER_RUN_RIGHT_RSC ).getFlippedCopy( true, false ), 37 , 45 ) );
+
+       // ResourceManager.loadImage( PLAYER_RUN_LEFT_RSC );
+       // ResourceManager.getImage(PLAYER_RUN_LEFT_RSC).setFilter(Image.FILTER_NEAREST);
+       // spriteSheetHashMap.put( "PLAYER_RUN_LEFT_SS", ResourceManager.getSpriteSheet(PLAYER_RUN_LEFT_RSC , 37 , 45) );
 		// preload all the resources to avoid warnings & minimize latency...
 		ResourceManager.loadImage(Contra_Banner_RSC);
 
