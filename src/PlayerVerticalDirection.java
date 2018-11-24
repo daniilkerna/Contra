@@ -1,4 +1,4 @@
-public enum PlayerVerticalFacingDirection {
+public enum PlayerVerticalDirection {
     NONE,
     UP,
     DOWN

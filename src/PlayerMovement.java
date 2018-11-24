@@ -1,4 +1,4 @@
-public enum PlayerMovementDirection {
-    LEFT,RIGHT
+public enum PlayerMovement {
+    NONE, LEFT,RIGHT
 }
 
