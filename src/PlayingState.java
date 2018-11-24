@@ -24,7 +24,7 @@ class PlayingState extends BasicGameState {
 		container.setSoundOn(true);
 		ContraGame cg = (ContraGame) game;
 
-		player1 = new Player(container.getWidth() /2, container.getHeight() / 2);
+		player1 = new Player( container, game );
 	}
 	@Override
 	public void render(GameContainer container, StateBasedGame game,
@@ -46,11 +46,6 @@ class PlayingState extends BasicGameState {
 
 		player1.update(container, game, delta );
 	}
-
-
-
-
-
 
 	@Override
 	public int getID() {
