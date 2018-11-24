@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import jig.Entity;
@@ -32,28 +31,28 @@ public class ContraGame extends StateBasedGame {
 	public static final String Contra_Banner_RSC          = "resource/contra_banner.png";
 
 	/* Player prone animations */
-	public static final String PLAYER_PRONE_LEFT_RSC      = "resource/animation_prone_left.png";
-	public static final String PLAYER_PRONE_RIGHT_RSC     = "resource/animation_prone_right.png";
+	public static final String PLAYER_PRONE_LEFT_RSC      = "resource/player/animation_prone_left.png";
+	public static final String PLAYER_PRONE_RIGHT_RSC     = "resource/player/animation_prone_right.png";
 
 	/* Player run animations */
-	public static final String PLAYER_RUN_LEFT_RSC        = "resource/animation_run_left.png";
-	public static final String PLAYER_RUN_LEFT_UP_RSC     = "resource/animation_run_left_up.png";
-	public static final String PLAYER_RUN_LEFT_DOWN_RSC   = "resource/animation_run_left_down.png";
+	public static final String PLAYER_RUN_LEFT_RSC        = "resource/player/animation_run_left.png";
+	public static final String PLAYER_RUN_LEFT_UP_RSC     = "resource/player/animation_run_left_up.png";
+	public static final String PLAYER_RUN_LEFT_DOWN_RSC   = "resource/player/animation_run_left_down.png";
 
-	public static final String PLAYER_RUN_RIGHT_RSC       = "resource/animation_run_right.png";
-	public static final String PLAYER_RUN_RIGHT_UP_RSC    = "resource/animation_run_right_up.png";
-	public static final String PLAYER_RUN_RIGHT_DOWN_RSC  = "resource/animation_run_right_down.png";
+	public static final String PLAYER_RUN_RIGHT_RSC       = "resource/player/animation_run_right.png";
+	public static final String PLAYER_RUN_RIGHT_UP_RSC    = "resource/player/animation_run_right_up.png";
+	public static final String PLAYER_RUN_RIGHT_DOWN_RSC  = "resource/player/animation_run_right_down.png";
 
 	/* Jump left and right animation */
-	public static final String PLAYER_RUN_JUMP_LEFT_RSC   = "resource/animation_jump_left.png";
-	public static final String PLAYER_RUN_JUMP_RIGHT_RSC  = "resource/animation_jump_right.png";
+	public static final String PLAYER_RUN_JUMP_LEFT_RSC   = "resource/player/animation_jump_left.png";
+	public static final String PLAYER_RUN_JUMP_RIGHT_RSC  = "resource/player/animation_jump_right.png";
 
 	/*Gun firing animation*/
-	public static final String PLAYER_FIRE_LEFT_RSC       = "resource/animation_fire_left.png";
-	public static final String PLAYER_FIRE_RIGHT_RSC      = "resource/animation_fire_right.png";
+	public static final String PLAYER_FIRE_LEFT_RSC       = "resource/player/animation_fire_left.png";
+	public static final String PLAYER_FIRE_RIGHT_RSC      = "resource/player/animation_fire_right.png";
 
-	public static final String PLAYER_FIRE_LEFT_UP_RSC    = "resource/animation_fire_left_up.png";
-	public static final String PLAYER_FIRE_RIGHT_UP_RSC   = "resource/animation_fire_right_up.png";
+	public static final String PLAYER_FIRE_LEFT_UP_RSC    = "resource/player/animation_fire_left_up.png";
+	public static final String PLAYER_FIRE_RIGHT_UP_RSC   = "resource/player/animation_fire_right_up.png";
 	/*
 	*  Game Scale Factor :
 	*   	Scalar used to keep proportions the same on resolution change.
@@ -97,7 +96,7 @@ public class ContraGame extends StateBasedGame {
 	public void initStatesList(GameContainer container) throws SlickException {
 		addState(new StartUpState());
 		addState(new GameOverState());
-		addState(new PlayingState());
+		addState(new GameState());
 
 		ResourceManager.loadImage(Contra_Banner_RSC);
 
@@ -186,7 +185,7 @@ public class ContraGame extends StateBasedGame {
 		AppGameContainer app;
 		try {
 			app = new AppGameContainer(new ContraGame("Contra"));
-			app.setDisplayMode(256*GAME_SCALE_FACTOR, 240*GAME_SCALE_FACTOR, false);
+			app.setDisplayMode(1920/2, 1080/2, false);
 			app.setVSync(true);
 			app.setAlwaysRender(true);
 			app.setShowFPS(true);

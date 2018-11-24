@@ -15,7 +15,7 @@ import org.newdawn.slick.state.StateBasedGame;
  * 
  * Transitions From (Initialization), GameOverState
  * 
- * Transitions To PlayingState
+ * Transitions To GameState
  */
 class StartUpState extends BasicGameState {
 

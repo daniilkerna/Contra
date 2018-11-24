@@ -14,7 +14,7 @@ import org.newdawn.slick.state.StateBasedGame;
  * neither drawn nor updated; and a gameover banner is displayed. A timer
  * automatically transitions back to the StartUp State.
  * 
- * Transitions From PlayingState
+ * Transitions From GameState
  * 
  * Transitions To StartUpState
  */

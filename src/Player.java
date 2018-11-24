@@ -8,6 +8,7 @@ import java.util.HashMap;
 public class Player extends Entity {
     private static float DEFAULT_PLAYER_VELOCITY_X = 0.1f;
     private static float DEFAULT_PLAYER_VELOCITY_Y = 0.1f;
+    private static float DEFAULT_PLAYER_HEIGHT     = 35.0f;
 
     private PlayerState               playerState;
     private PlayerMovement            playerMovement;
@@ -85,9 +86,13 @@ public class Player extends Entity {
         playerHorizontalDirection = PlayerHorizontalDirection.RIGHT;
     }
 
-    public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
-        ContraGame contraGame = (ContraGame)sbg;
+    @Override
+    public void render(final Graphics g)  {
+        super.render(g);
 
+        //g.drawString( String.format("Shapes: %d", getLocallyOffsetShapes().size()), 100, 100 );
+        g.setColor( Color.green );
+        g.drawRect( this.getX() - this.getCoarseGrainedWidth()/2, this.getY() - this.getCoarseGrainedHeight()/2,  this.getCoarseGrainedWidth(),  this.getCoarseGrainedHeight() );
     }
 
     public void update(GameContainer gc, StateBasedGame sbg, int delta) {
@@ -103,8 +108,14 @@ public class Player extends Entity {
             System.out.println(String.format("[Player: Class] Animation %s, not found!", key ) );
             return;
         }
+        this.setCoarseGrainedMaxX( a.getWidth() );
+        this.setCoarseGrainedMinX( 0 );
+        this.setCoarseGrainedMaxY( a.getHeight() );
+        this.setCoarseGrainedMinY( 0 );
+
         removeAllImages();
-        addAnimation( a );
+        addAnimation( a, new Vector( 0, 0) );
+
     }
 
     public void setAnimationFrame( String key, int frame )
@@ -114,8 +125,13 @@ public class Player extends Entity {
             System.out.println(String.format("[Player: Class] Animation %s, not found!", key ) );
             return;
         }
+        this.setCoarseGrainedMaxX( a.getWidth() );
+        this.setCoarseGrainedMinX( 0 );
+        this.setCoarseGrainedMaxY( a.getHeight() );
+        this.setCoarseGrainedMinY( 0 );
+
         removeAllImages();
-        addImage( a.getImage( frame ) );
+        addImage( a.getImage( frame ), new Vector( 0, 0 ));
     }
 
     public void getNewState( GameContainer gc, StateBasedGame sbg, int delta ) {
@@ -165,35 +181,20 @@ public class Player extends Entity {
                 {
                     case NONE:
                         switch (playerHorizontalDirection) {
-                            case LEFT:
-                                setAnimationFrame("PLAYER_FIRE_LEFT", 1);
-                                break;
-
-                            case RIGHT:
-                                setAnimationFrame("PLAYER_FIRE_RIGHT", 1);
-                                break;
+                            case LEFT: setAnimationFrame("PLAYER_FIRE_LEFT", 1); break;
+                            case RIGHT: setAnimationFrame("PLAYER_FIRE_RIGHT", 1);break;
                         }
                         break;
                     case UP:
                         switch (playerHorizontalDirection) {
-                            case LEFT:
-                                setAnimationFrame("PLAYER_FIRE_LEFT_UP", 1);
-                                break;
-
-                            case RIGHT:
-                                setAnimationFrame("PLAYER_FIRE_RIGHT_UP", 1);
-                                break;
+                            case LEFT:  setAnimationFrame("PLAYER_FIRE_LEFT_UP", 1);break;
+                            case RIGHT: setAnimationFrame("PLAYER_FIRE_RIGHT_UP", 1);break;
                         }
                         break;
                     case DOWN:
                         switch (playerHorizontalDirection) {
-                            case LEFT:
-                                setAnimationFrame("PLAYER_PRONE_LEFT", 0);
-                                break;
-
-                            case RIGHT:
-                                setAnimationFrame("PLAYER_PRONE_RIGHT", 0);
-                                break;
+                            case LEFT:  setAnimationFrame("PLAYER_PRONE_LEFT", 0); break;
+                            case RIGHT: setAnimationFrame("PLAYER_PRONE_RIGHT", 0); break;
                         }
                         break;
                 }
@@ -203,34 +204,30 @@ public class Player extends Entity {
                 switch ( playerVerticalDirection )
                 {
                     case NONE:
-                        if( playerMovement == PlayerMovement.LEFT)
-                            setAnimation("PLAYER_RUN_LEFT");
-                        else
-                            setAnimation("PLAYER_RUN_RIGHT");
+                        switch (playerMovement) {
+                            case LEFT:  setAnimation("PLAYER_RUN_LEFT"); break;
+                            case RIGHT: setAnimation("PLAYER_RUN_RIGHT"); break;
+                        }
                         break;
                     case UP:
-                        if( playerMovement == PlayerMovement.LEFT)
-                            setAnimation("PLAYER_RUN_LEFT_UP");
-                        else
-                            setAnimation("PLAYER_RUN_RIGHT_UP");
+                        switch (playerMovement) {
+                            case LEFT:  setAnimation("PLAYER_RUN_LEFT_UP"); break;
+                            case RIGHT: setAnimation("PLAYER_RUN_RIGHT_UP"); break;
+                        }
                         break;
                     case DOWN:
-                        if( playerMovement == PlayerMovement.LEFT)
-                            setAnimation("PLAYER_RUN_LEFT_DOWN");
-                        else
-                            setAnimation("PLAYER_RUN_RIGHT_DOWN");
+                        switch (playerMovement) {
+                            case LEFT:  setAnimation("PLAYER_RUN_LEFT_DOWN"); break;
+                            case RIGHT: setAnimation("PLAYER_RUN_RIGHT_DOWN"); break;
+                        }
                         break;
                 }
                 break;
 
-
             case JUMPING:
-                if (playerHorizontalDirection == PlayerHorizontalDirection.LEFT) {
-                    setAnimation("PLAYER_JUMP_LEFT");
-                }
-
-                if (playerHorizontalDirection == PlayerHorizontalDirection.RIGHT) {
-                    setAnimation("PLAYER_JUMP_RIGHT");
+                switch (playerMovement) {
+                    case LEFT:   setAnimation("PLAYER_JUMP_LEFT"); break;
+                    case RIGHT:  setAnimation("PLAYER_JUMP_RIGHT"); break;
                 }
                 break;
 
@@ -243,9 +240,11 @@ public class Player extends Entity {
         switch ( playerMovement )
         {
             case RIGHT:
-                moveRight(); break;
+                moveRight(((GameState)sbg.getState( ContraGame.PLAYINGSTATE )).getViewPort(), delta );
+                break;
             case LEFT:
-                moveLeft(); break;
+                moveLeft(((GameState)sbg.getState( ContraGame.PLAYINGSTATE )).getViewPort(), delta );
+                break;
             default:
                 moveStop(); break;
         }
@@ -254,12 +253,23 @@ public class Player extends Entity {
     public void moveStop() {
         setPlayerVelocity(new Vector(0.0f, 0.0f));
     }
-    public void moveLeft() {
-        setPlayerVelocity(new Vector(-DEFAULT_PLAYER_VELOCITY_X, 0.0f));
+
+    public void moveLeft( ViewPort vp, int delta ) {
+        //if( vp.getViewPortOffsetTopLeft().getX() > 0 ) {
+           // setPlayerVelocity(new Vector( -DEFAULT_PLAYER_VELOCITY_X, 0.0f));
+       // }
+       // else {
+            vp.shiftViewPortOffset(new Vector(DEFAULT_PLAYER_VELOCITY_X * delta, 0));
+        //}
     }
 
-    public void moveRight() {
-        setPlayerVelocity(new Vector( DEFAULT_PLAYER_VELOCITY_X, 0.0f));
+    public void moveRight( ViewPort vp, int delta ) {
+        //if( vp.getViewPortOffsetTopLeft().getX() < 5000 ) {
+          //  setPlayerVelocity(new Vector( DEFAULT_PLAYER_VELOCITY_X, 0.0f));
+        //}
+        //else {
+            vp.shiftViewPortOffset(new Vector(-DEFAULT_PLAYER_VELOCITY_X * delta, 0));
+        //}
     }
 
     public void updatePosition( int delta ) {
