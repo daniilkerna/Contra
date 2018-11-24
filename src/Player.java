@@ -15,7 +15,8 @@ public class Player extends Entity {
     private PlayerHorizontalDirection playerHorizontalDirection;
     private PlayerVerticalDirection   playerVerticalDirection;
 
-    private Vector                     playerVelocity;
+    private Vector                      playerVelocity,
+                                        playerAcceleration;
     private HashMap<String, Animation> playerAnimations;
 
     public Player( GameContainer gc, StateBasedGame sbg ) {
