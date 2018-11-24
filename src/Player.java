@@ -40,6 +40,7 @@ public class Player extends Entity {
         playerAnimations.put( "PLAYER_RUN_LEFT",
                 new Animation(contraGame.getSpriteSheet("PLAYER_RUN_LEFT_SS") , 0, 0, 4, 0, true, 150, true));
 
+
         playerAnimations.put( "PLAYER_RUN_LEFT_UP",
                 new Animation(contraGame.getSpriteSheet("PLAYER_RUN_LEFT_UP_SS" ), 0,0, 2,0, true, 150, true ));
 
@@ -55,7 +56,6 @@ public class Player extends Entity {
 
         playerAnimations.put( "PLAYER_RUN_RIGHT_DOWN",
                 new Animation(contraGame.getSpriteSheet("PLAYER_RUN_RIGHT_DOWN_SS"), 0, 0, 2, 0, true, 150, true));
-
 
         playerAnimations.put( "PLAYER_JUMP_LEFT",
                 new Animation(contraGame.getSpriteSheet("PLAYER_JUMP_LEFT_SS" ), 0,0, 3,0, true, 150, true ));
