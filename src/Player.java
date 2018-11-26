@@ -22,11 +22,16 @@ public class Player extends Entity {
                                         playerVelocity,
                                         playerAcceleration;
     private HashMap<String, Animation>  playerAnimations;
+    private String                      playerCurrentAnimation;
 
     private World                       playerWorld;
+    private boolean                     playerPlatformed;
 
     public Player( World world ) {
         super();
+
+        // Not on a platform
+        playerPlatformed = false;
 
         playerWorld = world;
 
@@ -142,13 +147,18 @@ public class Player extends Entity {
             System.out.println(String.format("[Player: Class] Animation %s, not found!", key ) );
             return;
         }
-        this.setCoarseGrainedMaxX( a.getWidth() );
-        this.setCoarseGrainedMinX( 0 );
-        this.setCoarseGrainedMaxY( a.getHeight() );
-        this.setCoarseGrainedMinY( 0 );
+        float prevWidth  = this.getCoarseGrainedWidth();
+        float prevHeight = this.getCoarseGrainedHeight();
+
+        float yoffset = (a.getHeight() -  prevHeight)/4;
+
+        this.setCoarseGrainedMaxX(  a.getWidth()/2 );
+        this.setCoarseGrainedMinX(  -a.getWidth()/2 );
+        this.setCoarseGrainedMaxY(  a.getHeight()/2 );
+        this.setCoarseGrainedMinY( -a.getHeight()/2);
 
         removeAllImages();
-        addAnimation( a, new Vector( 0, 0) );
+        addAnimation( a, new Vector( 0, yoffset ) );
     }
 
     public void setAnimationFrame( String key, int frame ) {
@@ -157,25 +167,31 @@ public class Player extends Entity {
             System.out.println(String.format("[Player: Class] Animation %s, not found!", key));
             return;
         }
-        this.setCoarseGrainedMaxX(a.getWidth());
-        this.setCoarseGrainedMinX(0);
-        this.setCoarseGrainedMaxY(a.getHeight());
-        this.setCoarseGrainedMinY(0);
+
+        float prevWidth  = this.getCoarseGrainedWidth();
+        float prevHeight = this.getCoarseGrainedHeight();
+
+        float yoffset = (a.getHeight() -  prevHeight)/4;
+
+        this.setCoarseGrainedMaxX(  a.getWidth()/2 );
+        this.setCoarseGrainedMinX( -a.getWidth()/2 );
+        this.setCoarseGrainedMaxY(  a.getHeight()/2 );
+        this.setCoarseGrainedMinY( -a.getHeight()/2 );
 
         removeAllImages();
-        addImage(a.getImage(frame), new Vector(0, 0));
+        addImage(a.getImage(frame), new Vector(0, yoffset ));
     }
 
     public void getNewState( GameContainer gc, StateBasedGame sbg, int delta ) {
         //LEFT or RIGHT
         if (gc.getInput().isKeyDown(Input.KEY_A)) {
-            playerState               = PlayerState.MOVING;
+            playerState               = PlayerState.RUNNING;
             playerMovement            = PlayerMovement.LEFT;
             playerHorizontalDirection = PlayerHorizontalDirection.LEFT;
         }
         else
         if (gc.getInput().isKeyDown(Input.KEY_D)) {
-            playerState               = PlayerState.MOVING;
+            playerState               = PlayerState.RUNNING;
             playerMovement            = PlayerMovement.RIGHT;
             playerHorizontalDirection = PlayerHorizontalDirection.RIGHT;
         } else {
@@ -195,89 +211,109 @@ public class Player extends Entity {
             playerVerticalDirection = PlayerVerticalDirection.NONE;
         }
 
-        if ( gc.getInput().isKeyDown( Input.KEY_SPACE ) ) {
-            playerState = PlayerState.JUMPING;
+        // Jump Logic
+        if (gc.getInput().isKeyDown(Input.KEY_J)) {
+            playerState      = PlayerState.JUMPING;
+            if (playerPlatformed) {
+                playerVelocity = new Vector(0, -0.4f);
+                playerPlatformed = false;
+            }
+        }
+        else if( !playerPlatformed )
+        {
+            playerState      = PlayerState.JUMPING;
         }
     }
 
     public void updateState( GameContainer gc, StateBasedGame sbg, int delta )
     {
         ContraGame contraGame = (ContraGame)sbg;
-        switch ( playerState )
+
+        switch (playerState)
         {
             case IDLE:
                 moveStop();
                 removeAllImages();
 
-                switch (playerVerticalDirection)
-                {
+                switch (playerVerticalDirection) {
                     case NONE:
                         switch (playerHorizontalDirection) {
-                            case LEFT:  setAnimationFrame("PLAYER_FIRE_LEFT",  1); break;
-                            case RIGHT: setAnimationFrame("PLAYER_FIRE_RIGHT", 1); break;
+                            case LEFT:
+                                setAnimationFrame("PLAYER_FIRE_LEFT", 1);
+                                break;
+                            case RIGHT:
+                                setAnimationFrame("PLAYER_FIRE_RIGHT", 1);
+                                break;
                         }
                         break;
                     case UP:
                         switch (playerHorizontalDirection) {
-                            case LEFT:  setAnimationFrame("PLAYER_FIRE_LEFT_UP",  1); break;
-                            case RIGHT: setAnimationFrame("PLAYER_FIRE_RIGHT_UP", 1); break;
+                            case LEFT:
+                                setAnimationFrame("PLAYER_FIRE_LEFT_UP", 1);
+                                break;
+                            case RIGHT:
+                                setAnimationFrame("PLAYER_FIRE_RIGHT_UP", 1);
+                                break;
                         }
                         break;
                     case DOWN:
                         switch (playerHorizontalDirection) {
-                            case LEFT:  setAnimationFrame("PLAYER_PRONE_LEFT",  0); break;
-                            case RIGHT: setAnimationFrame("PLAYER_PRONE_RIGHT", 0); break;
+                            case LEFT:
+                                setAnimationFrame("PLAYER_PRONE_LEFT", 0);
+                                break;
+                            case RIGHT:
+                                setAnimationFrame("PLAYER_PRONE_RIGHT", 0);
+                                break;
                         }
                         break;
                 }
-                break;
 
-            case MOVING:
-                switch ( playerVerticalDirection )
-                {
-                    case NONE:
-                        switch (playerMovement) {
-                            case LEFT:  setAnimation("PLAYER_RUN_LEFT"); break;
-                            case RIGHT: setAnimation("PLAYER_RUN_RIGHT"); break;
-                        }
-                        break;
-                    case UP:
-                        switch (playerMovement) {
-                            case LEFT:  setAnimation("PLAYER_RUN_LEFT_UP"); break;
-                            case RIGHT: setAnimation("PLAYER_RUN_RIGHT_UP"); break;
-                        }
-                        break;
-                    case DOWN:
-                        switch (playerMovement) {
-                            case LEFT:  setAnimation("PLAYER_RUN_LEFT_DOWN"); break;
-                            case RIGHT: setAnimation("PLAYER_RUN_RIGHT_DOWN"); break;
-                        }
-                        break;
-                }
                 break;
 
             case JUMPING:
-                switch (playerMovement) {
-                    case LEFT:   setAnimation("PLAYER_JUMP_LEFT"); break;
-                    case RIGHT:  setAnimation("PLAYER_JUMP_RIGHT"); break;
+                switch (playerHorizontalDirection) {
+                    case LEFT:
+                        setAnimation("PLAYER_JUMP_LEFT");
+                        break;
+                    case RIGHT:
+                        setAnimation("PLAYER_JUMP_RIGHT");
+                        break;
                 }
-                this.playerVelocity = new Vector( 0.0f, -0.3f );
                 break;
 
-            case PRONE:
-                moveStop();
-                return;
-        }
-
-
-        switch ( playerMovement )
-        {
-            case RIGHT:
-                moveRight( delta ); break;
-            case LEFT:
-                moveLeft( delta ); break;
-            default:
-                moveStop(); break;
+            case RUNNING:
+                switch (playerVerticalDirection) {
+                    case NONE:
+                        switch (playerMovement) {
+                            case LEFT:
+                                setAnimation("PLAYER_RUN_LEFT");
+                                break;
+                            case RIGHT:
+                                setAnimation("PLAYER_RUN_RIGHT");
+                                break;
+                        }
+                        break;
+                    case UP:
+                        switch (playerMovement) {
+                            case LEFT:
+                                setAnimation("PLAYER_RUN_LEFT_UP");
+                                break;
+                            case RIGHT:
+                                setAnimation("PLAYER_RUN_RIGHT_UP");
+                                break;
+                        }
+                        break;
+                    case DOWN:
+                        switch (playerMovement) {
+                            case LEFT:
+                                setAnimation("PLAYER_RUN_LEFT_DOWN");
+                                break;
+                            case RIGHT:
+                                setAnimation("PLAYER_RUN_RIGHT_DOWN");
+                                break;
+                        }
+                        break;
+                }
         }
     }
 
@@ -308,33 +344,62 @@ public class Player extends Entity {
     }
 
 
-    boolean platformed = false;
 
     public void updatePosition( int delta )
     {
+        WorldBlock leftBlock  = playerWorld.getScreenBlock( this.getBottomLeftCorner() );
+        WorldBlock rightBlock = playerWorld.getScreenBlock( this.getBottomRightCorner() );
 
-        //ArrayList<WorldBlock> cb = ;
-        //playerWorld.selectedScreenBlock  = cb.get(0);
-        //playerWorld.selectedScreenBlock2 = cb.get(1);
+        switch ( playerMovement )
+        {
+            case RIGHT:
+                moveRight( delta ); break;
+            case LEFT:
+                moveLeft( delta ); break;
+            default:
+                moveStop(); break;
+        }
 
-        for( WorldBlock i : getPlayerLowerCornerBlocks() ) {
-            if( i == null )
-                 continue;
+        if( leftBlock == null || rightBlock == null ) {
+            this.playerPlatformed = false;
+            return;
+        }
 
-            WorldBlock ucb = this.playerWorld.getIndexedBlock( i.getHorizontalIndex(), i.getVerticalIndex() + 1 );
-            //if( i.getBlockType() != WorldBlockType.PLATFORM )
-              //  continue;
+        if( leftBlock == null && rightBlock.getBlockType() != WorldBlockType.PLATFORM  ) {
+            this.playerPlatformed = false;
+            return;
+        }
 
-            Collision collision = i.collides( this );
-            if( collision == null )
-                continue;
+        if( leftBlock.getBlockType() != WorldBlockType.PLATFORM  && rightBlock == null ) {
+            this.playerPlatformed = false;
+            return;
+        }
 
-            if( this.getPlayerVelocity().getY() > 0.0f ) {
-                this.setPosition(this.getPosition().subtract(collision.getMinPenetration()));
-                platformed = true;
+        if (rightBlock.getBlockType() != WorldBlockType.PLATFORM && leftBlock.getBlockType() != WorldBlockType.PLATFORM) {
+            this.playerPlatformed = false;
+        }
+        else {
+            ArrayList<WorldBlock> cornerBlocks = new ArrayList<>();
+            cornerBlocks.add(leftBlock);
+            cornerBlocks.add(rightBlock);
+
+            for (WorldBlock i : cornerBlocks) {
+                if (i == null)
+                    continue;
+
+
+                Collision collision = i.collides(this);
+                if (collision == null)
+                    continue;
+
+                if (this.getPlayerVelocity().getY() > 0.03f) {
+                    this.setPosition(this.getPosition().subtract(collision.getMinPenetration()));
+                    this.setPlayerVelocity(new Vector(this.getPlayerVelocity().getX(), 0));
+                    this.playerPlatformed = true;
+                }
             }
         }
-        if( !platformed )
+        if (!this.playerPlatformed)
             setPlayerVelocity(new Vector(0, playerVelocity.getY() + World.GRAVITY));
 
 

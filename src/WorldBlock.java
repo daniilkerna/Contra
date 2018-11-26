@@ -16,7 +16,7 @@ public class WorldBlock extends Entity {
     public WorldBlock(WorldBlockType blockType, int hIndex, int vIndex, String blockTexture) {
         this.blockType = blockType;
         this.horizontalIndex = hIndex;
-        this.verticalIndex = vIndex;
+        this.verticalIndex   = vIndex;
         this.blockTexture = blockTexture;
 
         Image i = ContraGame.getBlockTexture(blockTexture);
@@ -36,9 +36,7 @@ public class WorldBlock extends Entity {
         return verticalIndex;
     }
 
-    public int getHorizontalIndex() {
-        return horizontalIndex;
-    }
+    public int getHorizontalIndex() { return horizontalIndex; }
 
     public void render(Graphics g) {
         super.render(g);

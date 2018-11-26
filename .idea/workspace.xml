@@ -1,122 +1,748 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3a173478-3753-4ae3-bf00-f56fa2f30229" name="Default Changelist" comment="" />
+    <list default="true" id="62a591b1-ce44-4d3a-b1ff-50bc2f20e6b6" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/ContraGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/ContraGame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/GameOverState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/GameOverState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/PlayingState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/StartUpState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/StartUpState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/jig/Collision.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/jig/Collision.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/jig/ConvexPolygon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/jig/ConvexPolygon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/jig/Entity$OffsetAnimation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/jig/Entity$OffsetAnimation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/jig/Entity$OffsetItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/jig/Entity$OffsetItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/jig/Entity$OffsetShape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/jig/Entity$OffsetShape.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/jig/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/jig/Entity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/jig/ResourceManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/jig/ResourceManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/jig/Shape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/jig/Shape.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/jig/Vector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/jig/Vector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/jig/sat/AnotherSATImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/jig/sat/AnotherSATImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/jig/sat/SAT.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/jig/sat/SAT.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/jig/sat/SATImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/jig/sat/SATImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/jig/sat/SATTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/jig/sat/SATTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AngelCodeFont$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AngelCodeFont$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AngelCodeFont$CharDef.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AngelCodeFont$CharDef.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AngelCodeFont$DisplayList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AngelCodeFont$DisplayList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AngelCodeFont.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AngelCodeFont.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Animation$Frame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Animation$Frame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Animation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Animation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AppGameContainer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AppGameContainer$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AppGameContainer$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AppGameContainer$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AppGameContainer$NullOutputStream.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AppGameContainer$NullOutputStream.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AppGameContainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AppGameContainer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AppletGameContainer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AppletGameContainer$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AppletGameContainer$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AppletGameContainer$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AppletGameContainer$ConsolePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AppletGameContainer$ConsolePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AppletGameContainer$Container.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AppletGameContainer$Container.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AppletGameContainer$ContainerPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AppletGameContainer$ContainerPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AppletGameContainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/AppletGameContainer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/BasicGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/BasicGame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/BigImage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/BigImage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/BigImage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/BigImage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/BigImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/BigImage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/CachedRender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/CachedRender.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/CanvasGameContainer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/CanvasGameContainer$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/CanvasGameContainer$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/CanvasGameContainer$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/CanvasGameContainer$Container.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/CanvasGameContainer$Container.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/CanvasGameContainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/CanvasGameContainer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Color.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Color.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/ControlledInputReciever.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/ControlledInputReciever.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/ControllerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/ControllerListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Font.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Font.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/GameContainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/GameContainer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Graphics$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Graphics$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Graphics.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Graphics.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Image.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Image.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/ImageBuffer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/ImageBuffer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Input$NullOutputStream.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Input$NullOutputStream.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Input.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Input.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/InputListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/InputListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/KeyListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/KeyListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/MouseListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/MouseListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Music.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Music.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/MusicListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/MusicListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/PackedSpriteSheet$Section.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/PackedSpriteSheet$Section.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/PackedSpriteSheet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/PackedSpriteSheet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Renderable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Renderable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/SavedState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/SavedState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/ScalableGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/ScalableGame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/ShapeFill.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/ShapeFill.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/SlickException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/SlickException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Sound.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/Sound.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/SpriteSheet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/SpriteSheet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/SpriteSheetFont.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/SpriteSheetFont.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/TrueTypeFont$IntObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/TrueTypeFont$IntObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/TrueTypeFont.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/TrueTypeFont.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/UnicodeFont$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/UnicodeFont$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/UnicodeFont$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/UnicodeFont$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/UnicodeFont$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/UnicodeFont$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/UnicodeFont$DisplayList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/UnicodeFont$DisplayList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/UnicodeFont.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/UnicodeFont.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/XMLPackedSheet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/XMLPackedSheet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/BasicCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/BasicCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/Command.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/Command.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/Control.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/Control.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/ControllerButtonControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/ControllerButtonControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/ControllerControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/ControllerControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/ControllerDirectionControl$Direction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/ControllerDirectionControl$Direction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/ControllerDirectionControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/ControllerDirectionControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/InputProvider$CommandState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/InputProvider$CommandState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/InputProvider$InputListenerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/InputProvider$InputListenerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/InputProvider.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/InputProvider.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/InputProviderListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/InputProviderListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/KeyControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/KeyControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/MouseButtonControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/command/MouseButtonControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/fills/GradientFill.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/fills/GradientFill.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/Glyph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/Glyph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/GlyphPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/GlyphPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/GlyphPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/GlyphPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/HieroSettings.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/HieroSettings.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/ColorEffect.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/ColorEffect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/ConfigurableEffect$Value.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/ConfigurableEffect$Value.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/ConfigurableEffect.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/ConfigurableEffect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/Effect.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/Effect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/EffectUtil$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/EffectUtil$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/EffectUtil$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/EffectUtil$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/EffectUtil$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/EffectUtil$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/EffectUtil$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/EffectUtil$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/EffectUtil$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/EffectUtil$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/EffectUtil$DefaultValue$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/EffectUtil$DefaultValue$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/EffectUtil$DefaultValue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/EffectUtil$DefaultValue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/EffectUtil$ValueDialog$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/EffectUtil$ValueDialog$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/EffectUtil$ValueDialog$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/EffectUtil$ValueDialog$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/EffectUtil$ValueDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/EffectUtil$ValueDialog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/EffectUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/EffectUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/FilterEffect.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/FilterEffect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/GradientEffect.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/GradientEffect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/OutlineEffect.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/OutlineEffect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/OutlineWobbleEffect$WobbleStroke.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/OutlineWobbleEffect$WobbleStroke.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/OutlineWobbleEffect.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/OutlineWobbleEffect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/OutlineZigzagEffect$ZigzagStroke.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/OutlineZigzagEffect$ZigzagStroke.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/OutlineZigzagEffect.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/OutlineZigzagEffect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/ShadowEffect.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/font/effects/ShadowEffect.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/BasicTriangulator$Point.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/BasicTriangulator$Point.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/BasicTriangulator$PointList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/BasicTriangulator$PointList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/BasicTriangulator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/BasicTriangulator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/Circle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/Circle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/Curve.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/Curve.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/Ellipse.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/Ellipse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/GeomUtil$HitResult.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/GeomUtil$HitResult.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/GeomUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/GeomUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/GeomUtilListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/GeomUtilListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/Line.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/Line.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/MannTriangulator$Point.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/MannTriangulator$Point.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/MannTriangulator$PointBag.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/MannTriangulator$PointBag.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/MannTriangulator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/MannTriangulator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/MorphShape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/MorphShape.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/NeatTriangulator$Edge.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/NeatTriangulator$Edge.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/NeatTriangulator$InternalException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/NeatTriangulator$InternalException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/NeatTriangulator$Triangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/NeatTriangulator$Triangle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/NeatTriangulator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/NeatTriangulator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/OverTriangulator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/OverTriangulator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/Path.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/Path.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/Point.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/Point.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/Polygon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/Polygon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/Rectangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/Rectangle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/RoundedRectangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/RoundedRectangle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/Shape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/Shape.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/ShapeRenderer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/ShapeRenderer$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/ShapeRenderer$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/ShapeRenderer$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/ShapeRenderer$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/ShapeRenderer$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/ShapeRenderer$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/ShapeRenderer$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/ShapeRenderer$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/ShapeRenderer$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/ShapeRenderer$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/ShapeRenderer$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/ShapeRenderer$PointCallback.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/ShapeRenderer$PointCallback.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/ShapeRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/ShapeRenderer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/TexCoordGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/TexCoordGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/Transform.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/Transform.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/Triangulator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/Triangulator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/Vector2f.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/geom/Vector2f.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/gui/AbstractComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/gui/AbstractComponent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/gui/BasicComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/gui/BasicComponent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/gui/ComponentListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/gui/ComponentListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/gui/GUIContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/gui/GUIContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/gui/MouseOverArea.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/gui/MouseOverArea.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/gui/TextField.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/gui/TextField.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/imageout/ImageIOWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/imageout/ImageIOWriter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/imageout/ImageOut.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/imageout/ImageOut.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/imageout/ImageWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/imageout/ImageWriter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/imageout/ImageWriterFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/imageout/ImageWriterFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/imageout/TGAWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/imageout/TGAWriter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/loading/DeferredResource.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/loading/DeferredResource.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/loading/LoadingList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/loading/LoadingList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/muffin/FileMuffin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/muffin/FileMuffin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/muffin/Muffin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/muffin/Muffin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/muffin/WebstartMuffin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/muffin/WebstartMuffin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/AiffData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/AiffData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/Audio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/Audio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/AudioImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/AudioImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/AudioInputStream.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/AudioInputStream.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/AudioLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/AudioLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/DeferredSound.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/DeferredSound.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/MODSound.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/MODSound.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/NullAudio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/NullAudio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/OggData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/OggData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/OggDecoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/OggDecoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/OggInputStream.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/OggInputStream.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/OpenALStreamPlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/OpenALStreamPlayer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/SoundStore$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/SoundStore$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/SoundStore.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/SoundStore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/StreamSound.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/StreamSound.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/WaveData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/openal/WaveData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/CompositeIOException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/CompositeIOException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/CompositeImageData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/CompositeImageData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/CursorLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/CursorLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/DeferredTexture.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/DeferredTexture.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/EmptyImageData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/EmptyImageData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/GLUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/GLUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/ImageData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/ImageData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/ImageDataFactory$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/ImageDataFactory$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/ImageDataFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/ImageDataFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/ImageIOImageData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/ImageIOImageData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/InternalTextureLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/InternalTextureLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/LoadableImageData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/LoadableImageData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/PNGDecoder$Format.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/PNGDecoder$Format.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/PNGDecoder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/PNGDecoder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/PNGImageData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/PNGImageData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/SlickCallable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/SlickCallable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/TGAImageData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/TGAImageData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/Texture.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/Texture.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/TextureImpl$ReloadData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/TextureImpl$ReloadData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/TextureImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/TextureImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/TextureLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/TextureLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/pbuffer/FBOGraphics.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/pbuffer/FBOGraphics.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/pbuffer/GraphicsFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/pbuffer/GraphicsFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/pbuffer/PBufferGraphics.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/pbuffer/PBufferGraphics.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/pbuffer/PBufferUniqueGraphics.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/pbuffer/PBufferUniqueGraphics.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/renderer/DefaultLineStripRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/renderer/DefaultLineStripRenderer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/renderer/ImmediateModeOGLRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/renderer/ImmediateModeOGLRenderer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/renderer/LineStripRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/renderer/LineStripRenderer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/renderer/QuadBasedLineStripRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/renderer/QuadBasedLineStripRenderer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/renderer/Renderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/renderer/Renderer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/renderer/SGL.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/renderer/SGL.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/renderer/VAOGLRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/opengl/renderer/VAOGLRenderer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ConfigurableEmitter$ColorRecord.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ConfigurableEmitter$ColorRecord.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ConfigurableEmitter$LinearInterpolator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ConfigurableEmitter$LinearInterpolator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ConfigurableEmitter$RandomValue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ConfigurableEmitter$RandomValue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ConfigurableEmitter$Range.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ConfigurableEmitter$Range.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ConfigurableEmitter$SimpleValue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ConfigurableEmitter$SimpleValue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ConfigurableEmitter$Value.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ConfigurableEmitter$Value.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ConfigurableEmitter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ConfigurableEmitter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ConfigurableEmitterFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ConfigurableEmitterFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/Particle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/Particle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ParticleEmitter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ParticleEmitter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ParticleIO$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ParticleIO$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ParticleIO$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ParticleIO$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ParticleIO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ParticleIO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ParticleSystem$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ParticleSystem$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ParticleSystem$ParticlePool.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ParticleSystem$ParticlePool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ParticleSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/ParticleSystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/effects/FireEmitter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/particles/effects/FireEmitter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/BasicGameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/BasicGameState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/GameState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/StateBasedGame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/StateBasedGame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/StateBasedGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/StateBasedGame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/transition/BlobbyTransition$Blob.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/transition/BlobbyTransition$Blob.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/transition/BlobbyTransition.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/transition/BlobbyTransition.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/transition/CombinedTransition.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/transition/CombinedTransition.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/transition/CrossStateTransition.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/transition/CrossStateTransition.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/transition/EmptyTransition.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/transition/EmptyTransition.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/transition/FadeInTransition.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/transition/FadeInTransition.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/transition/FadeOutTransition.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/transition/FadeOutTransition.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/transition/HorizontalSplitTransition.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/transition/HorizontalSplitTransition.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/transition/RotateTransition.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/transition/RotateTransition.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/transition/SelectTransition.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/transition/SelectTransition.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/transition/Transition.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/transition/Transition.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/transition/VerticalSplitTransition.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/state/transition/VerticalSplitTransition.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/Diagram.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/Diagram.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/Figure.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/Figure.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/Gradient$Step.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/Gradient$Step.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/Gradient.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/Gradient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/InkscapeLoader$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/InkscapeLoader$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/InkscapeLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/InkscapeLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/LinearGradientFill.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/LinearGradientFill.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/Loader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/Loader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/NonGeometricData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/NonGeometricData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/ParsingException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/ParsingException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/RadialGradientFill.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/RadialGradientFill.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/SVGMorph.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/SVGMorph.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/SimpleDiagramRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/SimpleDiagramRenderer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/inkscape/DefsProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/inkscape/DefsProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/inkscape/ElementProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/inkscape/ElementProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/inkscape/EllipseProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/inkscape/EllipseProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/inkscape/GroupProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/inkscape/GroupProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/inkscape/InkscapeNonGeometricData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/inkscape/InkscapeNonGeometricData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/inkscape/LineProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/inkscape/LineProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/inkscape/PathProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/inkscape/PathProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/inkscape/PolygonProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/inkscape/PolygonProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/inkscape/RectProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/inkscape/RectProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/inkscape/UseProcessor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/inkscape/UseProcessor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/inkscape/Util.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/svg/inkscape/Util.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/AlphaMapTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/AlphaMapTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/AnimationTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/AnimationTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/AntiAliasTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/AntiAliasTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/BigImageTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/BigImageTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/BigSpriteSheetTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/BigSpriteSheetTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/CachedRenderTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/CachedRenderTest$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/CachedRenderTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/CachedRenderTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/CanvasContainerTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/CanvasContainerTest$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/CanvasContainerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/CanvasContainerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/CanvasSizeTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/CanvasSizeTest$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/CanvasSizeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/CanvasSizeTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ClipTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ClipTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/CopyAreaAlphaTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/CopyAreaAlphaTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/CurveTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/CurveTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/DeferredLoadingTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/DeferredLoadingTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/DistanceFieldTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/DistanceFieldTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/DoubleClickTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/DoubleClickTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/DuplicateEmitterTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/DuplicateEmitterTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/FlashTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/FlashTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/FontPerformanceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/FontPerformanceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/FontTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/FontTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/GUITest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/GUITest$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/GUITest$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/GUITest$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/GUITest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/GUITest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/GeomAccuracyTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/GeomAccuracyTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/GeomTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/GeomTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/GeomUtilTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/GeomUtilTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/GeomUtilTileTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/GeomUtilTileTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/GradientImageTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/GradientImageTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/GradientTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/GradientTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/GraphicsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/GraphicsTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ImageBufferEndianTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ImageBufferEndianTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ImageBufferTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ImageBufferTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ImageCornerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ImageCornerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ImageGraphicsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ImageGraphicsTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ImageMemTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ImageMemTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ImageOutTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ImageOutTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ImageReadTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ImageReadTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ImageTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ImageTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/InkscapeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/InkscapeTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/InputProviderTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/InputProviderTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/InputTest$Line.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/InputTest$Line.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/InputTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/InputTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/IsoTiledTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/IsoTiledTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/KeyRepeatTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/KeyRepeatTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/LameTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/LameTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/LineRenderTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/LineRenderTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/MorphSVGTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/MorphSVGTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/MorphShapeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/MorphShapeTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/MusicListenerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/MusicListenerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/NavMeshTest$DataMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/NavMeshTest$DataMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/NavMeshTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/NavMeshTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/PackedSheetTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/PackedSheetTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ParticleTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ParticleTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/PedigreeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/PedigreeTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/PolygonTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/PolygonTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/PureFontTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/PureFontTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/SavedStateTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/SavedStateTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ScalableTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ScalableTest$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ScalableTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ScalableTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ShapeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/ShapeTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/SlickCallableTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/SlickCallableTest$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/SlickCallableTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/SlickCallableTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/SoundPositionTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/SoundPositionTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/SoundTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/SoundTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/SoundURLTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/SoundURLTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/SpriteSheetFontTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/SpriteSheetFontTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/StateBasedTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/StateBasedTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/TestBox$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/TestBox$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/TestBox.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/TestBox.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/TestUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/TestUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/TexturePaintTest$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/TexturePaintTest$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/TexturePaintTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/TexturePaintTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/TileMapTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/TileMapTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/TransformTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/TransformTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/TransformTest2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/TransformTest2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/TransitionTest$ImageState.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/TransitionTest$ImageState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/TransitionTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/TransitionTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/TransparentColorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/TransparentColorTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/TrueTypeFontPerformanceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/TrueTypeFontPerformanceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/UnicodeFontTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/UnicodeFontTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/states/TestState1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/states/TestState1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/states/TestState1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/states/TestState1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/states/TestState2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/states/TestState2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/states/TestState3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/states/TestState3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/xml/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/xml/Entity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/xml/GameData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/xml/GameData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/xml/Inventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/xml/Inventory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/xml/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/xml/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/xml/ItemContainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/xml/ItemContainer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/xml/ObjectParserTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/xml/ObjectParserTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/xml/Stats.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/xml/Stats.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/xml/XMLTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tests/xml/XMLTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tiled/Layer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tiled/Layer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tiled/TileSet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tiled/TileSet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tiled/TiledMap$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tiled/TiledMap$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tiled/TiledMap$GroupObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tiled/TiledMap$GroupObject.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tiled/TiledMap$ObjectGroup.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tiled/TiledMap$ObjectGroup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tiled/TiledMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tiled/TiledMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/BMFontUtil$1KerningPair.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/BMFontUtil$1KerningPair.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/BMFontUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/BMFontUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/CharSet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/CharSet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/CharSetDialog$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/CharSetDialog$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/CharSetDialog$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/CharSetDialog$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/CharSetDialog$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/CharSetDialog$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/CharSetDialog$CharsPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/CharSetDialog$CharsPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/CharSetDialog$CharsPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/CharSetDialog$CharsPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/CharSetDialog$CharsPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/CharSetDialog$CharsPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/CharSetDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/CharSetDialog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/DataSet$CharData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/DataSet$CharData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/DataSet$KerningData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/DataSet$KerningData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/DataSet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/DataSet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$1FontUpdateListener$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$1FontUpdateListener$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$1FontUpdateListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$1FontUpdateListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$EffectPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$EffectPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$EffectPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$EffectPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$EffectPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$EffectPanel$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$EffectPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$EffectPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$Splash$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$Splash$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$Splash$1$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$Splash$1$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$Splash$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$Splash$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$Splash.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero$Splash.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Hiero.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/HieroConfig$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/HieroConfig$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/HieroConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/HieroConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Kerning.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Kerning.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/ProgressDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/ProgressDialog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/ProgressListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/ProgressListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Splash.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/Splash.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/distancemap/DistanceFieldFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/distancemap/DistanceFieldFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/truetype/FontData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/truetype/FontData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/truetype/FontFileReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/truetype/FontFileReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/truetype/Glyphs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/truetype/Glyphs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/truetype/IOUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/truetype/IOUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/truetype/Log.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/truetype/Log.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/truetype/StatusListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/truetype/StatusListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/truetype/TTFCmapEntry.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/truetype/TTFCmapEntry.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/truetype/TTFDirTabEntry.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/truetype/TTFDirTabEntry.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/truetype/TTFFile$UnicodeMapping.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/truetype/TTFFile$UnicodeMapping.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/truetype/TTFFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/truetype/TTFFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/truetype/TTFMtxEntry.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/truetype/TTFMtxEntry.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/truetype/TTFSubSetFile.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/hiero/truetype/TTFSubSetFile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Pack$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Pack$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Pack.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Pack.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Packer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Packer$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Packer$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Packer$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Packer$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Packer$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Packer$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Packer$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Packer$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Packer$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Packer$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Packer$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Packer$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Packer$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Packer$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Packer$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Packer$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Packer$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Packer$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Packer$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Packer$FileListRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Packer$FileListRenderer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Packer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Packer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Sheet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Sheet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/SheetPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/SheetPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/SheetPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/SheetPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Sprite.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/packulike/Sprite.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ColorPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ColorPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ColorPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ColorPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ColorPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ColorPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ControlPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ControlPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/DefaultPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/DefaultPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/EmissionControls.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/EmissionControls.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/EmitterList$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/EmitterList$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/EmitterList$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/EmitterList$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/EmitterList$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/EmitterList$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/EmitterList$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/EmitterList$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/EmitterList$Renderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/EmitterList$Renderer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/EmitterList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/EmitterList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GradientEditor$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GradientEditor$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GradientEditor$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GradientEditor$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GradientEditor$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GradientEditor$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GradientEditor$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GradientEditor$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GradientEditor$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GradientEditor$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GradientEditor$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GradientEditor$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GradientEditor$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GradientEditor$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GradientEditor$ControlPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GradientEditor$ControlPoint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GradientEditor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GradientEditor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GraphEditorWindow$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GraphEditorWindow$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GraphEditorWindow$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GraphEditorWindow$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GraphEditorWindow$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GraphEditorWindow$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GraphEditorWindow$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GraphEditorWindow$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GraphEditorWindow$GraphPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GraphEditorWindow$GraphPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GraphEditorWindow$GraphPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GraphEditorWindow$GraphPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GraphEditorWindow$GraphPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GraphEditorWindow$GraphPanel$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GraphEditorWindow$GraphPanel$CurvePoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GraphEditorWindow$GraphPanel$CurvePoint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GraphEditorWindow$GraphPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GraphEditorWindow$GraphPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GraphEditorWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/GraphEditorWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/InputPanelListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/InputPanelListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/LimitPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/LimitPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/MinMaxPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/MinMaxPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/MinMaxPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/MinMaxPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/MinMaxPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/MinMaxPanel$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/MinMaxPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/MinMaxPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$18.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$18.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$19.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$19.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$21.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleEditor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ParticleGame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/PositionControls.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/PositionControls.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/SettingsPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/SettingsPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/SettingsPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/SettingsPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/SettingsPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/SettingsPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ValuePanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ValuePanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ValuePanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ValuePanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ValuePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/ValuePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/WhiskasPanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/WhiskasPanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/WhiskasPanel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/WhiskasPanel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/WhiskasPanel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/WhiskasPanel$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/WhiskasPanel$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/WhiskasPanel$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/WhiskasPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/peditor/WhiskasPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/ImagePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/ImagePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/ImageScale2x.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/ImageScale2x.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/ImageScale3x.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/ImageScale3x.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/RawScale2x.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/RawScale2x.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/RawScale3x.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/RawScale3x.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/Scalar$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/Scalar$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/Scalar$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/Scalar$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/Scalar$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/Scalar$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/Scalar$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/Scalar$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/Scalar$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/Scalar$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/Scalar$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/Scalar$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/Scalar$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/Scalar$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/Scalar$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/Scalar$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/Scalar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/tools/scalar/Scalar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/Bootstrap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/Bootstrap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/BufferedImageUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/BufferedImageUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/ClasspathLocation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/ClasspathLocation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/DefaultLogSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/DefaultLogSystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/FastTrig.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/FastTrig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/FileSystemLocation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/FileSystemLocation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/FontUtils$Alignment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/FontUtils$Alignment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/FontUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/FontUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/InputAdapter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/InputAdapter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/LocatedImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/LocatedImage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/Log$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/Log$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/Log.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/Log.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/LogSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/LogSystem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/MaskUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/MaskUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/OperationNotSupportedException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/OperationNotSupportedException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/ResourceLoader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/ResourceLoader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/ResourceLocation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/ResourceLocation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/AStarHeuristic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/AStarHeuristic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/AStarPathFinder$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/AStarPathFinder$Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/AStarPathFinder$PriorityList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/AStarPathFinder$PriorityList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/AStarPathFinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/AStarPathFinder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/Mover.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/Mover.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/Path$Step.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/Path$Step.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/Path.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/Path.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/PathFinder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/PathFinder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/PathFindingContext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/PathFindingContext.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/TileBasedMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/TileBasedMap.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/heuristics/ClosestHeuristic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/heuristics/ClosestHeuristic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/heuristics/ClosestSquaredHeuristic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/heuristics/ClosestSquaredHeuristic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/heuristics/ManhattanHeuristic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/heuristics/ManhattanHeuristic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/navmesh/Link.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/navmesh/Link.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/navmesh/NavMesh.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/navmesh/NavMesh.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/navmesh/NavMeshBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/navmesh/NavMeshBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/navmesh/NavPath.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/navmesh/NavPath.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/navmesh/Space.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/pathfinding/navmesh/Space.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/xml/ObjectTreeParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/xml/ObjectTreeParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/xml/SlickXMLException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/xml/SlickXMLException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/xml/XMLElement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/xml/XMLElement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/xml/XMLElementList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/xml/XMLElementList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/xml/XMLParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Contra/org/newdawn/slick/util/xml/XMLParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Issues.MD" beforeDir="false" afterPath="$PROJECT_DIR$/src/Issues.MD" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PlayerMovement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerMovement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PlayerState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/World.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/World.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WorldBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WorldBlock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resource/playerSprite.png" beforeDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="2040978442">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="java" value="9" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="9" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="dummy" value="6" />
-          <entry key="java" value="87" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="87" />
-          <entry key="PLAIN_TEXT" value="6" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/jig/Collision.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/StartUpState.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="43" column="56" selection-start-line="43" selection-start-column="56" selection-end-line="43" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ContraGame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-35">
-              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/PlayingState.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="57" selection-start-line="57" selection-end-line="57" />
+            <state relative-caret-position="476">
+              <caret line="217" column="51" selection-start-line="217" selection-start-column="51" selection-end-line="217" selection-end-column="51" />
               <folding>
-                <element signature="e#4028#4029#0" expanded="true" />
-                <element signature="e#4065#4066#0" expanded="true" />
+                <element signature="method#render#0;class#Player#0" />
+                <element signature="e#15152#15153#0" expanded="true" />
+                <element signature="e#15189#15190#0" expanded="true" />
+                <element signature="e#15249#15250#0" expanded="true" />
+                <element signature="e#15301#15302#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GameOverState.java">
+      <file leaf-file-name="ContraGame.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ContraGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="49" selection-start-line="49" selection-end-line="49" />
+            <state relative-caret-position="17">
+              <caret line="177" lean-forward="true" selection-start-line="177" selection-end-line="210" selection-end-column="99" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StateBasedGame.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/src/slick/lib/slick.jar!/org/newdawn/slick/state/StateBasedGame.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="217">
+              <caret line="171" selection-start-line="171" selection-end-line="171" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WorldBlock.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/WorldBlock.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="351">
+              <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="World.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/World.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-357">
+              <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#5333#5334#0" expanded="true" />
+                <element signature="e#5369#5370#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlayerState.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PlayerState.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Enum" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>getSp</find>
+      <find>addIma</find>
+      <find>render</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="daniil.kernazhytski &lt;daniil.kernazhytski@wsu.edu&gt;" />
+        <option value="daniil.kernazhytski &lt;danilkak101@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Developer" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/TankGame.java" />
-        <option value="$PROJECT_DIR$/src/GameOverState.java" />
+        <option value="$PROJECT_DIR$/src/StartUpState.java" />
+        <option value="$PROJECT_DIR$/src/mainPlayer.java" />
+        <option value="$PROJECT_DIR$/src/PlayerCase.java" />
+        <option value="$PROJECT_DIR$/src/PlayerMovementState.java" />
+        <option value="$PROJECT_DIR$/src/PlayerVerticalFacingDirection.java" />
         <option value="$PROJECT_DIR$/src/PlayingState.java" />
         <option value="$PROJECT_DIR$/src/ContraGame.java" />
-        <option value="$PROJECT_DIR$/src/StartUpState.java" />
+        <option value="$PROJECT_DIR$/src/Issues.MD" />
+        <option value="$PROJECT_DIR$/src/WorldBlock.java" />
+        <option value="$PROJECT_DIR$/src/World.java" />
+        <option value="$PROJECT_DIR$/src/PlayerMovement.java" />
+        <option value="$PROJECT_DIR$/src/PlayerState.java" />
+        <option value="$PROJECT_DIR$/src/Player.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="74" />
+    <option name="y" value="4" />
+    <option name="width" value="1835" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -129,19 +755,22 @@
               <item name="Contra" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Contra" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Contra" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="jig" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540703261982" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -159,12 +788,55 @@
     <configuration name="ContraGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ContraGame" />
       <module name="Contra" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ContraGame" />
+        <item itemvalue="Application.ContraGame" />
+        <item itemvalue="Application.ContraGame" />
+        <item itemvalue="Application.ContraGame" />
         <item itemvalue="Application.ContraGame" />
       </list>
     </recent_temporary>
@@ -174,181 +846,364 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3a173478-3753-4ae3-bf00-f56fa2f30229" name="Default Changelist" comment="" />
-      <created>1540700406144</created>
+      <changelist id="62a591b1-ce44-4d3a-b1ff-50bc2f20e6b6" name="Default" comment="" />
+      <created>1542836392222</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1540700406144</updated>
+      <updated>1542836392222</updated>
+      <workItem from="1542836398846" duration="14265000" />
+      <workItem from="1543189953859" duration="17550000" />
     </task>
+    <task id="LOCAL-00001" summary="Add running animation">
+      <created>1542850481188</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1542850481188</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add player states">
+      <created>1542856680196</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1542856680196</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="31815000" />
+  </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="74" y="4" width="1835" height="1000" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24248926" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" weight="0.24216868" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32978722" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32891566" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Maven Projects" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.3299435" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5002752" side_tool="true" weight="0.19548023" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.13107345" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49972484" visible="true" weight="0.26892656" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="2" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19021441" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="right" id="Theme Preview" order="3" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
     </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add running animation" />
+    <MESSAGE value="Add player states" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add player states" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Player.java</url>
+          <line>401</line>
+          <properties />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/GridBlock.java">
+    <entry file="file://$PROJECT_DIR$/src/ContraGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="13" selection-start-column="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/jig/Collision.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Tank.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="15" column="67" selection-start-line="15" selection-start-column="67" selection-end-line="15" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Bang.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Base.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameOverState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        <state relative-caret-position="323">
+          <caret line="29" column="86" selection-start-line="29" selection-start-column="86" selection-end-line="29" selection-end-column="86" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PlayingState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
+        <state relative-caret-position="340">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/src/slick/lib/slick.jar!/org/newdawn/slick/Animation.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1768">
+          <caret line="104" column="11" selection-start-line="104" selection-start-column="11" selection-end-line="104" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jig/ResourceManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1972">
+          <caret line="122" column="19" selection-start-line="122" selection-start-column="19" selection-end-line="122" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/util/HashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2329">
+          <caret line="137" column="13" selection-start-line="137" selection-start-column="13" selection-end-line="137" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlayerState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="11" lean-forward="true" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlayerMovementDirection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlayerVerticalFacingDirection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jig/Entity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8551">
+          <caret line="556" column="22" selection-start-line="556" selection-start-column="16" selection-end-line="556" selection-end-column="22" />
           <folding>
-            <element signature="e#4028#4029#0" expanded="true" />
-            <element signature="e#4065#4066#0" expanded="true" />
+            <element signature="e#10418#10419#0" expanded="true" />
+            <element signature="e#10468#10469#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ContraGame.java">
+    <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-35">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="408">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="28" selection-end-column="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/src/slick/lib/slick.jar!/org/newdawn/slick/AppGameContainer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6028">
+          <caret line="400" selection-start-line="400" selection-end-line="400" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlayerVerticalFacingDirection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlayerMovementDirection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlayingState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/src/slick/lib/slick.jar!/org/newdawn/slick/Animation.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1581">
+          <caret line="104" column="11" selection-start-line="104" selection-start-column="11" selection-end-line="104" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.1/lib/src.zip!/java.base/java/util/HashMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1785">
+          <caret line="137" column="13" selection-start-line="137" selection-start-column="13" selection-end-line="137" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jig/Entity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8551">
+          <caret line="556" column="22" selection-start-line="556" selection-start-column="16" selection-end-line="556" selection-end-column="22" />
+          <folding>
+            <element signature="e#10418#10419#0" expanded="true" />
+            <element signature="e#10468#10469#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jig/ResourceManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1887">
+          <caret line="117" column="35" selection-start-line="117" selection-start-column="30" selection-end-line="117" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Issues.MD">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="136">
+            <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ViewPort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/WorldBlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="351">
+          <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/src/slick/lib/slick.jar!/org/newdawn/slick/state/StateBasedGame.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="171" selection-start-line="171" selection-end-line="171" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/StartUpState.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="43" column="56" selection-start-line="43" selection-start-column="56" selection-end-line="43" selection-end-column="56" />
+        <state relative-caret-position="459">
+          <caret line="36" column="13" lean-forward="true" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlayerHorizontalDirection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/World.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-357">
+          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5333#5334#0" expanded="true" />
+            <element signature="e#5369#5370#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-442">
+          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlayerVerticalDirection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" selection-start-column="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlayerMovement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="9" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlayerState.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="12" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ContraGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="177" lean-forward="true" selection-start-line="177" selection-end-line="210" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="217" column="51" selection-start-line="217" selection-start-column="51" selection-end-line="217" selection-end-column="51" />
+          <folding>
+            <element signature="method#render#0;class#Player#0" />
+            <element signature="e#15152#15153#0" expanded="true" />
+            <element signature="e#15189#15190#0" expanded="true" />
+            <element signature="e#15249#15250#0" expanded="true" />
+            <element signature="e#15301#15302#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
   </component>
   <component name="masterDetails">
     <states>
-      <state key="ArtifactsStructureConfigurable.UI">
+      <state key="ProjectJDKs.UI">
         <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>11</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>Contra</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
+          <last-edited>10</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

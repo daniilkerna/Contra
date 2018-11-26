@@ -1,7 +1,6 @@
 public enum PlayerState {
     IDLE,
-    MOVING,
+    RUNNING,
     JUMPING,
-    PRONE,
     SWIMMING
 }

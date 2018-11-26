@@ -1,4 +1,4 @@
 public enum PlayerMovement {
-    NONE, LEFT,RIGHT
+    NONE,LEFT,RIGHT
 }
 

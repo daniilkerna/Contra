@@ -2,9 +2,9 @@ import jig.Entity;
 import jig.Vector;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.StateBasedGame;
-import sun.security.provider.certpath.Vertex;
 
 import javax.swing.text.View;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class World
@@ -19,6 +19,7 @@ public class World
      *
      */
     private WorldBlock worldBlocks[][];
+    private ArrayList <WorldBlock> goldBlocksList;
     private int        blockVerticalCount;
     private int        blockHorizontalCount;
     private float      worldWidth;
@@ -43,11 +44,15 @@ public class World
         this.worldWidth           = horizontalBlockCount*BLOCK_WIDTH;
         this.worldHeight          = verticalBlockCount  *BLOCK_HEIGHT;
 
-
+        goldBlocksList = new ArrayList<>(0);
         for( int x = 0; x < blockHorizontalCount; x++ ) {
             for( int y = 0; y < blockVerticalCount; y++ ) {
-                if( (y % 10==0) && y > 0 && ((x % 10) != 0))
-                    worldBlocks[x][y] = new WorldBlock( WorldBlockType.PLATFORM, x, y, "GOLD_BRICK"  );
+                if( (y % 5==0) && y > 0 && (((x % 5) == 0) || ((x % 5) == 1))){
+                    WorldBlock temp = new WorldBlock( WorldBlockType.PLATFORM, x, y, "GOLD_BRICK"  );
+                    worldBlocks[x][y] = temp;
+                    goldBlocksList.add(temp);
+                }
+
                 else
                     worldBlocks[x][y] = new WorldBlock( WorldBlockType.NONE, x, y, null  );
             }
@@ -91,8 +96,8 @@ public class World
 
     public WorldBlock getScreenBlock( Vector screenPos )
     {
-        int x = (int)((screenPos.getX() + BLOCK_WIDTH/2)  - ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getX())/BLOCK_WIDTH;
-        int y = (int)((screenPos.getY() + BLOCK_HEIGHT/2) - ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getY())/BLOCK_HEIGHT;
+        int x = (int)((screenPos.getX()) - ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getX())/BLOCK_WIDTH;
+        int y = (int)((screenPos.getY()) - ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getY())/BLOCK_HEIGHT;
         if((x > 0) && (x < blockHorizontalCount) && ((y > 0) && (y < blockVerticalCount)))
             return worldBlocks[x][y];
         else
@@ -133,6 +138,10 @@ public class World
 
             g.drawLine( ls.getX(), ls.getY(), le.getX(), le.getY() );
         }
+    }
+
+    public ArrayList<WorldBlock> getGoldBlockList(){
+        return goldBlocksList;
     }
 
 }
