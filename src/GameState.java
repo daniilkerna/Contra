@@ -13,11 +13,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 class GameState extends BasicGameState
 {
-	public ViewPort getViewPort() {
-		return viewPort;
-	}
 
-	private ViewPort viewPort;
 	private World    world;
 
 	private Player   player1;
@@ -25,7 +21,6 @@ class GameState extends BasicGameState
 	@Override
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
 	{
-		viewPort = new ViewPort( gc.getWidth(), gc.getHeight() );
 		world    = new World();
 	}
 
@@ -35,13 +30,14 @@ class GameState extends BasicGameState
 		container.setSoundOn(true);
 		ContraGame cg = (ContraGame) game;
 
-		player1 = new Player( container, game );
+		player1 = new Player( world );
 	}
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
 		ContraGame tg = (ContraGame)game;
 
-		world.render(viewPort,g);
+		ContraGame.VIEWPORT.render(g);
+		world.render(g);
 		player1.render(g);
 
 		//SpriteSheet ss = new SpriteSheet( ResourceManager.getImage( ContraGame.PLAYER_RUN_RIGHT_RSC ).getFlippedCopy( true, false ), 37, 45 );
@@ -62,6 +58,7 @@ class GameState extends BasicGameState
 
 		ContraGame tg = (ContraGame)game;*/
 
+		world.update(container,game, delta);
 		player1.update(container, game, delta );
 	}
 

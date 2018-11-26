@@ -25,6 +25,7 @@ public class ContraGame extends StateBasedGame {
 	public static final int PLAYINGSTATE2 = 2;
 	public static final int GAMEOVERSTATE = 3;
 
+	public static ViewPort VIEWPORT;
 	/**
 	 * Asset directories
 	 */
@@ -53,6 +54,9 @@ public class ContraGame extends StateBasedGame {
 
 	public static final String PLAYER_FIRE_LEFT_UP_RSC    = "resource/player/animation_fire_left_up.png";
 	public static final String PLAYER_FIRE_RIGHT_UP_RSC   = "resource/player/animation_fire_right_up.png";
+
+
+	public static final String WORLD_BLOCK_GOLD_RSC       = "resource/block/gold_brick.png";
 	/*
 	*  Game Scale Factor :
 	*   	Scalar used to keep proportions the same on resolution change.
@@ -63,7 +67,14 @@ public class ContraGame extends StateBasedGame {
 	* 	Hash to store all the sprite sheets
 	*
 	* */
-	private HashMap<String, SpriteSheet> spriteSheetHashMap;
+	public static HashMap<String, SpriteSheet> spriteSheetHashMap = new HashMap<>();
+
+
+	/*
+	 * 	Hash to store all block Textures
+	 *
+	 * */
+	public static HashMap<String, Image> blockTextureHashMap = new HashMap<>();
 
 	/**
 	 * Create the BounceGame frame, saving the width and height for later use.
@@ -75,22 +86,13 @@ public class ContraGame extends StateBasedGame {
 	public ContraGame(String title) {
 		super(title);
 		Entity.setCoarseGrainedCollisionBoundary(Entity.AABB);
-
-		/**
-		 * Initialise, variables
-		 */
-		spriteSheetHashMap = new HashMap<>();
 	}
 
-	private HashMap<String, SpriteSheet> getSpriteSheetHashMap() {
-		return spriteSheetHashMap;
-	}
-
-
-	public SpriteSheet getSpriteSheet( String key )
+	public static SpriteSheet getSpriteSheet( String key )
 	{
 		return spriteSheetHashMap.get( key );
 	}
+	public static Image       getBlockTexture( String key ) { return blockTextureHashMap.get( key ); }
 
 	@Override
 	public void initStatesList(GameContainer container) throws SlickException {
@@ -98,14 +100,42 @@ public class ContraGame extends StateBasedGame {
 		addState(new GameOverState());
 		addState(new GameState());
 
+		VIEWPORT = new ViewPort( container.getWidth(), container.getHeight() );
+
 		ResourceManager.loadImage(Contra_Banner_RSC);
 
+		loadPlayerAssets();
+		loadWorldAssets();
+	}
+
+
+
+	public static void main(String[] args) {
+		AppGameContainer app;
+		try {
+			app = new AppGameContainer(new ContraGame("Contra"));
+			app.setDisplayMode(1920/2, 1080/2, false);
+			app.setVSync(true);
+			app.setAlwaysRender(true);
+			app.setShowFPS(true);
+			app.start();
+		} catch (SlickException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	/*
+	* Loads all the assets assosiated with the player.
+	* */
+	private void loadPlayerAssets()
+	{
 		/*Player prone animations*/
 		ResourceManager.loadImage( PLAYER_PRONE_LEFT_RSC     );
 		ResourceManager.loadImage( PLAYER_PRONE_RIGHT_RSC    );
 		/* Load running left images */
 		ResourceManager.loadImage( PLAYER_RUN_LEFT_RSC       );
-        ResourceManager.loadImage( PLAYER_RUN_LEFT_UP_RSC    );
+		ResourceManager.loadImage( PLAYER_RUN_LEFT_UP_RSC    );
 		ResourceManager.loadImage( PLAYER_RUN_LEFT_DOWN_RSC  );
 		/* Load running right images */
 		ResourceManager.loadImage( PLAYER_RUN_RIGHT_RSC      );
@@ -155,7 +185,7 @@ public class ContraGame extends StateBasedGame {
 				new SpriteSheet( ResourceManager.getImage( PLAYER_RUN_LEFT_DOWN_RSC  ), 21 , 35 ) );
 
 		/* Run Right */
-        spriteSheetHashMap.put( "PLAYER_RUN_RIGHT_SS" ,
+		spriteSheetHashMap.put( "PLAYER_RUN_RIGHT_SS" ,
 				new SpriteSheet( ResourceManager.getImage( PLAYER_RUN_RIGHT_RSC      ), 20 , 35 ) );
 		spriteSheetHashMap.put( "PLAYER_RUN_RIGHT_UP_SS" ,
 				new SpriteSheet( ResourceManager.getImage( PLAYER_RUN_RIGHT_UP_RSC   ), 21 , 35 ) );
@@ -180,19 +210,16 @@ public class ContraGame extends StateBasedGame {
 		spriteSheetHashMap.put( "PLAYER_FIRE_RIGHT_UP_SS",
 				new SpriteSheet( ResourceManager.getImage( PLAYER_FIRE_RIGHT_UP_RSC ), 15 , 45 ) );
 	}
-	
-	public static void main(String[] args) {
-		AppGameContainer app;
-		try {
-			app = new AppGameContainer(new ContraGame("Contra"));
-			app.setDisplayMode(1920/2, 1080/2, false);
-			app.setVSync(true);
-			app.setAlwaysRender(true);
-			app.setShowFPS(true);
-			app.start();
-		} catch (SlickException e) {
-			e.printStackTrace();
-		}
 
+	/*
+	 *
+	 */
+	private void loadWorldAssets()
+	{
+		ResourceManager.loadImage(WORLD_BLOCK_GOLD_RSC);
+		ResourceManager.getImage(WORLD_BLOCK_GOLD_RSC).setFilter(Image.FILTER_NEAREST);
+
+		blockTextureHashMap.put( "GOLD_BRICK", ResourceManager.getImage(WORLD_BLOCK_GOLD_RSC) );
 	}
+
 }

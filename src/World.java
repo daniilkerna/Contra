@@ -1,72 +1,138 @@
 import jig.Entity;
 import jig.Vector;
-import org.newdawn.slick.Color;
-import org.newdawn.slick.Graphics;
+import org.newdawn.slick.*;
+import org.newdawn.slick.state.StateBasedGame;
 import sun.security.provider.certpath.Vertex;
 
 import javax.swing.text.View;
+import java.util.HashMap;
 
 public class World
 {
-    public static final int DEFAULT_BLOCK_WIDTH  = 16; // IN PX
-    public static final int DEFAULT_BLOCK_HEIGHT = 16; // IN PX
-    public static final int DEFAULT_WORLD_BLOCK_WIDTH  = 200; // In block size
-    public static final int DEFAULT_WORLD_BLOCK_HEIGHT =  48; // In block size
+    public static final float GRAVITY    = 0.01f;
+    public static final int BLOCK_WIDTH  = 32; // IN PX
+    public static final int BLOCK_HEIGHT = 32; // IN PX
+    public static final int DEFAULT_WORLD_BLOCK_WIDTH  = 100; // In block size
+    public static final int DEFAULT_WORLD_BLOCK_HEIGHT =  17; // In block size
 
     /*
      *
      */
-    private float blockWidth;
-    private float blockHeight;
-    private float worldWidth;
-    private float worldHeight;
-    private int   blockVerticalCount;
-    private int   blockHorizontalCount;
+    private WorldBlock worldBlocks[][];
+    private int        blockVerticalCount;
+    private int        blockHorizontalCount;
+    private float      worldWidth;
+    private float      worldHeight;
+
+    /*
+     *
+     */
+    public WorldBlock selectedScreenBlock = null;
+    public WorldBlock selectedScreenBlock2 = null;
 
     public World()
     {
-        this( DEFAULT_BLOCK_WIDTH, DEFAULT_BLOCK_HEIGHT, DEFAULT_WORLD_BLOCK_WIDTH, DEFAULT_WORLD_BLOCK_HEIGHT );
+        this( DEFAULT_WORLD_BLOCK_WIDTH, DEFAULT_WORLD_BLOCK_HEIGHT );
     }
 
     public World( int horizontalBlockCount, int verticalBlockCount )
     {
-        this( DEFAULT_BLOCK_WIDTH, DEFAULT_BLOCK_HEIGHT, horizontalBlockCount, verticalBlockCount );
-    }
-
-    public World( int blockWidth, int blockHeight, int horizontalBlockCount, int verticalBlockCount )
-    {
-        this.blockWidth           = blockWidth;
-        this.blockHeight          = blockHeight;
+        worldBlocks               = new WorldBlock[horizontalBlockCount][verticalBlockCount];
         this.blockHorizontalCount = horizontalBlockCount;
         this.blockVerticalCount   = verticalBlockCount;
-        this.worldWidth           = horizontalBlockCount*blockWidth;
-        this.worldHeight          = verticalBlockCount  *blockHeight;
+        this.worldWidth           = horizontalBlockCount*BLOCK_WIDTH;
+        this.worldHeight          = verticalBlockCount  *BLOCK_HEIGHT;
+
+
+        for( int x = 0; x < blockHorizontalCount; x++ ) {
+            for( int y = 0; y < blockVerticalCount; y++ ) {
+                if( (y % 10==0) && y > 0 && ((x % 10) != 0))
+                    worldBlocks[x][y] = new WorldBlock( WorldBlockType.PLATFORM, x, y, "GOLD_BRICK"  );
+                else
+                    worldBlocks[x][y] = new WorldBlock( WorldBlockType.NONE, x, y, null  );
+            }
+        }
     }
 
-    public void render( ViewPort vp, final Graphics g )
+    public void update( GameContainer gc, StateBasedGame sbg, int delta )
+    {
+        //Input i  = gc.getInput();
+        //selectedScreenBlock = getScreenBlock( new Vector( i.getMouseX(), i.getMouseY() ));
+
+        for( int x = 0; x < blockHorizontalCount; x++ ) {
+            for( int y = 0; y < blockVerticalCount; y++ ) {
+                worldBlocks[x][y].update( gc, sbg, delta );
+            }
+        }
+    }
+
+    public void render( final Graphics g )
+    {
+        renderGrid( g );
+
+        for( int x = 0; x < blockHorizontalCount; x++ ) {
+            for( int y = 0; y < blockVerticalCount; y++ ) {
+                WorldBlock wb = worldBlocks[x][y];
+                if( wb == selectedScreenBlock || wb == selectedScreenBlock2 ) {
+                    g.setColor(Color.red);
+                    g.drawRect(selectedScreenBlock.getX() - World.BLOCK_WIDTH / 2, selectedScreenBlock.getY() - World.BLOCK_HEIGHT / 2, World.BLOCK_WIDTH, World.BLOCK_HEIGHT);
+                }
+                wb.render(g);
+            }
+        }
+    }
+
+    public WorldBlock getIndexedBlock( int x, int y )
+    {
+        if((x > 0) && (x < blockHorizontalCount) && ((y > 0) && (y < blockVerticalCount)))
+            return  worldBlocks[x][y];
+        return null;
+    }
+
+    public WorldBlock getScreenBlock( Vector screenPos )
+    {
+        int x = (int)((screenPos.getX() + BLOCK_WIDTH/2)  - ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getX())/BLOCK_WIDTH;
+        int y = (int)((screenPos.getY() + BLOCK_HEIGHT/2) - ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getY())/BLOCK_HEIGHT;
+        if((x > 0) && (x < blockHorizontalCount) && ((y > 0) && (y < blockVerticalCount)))
+            return worldBlocks[x][y];
+        else
+            return null;
+    }
+
+    public WorldBlock getWorldBlock( Vector worldPos )
+    {
+        int x = (int)(worldPos.getX()/World.BLOCK_WIDTH);
+        int y = (int)(worldPos.getY()/World.BLOCK_HEIGHT);
+
+        if( x > 0 && x < blockVerticalCount && y > 0 && y < blockHorizontalCount)
+            return worldBlocks[x][y];
+        else
+            return null;
+    }
+
+    public void renderGrid( final Graphics g  )
     {
         g.setColor(Color.cyan);
         for( int i = 0; i <= blockVerticalCount; i++ ) {
-            Vector ls = new Vector( vp.getViewPortOffsetTopLeft().getX(),
-                                 vp.getViewPortOffsetTopLeft().getY() + blockHeight * i );
+            Vector ls = new Vector( ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getX(),
+                    ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getY() + BLOCK_HEIGHT * i );
 
-            Vector le = new Vector( vp.getViewPortOffsetTopLeft().getX() + worldWidth,
-                                    vp.getViewPortOffsetTopLeft().getY() + blockHeight * i);
+            Vector le = new Vector( ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getX() + worldWidth,
+                    ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getY() + BLOCK_HEIGHT * i);
 
             g.drawLine(ls.getX(), ls.getY(), le.getX(), le.getY());
         }
 
         for( int i = 0; i <= blockHorizontalCount; i++ ) {
-            Vector ls = new Vector( vp.getViewPortOffsetTopLeft().getX() + blockWidth * i,
-                                        vp.getViewPortOffsetTopLeft().getY() );
+            Vector ls = new Vector( ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getX() + BLOCK_WIDTH * i,
+                    ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getY() );
 
-            Vector le = new Vector( vp.getViewPortOffsetTopLeft().getX() + blockWidth * i,
-                                    vp.getViewPortOffsetTopLeft().getY() + worldHeight );
+            Vector le = new Vector( ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getX() + BLOCK_WIDTH * i,
+                    ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getY() + worldHeight );
 
 
             g.drawLine( ls.getX(), ls.getY(), le.getX(), le.getY() );
         }
-
     }
 
 }

@@ -1,4 +1,5 @@
 import jig.Vector;
+import org.newdawn.slick.Graphics;
 
 public class ViewPort
 {
@@ -34,5 +35,29 @@ public class ViewPort
     {
         this.x += v.getX();
         this.y += v.getY();
+    }
+
+    public float getWidth() {
+        return width;
+    }
+
+    public float getHeight() {
+        return height;
+    }
+
+    public Vector worldToScreen( Vector v )
+    {
+        return new Vector( ContraGame.VIEWPORT.getViewPortOffsetTopLeft().subtract( v ) );
+    }
+
+    public Vector screenToWorld( Vector v )
+    {
+        return new Vector( ContraGame.VIEWPORT.getViewPortOffsetTopLeft().add( v ) );
+    }
+
+    public void render( final Graphics g )
+    {
+        g.drawString( "ViewPort::Width = " +  width, 100, 10 );
+        g.drawString( "ViewPort::Height = " +  height, 100, 25 );
     }
 }
