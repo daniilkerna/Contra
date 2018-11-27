@@ -47,7 +47,12 @@ public class World
         goldBlocksList = new ArrayList<>(0);
         for( int x = 0; x < blockHorizontalCount; x++ ) {
             for( int y = 0; y < blockVerticalCount; y++ ) {
-                if( (y % 5==0) && y > 0 && (((x % 5) == 0) || ((x % 5) == 1))){
+                if( (y % 4==0) && y > 0 && (((x % 5) == 0) || ((x % 5) == 1)) ){
+                    WorldBlock temp = new WorldBlock( WorldBlockType.PLATFORM, x, y, "GOLD_BRICK"  );
+                    worldBlocks[x][y] = temp;
+                    goldBlocksList.add(temp);
+                }
+                else if ( x == 0 || x == 99 || y == 0 || y == 16){
                     WorldBlock temp = new WorldBlock( WorldBlockType.PLATFORM, x, y, "GOLD_BRICK"  );
                     worldBlocks[x][y] = temp;
                     goldBlocksList.add(temp);
