@@ -6,6 +6,7 @@ Issues That Are Completed:
 Issues to Work On:
 
 2. Create A Map/World 
-3. Abiity To Shootl
+3. Abiity To Shoot
+4. Background, make the world pretty
 
 

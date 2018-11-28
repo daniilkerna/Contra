@@ -22,6 +22,7 @@ public class Player extends Entity {
                                         playerVelocity,
                                         playerAcceleration;
     private HashMap<String, Animation>  playerAnimations;
+    private ArrayList<Bullet>           bulletArrayList;
     private String                      playerCurrentAnimation;
 
     private World                       playerWorld;
@@ -41,6 +42,7 @@ public class Player extends Entity {
         addImageWithBoundingBox(ContraGame.getSpriteSheet("PLAYER_RUN_RIGHT_SS").getSprite(1, 0));
 
         playerAnimations = new HashMap<>();
+        bulletArrayList = new ArrayList<>();
 
         playerAnimations.put( "PLAYER_PRONE_LEFT",
                 new Animation(ContraGame.getSpriteSheet("PLAYER_PRONE_LEFT_SS") , 0, 0, 0, 0, true, 150, true));
@@ -114,12 +116,29 @@ public class Player extends Entity {
         g.drawString( "Player World Position:(" + this.playerPosition.getX() + "," + this.playerPosition.getY() + ")", 400, 25 );
         g.drawString( "Player World Velocity:(" + this.playerVelocity.getX() + "," + this.playerVelocity.getY() + ")", 400, 40 );
 
+        // render all the bullets
+        for (Bullet b : bulletArrayList){
+            b.render(g);
+        }
+
     }
 
     public void update(GameContainer gc, StateBasedGame sbg, int delta) {
         getNewState( gc, sbg, delta );
         updateState( gc, sbg, delta );
         updatePosition( delta );
+
+        fireAndUpdateBullets(gc , sbg , delta);
+    }
+
+    private void fireAndUpdateBullets(GameContainer gc, StateBasedGame sbg, int delta){
+        if (gc.getInput().isKeyPressed(Input.KEY_K)) {
+            bulletArrayList.add(new Bullet(getX() , getY() , BulletType.REGULAR , playerHorizontalDirection , playerVerticalDirection , playerState , playerMovement));
+        }
+        // update all the bullets
+        for (Bullet b : bulletArrayList){
+            b.update(gc , sbg , delta);
+        }
     }
 
     public Vector getBottomLeftCorner()

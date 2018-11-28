@@ -57,6 +57,11 @@ public class ContraGame extends StateBasedGame {
 
 
 	public static final String WORLD_BLOCK_GOLD_RSC       = "resource/block/gold_brick.png";
+
+	//Bullet Images
+	public static final String BULLET_REGULAR_RSC       = "resource/bullet/regular.png";
+	public static final String BULLET_UPGRADE_RSC       = "resource/bullet/upgrade.png";
+
 	/*
 	*  Game Scale Factor :
 	*   	Scalar used to keep proportions the same on resolution change.
@@ -68,6 +73,12 @@ public class ContraGame extends StateBasedGame {
 	*
 	* */
 	public static HashMap<String, SpriteSheet> spriteSheetHashMap = new HashMap<>();
+
+	/*
+	 * 	Hash to store all images
+	 *
+	 * */
+	public static HashMap<String, Image> imageAssetHashMap = new HashMap<>();
 
 
 	/*
@@ -91,6 +102,11 @@ public class ContraGame extends StateBasedGame {
 	public static SpriteSheet getSpriteSheet( String key )
 	{
 		return spriteSheetHashMap.get( key );
+	}
+
+	public static Image getImageAsset( String key )
+	{
+		return imageAssetHashMap.get( key );
 	}
 	public static Image       getBlockTexture( String key ) { return blockTextureHashMap.get( key ); }
 
@@ -149,6 +165,9 @@ public class ContraGame extends StateBasedGame {
 		ResourceManager.loadImage( PLAYER_FIRE_RIGHT_RSC     );
 		ResourceManager.loadImage( PLAYER_FIRE_LEFT_UP_RSC   );
 		ResourceManager.loadImage( PLAYER_FIRE_RIGHT_UP_RSC  );
+		//Bullet Images
+		ResourceManager.loadImage( BULLET_REGULAR_RSC  );
+		ResourceManager.loadImage( BULLET_UPGRADE_RSC  );
 
 		/* Set image filtering */
 		ResourceManager.getImage( PLAYER_PRONE_LEFT_RSC     ).setFilter(Image.FILTER_NEAREST);
@@ -169,6 +188,10 @@ public class ContraGame extends StateBasedGame {
 		ResourceManager.getImage( PLAYER_FIRE_RIGHT_RSC     ).setFilter(Image.FILTER_NEAREST);
 		ResourceManager.getImage( PLAYER_FIRE_LEFT_UP_RSC   ).setFilter(Image.FILTER_NEAREST);
 		ResourceManager.getImage( PLAYER_FIRE_RIGHT_UP_RSC  ).setFilter(Image.FILTER_NEAREST);
+		/**/
+		ResourceManager.getImage( BULLET_REGULAR_RSC  ).setFilter(Image.FILTER_NEAREST);
+		ResourceManager.getImage( BULLET_UPGRADE_RSC  ).setFilter(Image.FILTER_NEAREST);
+
 
 		/* Prone Animation */
 		spriteSheetHashMap.put( "PLAYER_PRONE_LEFT_SS"  ,
@@ -209,6 +232,10 @@ public class ContraGame extends StateBasedGame {
 				new SpriteSheet( ResourceManager.getImage( PLAYER_FIRE_LEFT_UP_RSC  ), 15 , 45 ) );
 		spriteSheetHashMap.put( "PLAYER_FIRE_RIGHT_UP_SS",
 				new SpriteSheet( ResourceManager.getImage( PLAYER_FIRE_RIGHT_UP_RSC ), 15 , 45 ) );
+
+		// Bullet Assets
+		imageAssetHashMap.put( "BULLET_REGULAR", ResourceManager.getImage(BULLET_REGULAR_RSC) );
+		imageAssetHashMap.put( "BULLET_UPGRADE", ResourceManager.getImage(BULLET_UPGRADE_RSC) );
 	}
 
 	/*
