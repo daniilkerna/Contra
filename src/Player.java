@@ -101,7 +101,7 @@ public class Player extends Entity {
 
         /* Draw Collision box */
         g.setColor( Color.green );
-        g.drawRect( this.getX() - this.getCoarseGrainedWidth()/2, this.getY() - this.getCoarseGrainedHeight()/2,  this.getCoarseGrainedWidth(),  this.getCoarseGrainedHeight() );
+        g.drawRect( this.getX() - this.getCoarseGrainedWidth()/2, this.getY() - this.getCoarseGrainedHeight()/2 + playerYOffset/2,  this.getCoarseGrainedWidth(),  this.getCoarseGrainedHeight() + playerYOffset/2 );
 
         Vector blc = this.getBottomLeftCorner();
         Vector brc = this.getBottomRightCorner();
