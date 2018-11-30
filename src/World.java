@@ -52,7 +52,7 @@ public class World
                     worldBlocks[x][y] = temp;
                     goldBlocksList.add(temp);
                 }
-                else if ( x == 0 || x == 99 || y == 0 || y == 16){
+                else if ( x == 0 || x == 99  || y == 16){
                     WorldBlock temp = new WorldBlock( WorldBlockType.PLATFORM, x, y, "GOLD_BRICK"  );
                     worldBlocks[x][y] = temp;
                     goldBlocksList.add(temp);
@@ -94,7 +94,7 @@ public class World
 
     public WorldBlock getIndexedBlock( int x, int y )
     {
-        if((x > 0) && (x < blockHorizontalCount) && ((y > 0) && (y < blockVerticalCount)))
+        if((x >= 0) && (x < blockHorizontalCount) && ((y > 0) && (y < blockVerticalCount)))
             return  worldBlocks[x][y];
         return null;
     }
@@ -103,7 +103,7 @@ public class World
     {
         int x = (int)((screenPos.getX()) - ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getX())/BLOCK_WIDTH;
         int y = (int)((screenPos.getY()) - ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getY())/BLOCK_HEIGHT;
-        if((x > 0) && (x < blockHorizontalCount) && ((y > 0) && (y < blockVerticalCount)))
+        if((x >= 0) && (x < blockHorizontalCount) && ((y >= 0) && (y < blockVerticalCount)))
             return worldBlocks[x][y];
         else
             return null;
@@ -114,7 +114,7 @@ public class World
         int x = (int)(worldPos.getX()/World.BLOCK_WIDTH);
         int y = (int)(worldPos.getY()/World.BLOCK_HEIGHT);
 
-        if( x > 0 && x < blockVerticalCount && y > 0 && y < blockHorizontalCount)
+        if( x >= 0 && x <= blockVerticalCount && y > 0 && y < blockHorizontalCount)
             return worldBlocks[x][y];
         else
             return null;

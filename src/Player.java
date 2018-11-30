@@ -9,24 +9,27 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 public class Player extends Entity {
-    private static float DEFAULT_PLAYER_VELOCITY_X = 0.1f;
-    private static float DEFAULT_PLAYER_VELOCITY_Y = 0.1f;
-    private static float DEFAULT_PLAYER_HEIGHT     = 35.0f;
+    private static float PLAYER_VELOCITY_X = 0.1f;
+    private static float PLAYER_VELOCITY_Y = 0.1f;
+    private static float PLAYER_JUMP_DELAY_TMER = 500; //ms
 
-    private PlayerState               playerState;
-    private PlayerMovement            playerMovement;
-    private PlayerHorizontalDirection playerHorizontalDirection;
-    private PlayerVerticalDirection   playerVerticalDirection;
+    private PlayerState                 playerState;
+    private PlayerMovement              playerMovement;
+    private PlayerHorizontalDirection   playerHorizontalDirection;
+    private PlayerVerticalDirection     playerVerticalDirection;
 
     private Vector                      playerPosition,
-                                        playerVelocity,
-                                        playerAcceleration;
-    private HashMap<String, Animation>  playerAnimations;
-    private ArrayList<Bullet>           bulletArrayList;
-    private String                      playerCurrentAnimation;
+                                        playerVelocity;
 
     private World                       playerWorld;
     private boolean                     playerPlatformed;
+    private float                       playerYOffset;
+
+    private HashMap<String, Animation>  playerAnimations;
+
+    private ArrayList<Bullet>           bulletArrayList;
+
+
 
     public Player( World world ) {
         super();
@@ -103,7 +106,7 @@ public class Player extends Entity {
 
         /* Draw Collision box */
         g.setColor( Color.green );
-        g.drawRect( this.getX() - this.getCoarseGrainedWidth()/2, this.getY() - this.getCoarseGrainedHeight()/2,  this.getCoarseGrainedWidth(),  this.getCoarseGrainedHeight() );
+        g.drawRect( this.getX() - this.getCoarseGrainedWidth()/2, this.getY() - this.getCoarseGrainedHeight()/2 + playerYOffset/2,  this.getCoarseGrainedWidth(),  this.getCoarseGrainedHeight() + playerYOffset/2 );
 
         Vector blc = this.getBottomLeftCorner();
         Vector brc = this.getBottomRightCorner();
@@ -143,7 +146,7 @@ public class Player extends Entity {
 
     public Vector getBottomLeftCorner()
     {
-        return new Vector( this.getX() - this.getCoarseGrainedWidth()/2, this.getY() + this.getCoarseGrainedHeight()/2 );
+        return new Vector( this.getX() - this.getCoarseGrainedWidth()/2, this.getY() + this.getCoarseGrainedHeight()/2);
     }
 
     public Vector getBottomRightCorner()
@@ -166,18 +169,15 @@ public class Player extends Entity {
             System.out.println(String.format("[Player: Class] Animation %s, not found!", key ) );
             return;
         }
-        float prevWidth  = this.getCoarseGrainedWidth();
-        float prevHeight = this.getCoarseGrainedHeight();
+        playerYOffset = (a.getHeight() -  this.getCoarseGrainedHeight())/2;
 
-        float yoffset = (a.getHeight() -  prevHeight)/4;
-
-        this.setCoarseGrainedMaxX(  a.getWidth()/2 );
-        this.setCoarseGrainedMinX(  -a.getWidth()/2 );
-        this.setCoarseGrainedMaxY(  a.getHeight()/2 );
-        this.setCoarseGrainedMinY( -a.getHeight()/2);
+        this.setCoarseGrainedMaxX(  a.getWidth()/2.0f  );
+        this.setCoarseGrainedMinX( -a.getWidth()/2.0f  );
+        this.setCoarseGrainedMaxY(  a.getHeight()/2.0f );
+        this.setCoarseGrainedMinY( -a.getHeight()/2.0f );
 
         removeAllImages();
-        addAnimation( a, new Vector( 0, yoffset ) );
+        addAnimation( a, new Vector( 0, playerYOffset/2 ) );
     }
 
     public void setAnimationFrame( String key, int frame ) {
@@ -186,19 +186,15 @@ public class Player extends Entity {
             System.out.println(String.format("[Player: Class] Animation %s, not found!", key));
             return;
         }
+        playerYOffset = (a.getHeight() -  this.getCoarseGrainedHeight())/2;
 
-        float prevWidth  = this.getCoarseGrainedWidth();
-        float prevHeight = this.getCoarseGrainedHeight();
-
-        float yoffset = (a.getHeight() -  prevHeight)/4;
-
-        this.setCoarseGrainedMaxX(  a.getWidth()/2 );
-        this.setCoarseGrainedMinX( -a.getWidth()/2 );
-        this.setCoarseGrainedMaxY(  a.getHeight()/2 );
-        this.setCoarseGrainedMinY( -a.getHeight()/2 );
+        this.setCoarseGrainedMaxX(  a.getWidth()/2.0f );
+        this.setCoarseGrainedMinX( -a.getWidth()/2.0f );
+        this.setCoarseGrainedMaxY(  a.getHeight()/2.0f );
+        this.setCoarseGrainedMinY( -a.getHeight()/2.0f );
 
         removeAllImages();
-        addImage(a.getImage(frame), new Vector(0, yoffset ));
+        addImage(a.getImage(frame), new Vector(0, playerYOffset/2 ));
     }
 
     public void getNewState( GameContainer gc, StateBasedGame sbg, int delta ) {
@@ -344,7 +340,7 @@ public class Player extends Entity {
         playerPosition = this.getPosition().subtract( ContraGame.VIEWPORT.getViewPortOffsetTopLeft() );
 
         //if( ContraGame.VIEWPORT.getWidth()/4 < getX() ) {
-            ContraGame.VIEWPORT.shiftViewPortOffset(new Vector(DEFAULT_PLAYER_VELOCITY_X * delta, 0));
+            ContraGame.VIEWPORT.shiftViewPortOffset(new Vector(PLAYER_VELOCITY_X * delta, 0));
        // }
         //else {
           //  setPlayerVelocity(new Vector( -DEFAULT_PLAYER_VELOCITY_X, 0.0f));
@@ -358,7 +354,7 @@ public class Player extends Entity {
           //  setPlayerVelocity(new Vector( DEFAULT_PLAYER_VELOCITY_X, 0.0f));
         //}
         //else {
-        ContraGame.VIEWPORT.shiftViewPortOffset(new Vector(-DEFAULT_PLAYER_VELOCITY_X * delta, 0 ));
+        ContraGame.VIEWPORT.shiftViewPortOffset(new Vector(- PLAYER_VELOCITY_X * delta, 0 ));
         //}
     }
 
@@ -381,50 +377,55 @@ public class Player extends Entity {
 
         if( leftBlock == null || rightBlock == null ) {
             this.playerPlatformed = false;
-            return;
-        }
 
-        if( leftBlock == null && rightBlock.getBlockType() != WorldBlockType.PLATFORM  ) {
-            this.playerPlatformed = false;
-            return;
-        }
+            setPlayerVelocity(new Vector(0, playerVelocity.getY() + World.GRAVITY));
 
-        if( leftBlock.getBlockType() != WorldBlockType.PLATFORM  && rightBlock == null ) {
-            this.playerPlatformed = false;
-            return;
+            setPosition( getX() + playerVelocity.getX()*delta,
+                         getY() + playerVelocity.getY()*delta );
         }
-
+        else
         if (rightBlock.getBlockType() != WorldBlockType.PLATFORM && leftBlock.getBlockType() != WorldBlockType.PLATFORM) {
+
             this.playerPlatformed = false;
-        }
-        else {
-            ArrayList<WorldBlock> cornerBlocks = new ArrayList<>();
-            cornerBlocks.add(leftBlock);
-            cornerBlocks.add(rightBlock);
-
-            for (WorldBlock i : cornerBlocks) {
-                if (i == null)
-                    continue;
-
-
-                Collision collision = i.collides(this);
-                if (collision == null)
-                    continue;
-
-                if (this.getPlayerVelocity().getY() > 0.03f) {
-                    this.setPosition(this.getPosition().subtract(collision.getMinPenetration()));
-                    this.setPlayerVelocity(new Vector(this.getPlayerVelocity().getX(), 0));
-                    this.playerPlatformed = true;
-                }
-            }
-        }
-        if (!this.playerPlatformed)
             setPlayerVelocity(new Vector(0, playerVelocity.getY() + World.GRAVITY));
 
 
-        setPosition( getX() + playerVelocity.getX()*delta,
-                     getY() + playerVelocity.getY()*delta );
+            setPosition( getX() + playerVelocity.getX()*delta,
+                         getY() + playerVelocity.getY()*delta );
+        }
+        else
+        {
+            if( !this.playerPlatformed ) {
+                ArrayList<WorldBlock> cornerBlocks = new ArrayList<>();
+                cornerBlocks.add(leftBlock);
+                cornerBlocks.add(rightBlock);
+
+                for (WorldBlock i : cornerBlocks) {
+                    if (i == null)
+                        continue;
+
+                    if( this.getPosition().getY() > i.getCoarseGrainedMinY() )
+                        continue;
+
+                    Collision collision = i.collides(this);
+                    if (collision == null)
+                        continue;
+
+                        if (this.getPlayerVelocity().getY() > 0.03f) {
+                            this.setPosition(this.getPosition().add(collision.getMinPenetration()));
+                            this.setPlayerVelocity(new Vector(this.getPlayerVelocity().getX(), 0));
+                            this.playerPlatformed = true;
+                            break;
+                        }
+
+                }
+                setPlayerVelocity(new Vector(0, playerVelocity.getY() + World.GRAVITY));
+                setPosition(getX() + playerVelocity.getX() * delta,
+                            getY() + playerVelocity.getY() * delta);
+            }
+        }
     }
+
     public Vector getPlayerVelocity() {
         return playerVelocity;
     }
