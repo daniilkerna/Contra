@@ -24,6 +24,7 @@ public class Player extends Entity {
 
     private World                       playerWorld;
     private boolean                     playerPlatformed;
+    private boolean                     isPlayerShooting;
     private float                       playerYOffset;
 
     private HashMap<String, Animation>  playerAnimations;
@@ -35,6 +36,7 @@ public class Player extends Entity {
 
         // Not on a platform
         playerPlatformed = false;
+        isPlayerShooting = false;
 
         playerWorld = world;
 
@@ -87,6 +89,12 @@ public class Player extends Entity {
 
         playerAnimations.put( "PLAYER_FIRE_RIGHT_UP",
                 new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_RIGHT_UP_SS" ), 0,0, 1,0, true, 150, true ));
+
+        playerAnimations.put( "PLAYER_FIRE_RUN_LEFT_STRAIGHT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_RUN_LEFT_STRAIGHT_SS" ), 0,0, 2,0, true, 150, true ));
+
+        playerAnimations.put( "PLAYER_FIRE_RUN_RIGHT_STRAIGHT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_RUN_RIGHT_STRAIGHT_SS" ), 0,0, 2,0, true, 150, true ));
 
 
         //setAnimationFrame("PLAYER_RUN_RIGHT_SS",0 );
@@ -147,6 +155,15 @@ public class Player extends Entity {
 
             if( b.isOnScreen() )
                 b.update(gc , sbg , delta, this.getPlayerVelocity().getX());
+            else
+                iter.remove();
+        }
+
+        if (gc.getInput().isKeyDown(Input.KEY_K)){
+            isPlayerShooting = true;
+        }
+        else{
+            isPlayerShooting = false;
         }
     }
 
@@ -185,6 +202,7 @@ public class Player extends Entity {
         removeAllImages();
         addAnimation( a, new Vector( 0, playerYOffset/2 ) );
     }
+
 
     public void setAnimationFrame( String key, int frame ) {
         Animation a = playerAnimations.get(key);
@@ -307,10 +325,16 @@ public class Player extends Entity {
                     case NONE:
                         switch (playerMovement) {
                             case LEFT:
-                                setAnimation("PLAYER_RUN_LEFT");
+                                if (isPlayerShooting)
+                                    setAnimation("PLAYER_FIRE_RUN_LEFT_STRAIGHT");
+                                else
+                                    setAnimation("PLAYER_RUN_LEFT");
                                 break;
                             case RIGHT:
-                                setAnimation("PLAYER_RUN_RIGHT");
+                                if (isPlayerShooting)
+                                    setAnimation("PLAYER_FIRE_RUN_RIGHT_STRAIGHT");
+                                else
+                                    setAnimation("PLAYER_RUN_RIGHT");
                                 break;
                         }
                         break;
