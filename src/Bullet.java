@@ -55,12 +55,16 @@ public class Bullet extends Entity {
                     this.bulletVelocity = new Vector(0, DEFAULT_BULLET_VELOCITY);
 
                 //shoot down and left
-                else if (playerHorizontalDirection == PlayerHorizontalDirection.LEFT)
+                else if (playerHorizontalDirection == PlayerHorizontalDirection.LEFT) {
+                    setPosition(x - 10, y - 25 );
                     this.bulletVelocity = new Vector(-DEFAULT_BULLET_VELOCITY, DEFAULT_BULLET_VELOCITY);
+                }
 
                 //shoot down and right
-                else
+                else {
+                    setPosition(x + 10, y - 25 );
                     this.bulletVelocity = new Vector(DEFAULT_BULLET_VELOCITY, DEFAULT_BULLET_VELOCITY);
+                }
 
             }
                 //else prone
