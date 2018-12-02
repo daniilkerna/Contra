@@ -77,8 +77,10 @@ public class ContraGame extends StateBasedGame {
 	public static final String WORLD_BLOCK_CLIFF_TBR                       = "resource/block/cliff_texture_tbr.png";
 	public static final String WORLD_BLOCK_WATER                      	   = "resource/block/water.png";
 	public static final String WORLD_BLOCK_WATER_TOP                       = "resource/block/water_top.png";
+    public static final String WORLD_BLOCK_WATER_TOP_ANIMATION             = "resource/block/water_top_animation.png";
 
-	public static final String WORLD_BLOCK_VINE_BOTTOM_LEFT                = "resource/block/vine_bottom_left.png";
+
+    public static final String WORLD_BLOCK_VINE_BOTTOM_LEFT                = "resource/block/vine_bottom_left.png";
 	public static final String WORLD_BLOCK_VINE_BOTTOM_RIGHT               = "resource/block/vine_bottom_right.png";
 
 
@@ -303,9 +305,11 @@ public class ContraGame extends StateBasedGame {
 		ResourceManager.loadImage(WORLD_BLOCK_CLIFF_TBR);
 		ResourceManager.loadImage(WORLD_BLOCK_WATER);
 		ResourceManager.loadImage(WORLD_BLOCK_WATER_TOP);
+        ResourceManager.loadImage(WORLD_BLOCK_WATER_TOP_ANIMATION);
 
 
-		ResourceManager.loadImage(WORLD_BLOCK_WATERFALL_ANIMATION);
+
+        ResourceManager.loadImage(WORLD_BLOCK_WATERFALL_ANIMATION);
 		ResourceManager.loadImage(WORLD_BLOCK_WATERFALL_ANIMATION_TOP);
 
 		ResourceManager.getImage(WORLD_BLOCK_GOLD_RSC).setFilter(Image.FILTER_NEAREST);
@@ -326,10 +330,12 @@ public class ContraGame extends StateBasedGame {
 		ResourceManager.getImage(WORLD_BLOCK_CLIFF_TBR).setFilter(Image.FILTER_NEAREST);
 		ResourceManager.getImage(WORLD_BLOCK_WATER).setFilter(Image.FILTER_NEAREST);
 		ResourceManager.getImage(WORLD_BLOCK_WATER_TOP).setFilter(Image.FILTER_NEAREST);
+        ResourceManager.getImage(WORLD_BLOCK_WATER_TOP_ANIMATION).setFilter(Image.FILTER_NEAREST);
 
 
 
-		ResourceManager.getImage(WORLD_BLOCK_WATERFALL_ANIMATION).setFilter(Image.FILTER_NEAREST);
+
+        ResourceManager.getImage(WORLD_BLOCK_WATERFALL_ANIMATION).setFilter(Image.FILTER_NEAREST);
 		ResourceManager.getImage(WORLD_BLOCK_WATERFALL_ANIMATION_TOP).setFilter(Image.FILTER_NEAREST);
 
 		blockTextureHashMap.put( "GOLD_BRICK"          , ResourceManager.getImage(WORLD_BLOCK_GOLD_RSC) );
@@ -355,5 +361,7 @@ public class ContraGame extends StateBasedGame {
 
 		blockSpriteSheetHashMap.put( "WATERFALL_ANIMATION"    , new SpriteSheet( ResourceManager.getImage( WORLD_BLOCK_WATERFALL_ANIMATION ), 16 , 16 ) );
 		blockSpriteSheetHashMap.put( "WATERFALL_ANIMATION_TOP", new SpriteSheet( ResourceManager.getImage( WORLD_BLOCK_WATERFALL_ANIMATION_TOP ), 16 , 16 ) );
-	}
+        blockSpriteSheetHashMap.put( "WATER_TOP_ANIMATION", new SpriteSheet( ResourceManager.getImage( WORLD_BLOCK_WATER_TOP_ANIMATION ), 16 , 16 ) );
+
+    }
 }
