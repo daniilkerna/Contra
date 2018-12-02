@@ -10,3 +10,8 @@ Issues to Work On:
 4. Background, make the world pretty
 
 
+Things To Polish:
+
+
+
+
