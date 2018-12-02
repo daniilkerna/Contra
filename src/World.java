@@ -197,6 +197,19 @@ public class World
                     new WorldBlock( WorldBlockType.PLATFORM, selectedScreenBlock.getHorizontalIndex()+1, selectedScreenBlock.getVerticalIndex(), "BRIDGE_PLATFORM_RIGHT" );
         }
 
+        if( input.isKeyDown( Input.KEY_9 ) )
+        {
+            this.worldBlocks[selectedScreenBlock.getHorizontalIndex()][selectedScreenBlock.getVerticalIndex()] =
+                    new WorldBlock( WorldBlockType.PLATFORM, selectedScreenBlock.getHorizontalIndex(), selectedScreenBlock.getVerticalIndex(), "WATER" );
+
+        }
+        if( input.isKeyDown( Input.KEY_0 ) )
+        {
+            this.worldBlocks[selectedScreenBlock.getHorizontalIndex()][selectedScreenBlock.getVerticalIndex()] =
+                    new WorldBlock( WorldBlockType.PLATFORM, selectedScreenBlock.getHorizontalIndex(), selectedScreenBlock.getVerticalIndex(), "WATER_TOP" );
+
+        }
+
         for( int x = 0; x < blockHorizontalCount; x++ ) {
             for( int y = 0; y < blockVerticalCount; y++ ) {
                 worldBlocks[x][y].update( gc, sbg, delta );

@@ -75,6 +75,8 @@ public class ContraGame extends StateBasedGame {
 	public static final String WORLD_BLOCK_CLIFF_BR                        = "resource/block/cliff_texture_br.png";
 	public static final String WORLD_BLOCK_CLIFF_TBL                       = "resource/block/cliff_texture_tbl.png";
 	public static final String WORLD_BLOCK_CLIFF_TBR                       = "resource/block/cliff_texture_tbr.png";
+	public static final String WORLD_BLOCK_WATER                      	   = "resource/block/water.png";
+	public static final String WORLD_BLOCK_WATER_TOP                       = "resource/block/water_top.png";
 
 	public static final String WORLD_BLOCK_VINE_BOTTOM_LEFT                = "resource/block/vine_bottom_left.png";
 	public static final String WORLD_BLOCK_VINE_BOTTOM_RIGHT               = "resource/block/vine_bottom_right.png";
@@ -299,6 +301,9 @@ public class ContraGame extends StateBasedGame {
 		ResourceManager.loadImage(WORLD_BLOCK_CLIFF_BR);
 		ResourceManager.loadImage(WORLD_BLOCK_CLIFF_TBL);
 		ResourceManager.loadImage(WORLD_BLOCK_CLIFF_TBR);
+		ResourceManager.loadImage(WORLD_BLOCK_WATER);
+		ResourceManager.loadImage(WORLD_BLOCK_WATER_TOP);
+
 
 		ResourceManager.loadImage(WORLD_BLOCK_WATERFALL_ANIMATION);
 		ResourceManager.loadImage(WORLD_BLOCK_WATERFALL_ANIMATION_TOP);
@@ -319,6 +324,10 @@ public class ContraGame extends StateBasedGame {
 		ResourceManager.getImage(WORLD_BLOCK_CLIFF_BR).setFilter(Image.FILTER_NEAREST);
 		ResourceManager.getImage(WORLD_BLOCK_CLIFF_TBL).setFilter(Image.FILTER_NEAREST);
 		ResourceManager.getImage(WORLD_BLOCK_CLIFF_TBR).setFilter(Image.FILTER_NEAREST);
+		ResourceManager.getImage(WORLD_BLOCK_WATER).setFilter(Image.FILTER_NEAREST);
+		ResourceManager.getImage(WORLD_BLOCK_WATER_TOP).setFilter(Image.FILTER_NEAREST);
+
+
 
 		ResourceManager.getImage(WORLD_BLOCK_WATERFALL_ANIMATION).setFilter(Image.FILTER_NEAREST);
 		ResourceManager.getImage(WORLD_BLOCK_WATERFALL_ANIMATION_TOP).setFilter(Image.FILTER_NEAREST);
@@ -339,6 +348,10 @@ public class ContraGame extends StateBasedGame {
 		blockTextureHashMap.put( "CLIFF_BR" , ResourceManager.getImage(WORLD_BLOCK_CLIFF_BR) );
 		blockTextureHashMap.put( "CLIFF_TBL" , ResourceManager.getImage(WORLD_BLOCK_CLIFF_TBL) );
 		blockTextureHashMap.put( "CLIFF_TBR" , ResourceManager.getImage(WORLD_BLOCK_CLIFF_TBR) );
+		blockTextureHashMap.put( "WATER" , ResourceManager.getImage(WORLD_BLOCK_WATER) );
+		blockTextureHashMap.put( "WATER_TOP" , ResourceManager.getImage(WORLD_BLOCK_WATER_TOP) );
+
+
 
 		blockSpriteSheetHashMap.put( "WATERFALL_ANIMATION"    , new SpriteSheet( ResourceManager.getImage( WORLD_BLOCK_WATERFALL_ANIMATION ), 16 , 16 ) );
 		blockSpriteSheetHashMap.put( "WATERFALL_ANIMATION_TOP", new SpriteSheet( ResourceManager.getImage( WORLD_BLOCK_WATERFALL_ANIMATION_TOP ), 16 , 16 ) );
