@@ -31,9 +31,10 @@ public class ContraGame extends StateBasedGame {
 	public static final String Contra_Banner_RSC          = "resource/contra_banner.png";
 
     /*Player swimming animations*/
-    public static final String PLAYER_WATER_RIGHT     = "resource/player/animation_water_right.png";
-    public static final String PLAYER_WATER_LEFT    = "resource/player/animation_water_left.png";
-    public static final String PLAYER_WATER_GUN_UP_RIGHT     = "resource/player/animation_water_gun_up_rightfacing.png";
+    public static final String PLAYER_WATER_RIGHT     		= "resource/player/animation_water_right.png";
+    public static final String PLAYER_WATER_LEFT   			= "resource/player/animation_water_left.png";
+	public static final String PLAYER_WATER_DOWN  			= "resource/player/animation_water_down.png";
+    public static final String PLAYER_WATER_GUN_UP_RIGHT    = "resource/player/animation_water_gun_up_rightfacing.png";
     public static final String PLAYER_WATER_GUN_UP_LEFT    = "resource/player/animation_water_gun_up_leftfacing.png";
     public static final String PLAYER_WATER_GUN_RIGHTUP    = "resource/player/animation_water_gun_rightup.png";
     public static final String PLAYER_WATER_GUN_LEFTUP    = "resource/player/animation_water_gun_leftup.png";
@@ -191,6 +192,7 @@ public class ContraGame extends StateBasedGame {
         /*Player swimming animations*/
         ResourceManager.loadImage( PLAYER_WATER_RIGHT     );
         ResourceManager.loadImage( PLAYER_WATER_LEFT    );
+		ResourceManager.loadImage( PLAYER_WATER_DOWN    );
         ResourceManager.loadImage( PLAYER_WATER_GUN_UP_RIGHT     );
         ResourceManager.loadImage( PLAYER_WATER_GUN_UP_LEFT    );
         ResourceManager.loadImage( PLAYER_WATER_GUN_RIGHTUP     );
@@ -225,6 +227,7 @@ public class ContraGame extends StateBasedGame {
         /**/
         ResourceManager.getImage( PLAYER_WATER_RIGHT  ).setFilter(Image.FILTER_NEAREST);
         ResourceManager.getImage( PLAYER_WATER_LEFT ).setFilter(Image.FILTER_NEAREST);
+		ResourceManager.getImage( PLAYER_WATER_DOWN ).setFilter(Image.FILTER_NEAREST);
         ResourceManager.getImage( PLAYER_WATER_GUN_UP_RIGHT  ).setFilter(Image.FILTER_NEAREST);
         ResourceManager.getImage( PLAYER_WATER_GUN_UP_LEFT ).setFilter(Image.FILTER_NEAREST);
         ResourceManager.getImage( PLAYER_WATER_GUN_RIGHTUP  ).setFilter(Image.FILTER_NEAREST);
@@ -258,8 +261,10 @@ public class ContraGame extends StateBasedGame {
         /*Player swimming animations*/
         spriteSheetHashMap.put( "PLAYER_WATER_RIGHT_SS"  ,
                 new SpriteSheet( ResourceManager.getImage( PLAYER_WATER_RIGHT     ), 16 , 16 ) );
-        spriteSheetHashMap.put( "PLAYER_WATER_LEFT_SS"  ,
-                new SpriteSheet( ResourceManager.getImage( PLAYER_WATER_LEFT    ), 16 , 16 ) );
+        spriteSheetHashMap.put( "PLAYER_WATER_DOWN_SS"  ,
+                new SpriteSheet( ResourceManager.getImage( PLAYER_WATER_DOWN    ), 16 , 16 ) );
+		spriteSheetHashMap.put( "PLAYER_WATER_LEFT_SS"  ,
+				new SpriteSheet( ResourceManager.getImage( PLAYER_WATER_LEFT    ), 16 , 16 ) );
         spriteSheetHashMap.put( "PLAYER_WATER_GUN_UP_RIGHT_SS"  ,
                 new SpriteSheet( ResourceManager.getImage( PLAYER_WATER_GUN_UP_RIGHT    ), 17  , 27 ) );
         spriteSheetHashMap.put( "PLAYER_WATER_GUN_UP_LEFT_SS"  ,

@@ -57,6 +57,9 @@ public class Player extends Entity {
         playerAnimations.put( "PLAYER_WATER_LEFT",
                 new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_LEFT_SS" ), 0,0, 0,0, true, 150, true ));
 
+        playerAnimations.put( "PLAYER_WATER_DOWN",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_DOWN_SS" ), 0,0, 0,0, true, 150, true ));
+
         playerAnimations.put( "PLAYER_WATER_GUN_UP_RIGHT",
                 new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_GUN_UP_RIGHT_SS") , 0, 0, 0, 0, true, 150, true));
 
@@ -424,6 +427,10 @@ public class Player extends Entity {
                         }
                         break;
 
+                    case DOWN:
+                        setAnimation("PLAYER_WATER_DOWN");
+                        break;
+
                 }
 
 
@@ -511,7 +518,7 @@ public class Player extends Entity {
                 for (WorldBlock i : cornerBlocks) {
                     if ( !i.getBlockTexture().equals("WATER")){
                         this.isPLayerSwimming = false;
-                        this.setPosition(getX() + 10, getY() - 30);
+                        this.setPosition(getX() + 10, getY() - 35);
                     }
 
                     System.out.println(i.getBlockTexture());
