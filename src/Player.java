@@ -38,6 +38,7 @@ public class Player extends Entity {
         // Not on a platform
         playerPlatformed = false;
         isPlayerShooting = false;
+        isPLayerSwimming = false;
 
         playerWorld = world;
 
@@ -466,6 +467,11 @@ public class Player extends Entity {
             setPosition( getX(), getY() + playerVelocity.getY()*delta );
         }
         else
+            if(leftBlock.getBlockTexture().equals("WATER") && rightBlock.getBlockTexture().equals("WATER") ){
+                    this.isPLayerSwimming = true;
+
+            }
+        else
         {
             if( !this.playerPlatformed ) {
                 ArrayList<WorldBlock> cornerBlocks = new ArrayList<>();
@@ -490,18 +496,26 @@ public class Player extends Entity {
                         this.playerPlatformed = true;
 
 
-                        if (i.getBlockTexture().equals("WATER")) {
-                            this.isPLayerSwimming = true;
-                            //System.out.println(i.getBlockTexture());
-                        }
-                        else
-                            this.isPLayerSwimming = false;
                         return;
                     }
 
                 }
                 setPlayerVelocity(new Vector(playerVelocity.getX(), playerVelocity.getY() + World.GRAVITY));
                 setPosition(getX(), getY() + playerVelocity.getY() * delta);
+            }
+
+            if (isPLayerSwimming){
+                ArrayList<WorldBlock> cornerBlocks = new ArrayList<>();
+                cornerBlocks.add(leftBlock);
+                cornerBlocks.add(rightBlock);
+                for (WorldBlock i : cornerBlocks) {
+                    if ( !i.getBlockTexture().equals("WATER")){
+                        this.isPLayerSwimming = false;
+                        this.setPosition(getX() + 10, getY() - 30);
+                    }
+
+                    System.out.println(i.getBlockTexture());
+                }
             }
         }
         switch ( playerMovement )

@@ -206,7 +206,7 @@ public class World
         if( input.isKeyDown( Input.KEY_0 ) )
         {
             this.worldBlocks[selectedScreenBlock.getHorizontalIndex()][selectedScreenBlock.getVerticalIndex()] =
-                    new WorldBlock( WorldBlockType.PLATFORM, selectedScreenBlock.getHorizontalIndex(), selectedScreenBlock.getVerticalIndex(), "WATER_TOP_ANIMATION" );
+                    new WorldBlock( WorldBlockType.NONE, selectedScreenBlock.getHorizontalIndex(), selectedScreenBlock.getVerticalIndex(), "WATER_TOP_ANIMATION" );
 
         }
 
