@@ -9,6 +9,7 @@ public class Bullet extends Entity {
     private Vector      bulletVelocity;
     private BulletType  bulletType;
 
+
     public Bullet (final float x, final float y , BulletType bulletType , PlayerHorizontalDirection playerHorizontalDirection,
                    PlayerVerticalDirection playerVerticalDirection, PlayerState playerState , PlayerMovement playerMovement){
         super( x , y - 25);
@@ -80,14 +81,19 @@ public class Bullet extends Entity {
         }
     }
 
-
-
-    public void update(GameContainer gc, StateBasedGame sbg, int delta) {
-
-        setPosition( getX() + bulletVelocity.getX()*delta, getY() + bulletVelocity.getY()*delta );
-
+    public boolean isOnScreen()
+    {
+        if( this.getX() < 0 || this.getX() > ContraGame.VIEWPORT.getWidth() ) {
+            return false;
+        }
+        if( this.getY() < 0 || this.getY() > ContraGame.VIEWPORT.getHeight() ) {
+            return false;
+        }
+        return true;
     }
 
-
-
+    public void update(GameContainer gc, StateBasedGame sbg, int delta, float playerVelocity)
+    {
+        setPosition( getX() + playerVelocity + bulletVelocity.getX()*delta, getY() + bulletVelocity.getY()*delta );
+    }
 }
