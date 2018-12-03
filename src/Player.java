@@ -6,6 +6,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class Player extends Entity {
@@ -29,8 +30,6 @@ public class Player extends Entity {
 
     private ArrayList<Bullet>           bulletArrayList;
 
-
-
     public Player( World world ) {
         super();
 
@@ -40,7 +39,7 @@ public class Player extends Entity {
         playerWorld = world;
 
         setScale(2.0f);
-        setPosition( ContraGame.VIEWPORT.getWidth()/2, ContraGame.VIEWPORT.getHeight()/2 );
+        setPosition( ContraGame.VIEWPORT.getWidth()/2 , ContraGame.VIEWPORT.getHeight()/2 - 100 );
 
         addImageWithBoundingBox(ContraGame.getSpriteSheet("PLAYER_RUN_RIGHT_SS").getSprite(1, 0));
 
@@ -89,6 +88,9 @@ public class Player extends Entity {
         playerAnimations.put( "PLAYER_FIRE_RIGHT_UP",
                 new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_RIGHT_UP_SS" ), 0,0, 1,0, true, 150, true ));
 
+
+        //setAnimationFrame("PLAYER_RUN_RIGHT_SS",0 );
+
         playerPosition            = new Vector( 0 ,0 );
         playerVelocity            = new Vector( 0, 0 );
         playerState               = PlayerState.IDLE;
@@ -102,7 +104,6 @@ public class Player extends Entity {
 
     @Override
     public void render(final Graphics g)  {
-        super.render(g);
 
         /* Draw Collision box */
         g.setColor( Color.green );
@@ -123,24 +124,31 @@ public class Player extends Entity {
         for (Bullet b : bulletArrayList){
             b.render(g);
         }
-
+        super.render(g);
     }
 
     public void update(GameContainer gc, StateBasedGame sbg, int delta) {
+        fireAndUpdateBullets(gc , sbg , delta);
         getNewState( gc, sbg, delta );
         updateState( gc, sbg, delta );
         updatePosition( delta );
-
-        fireAndUpdateBullets(gc , sbg , delta);
     }
 
     private void fireAndUpdateBullets(GameContainer gc, StateBasedGame sbg, int delta){
         if (gc.getInput().isKeyPressed(Input.KEY_K)) {
             bulletArrayList.add(new Bullet(getX() , getY() , BulletType.REGULAR , playerHorizontalDirection , playerVerticalDirection , playerState , playerMovement));
         }
-        // update all the bullets
-        for (Bullet b : bulletArrayList){
-            b.update(gc , sbg , delta);
+
+        Iterator<Bullet> iter = bulletArrayList.iterator();
+
+        for ( ;iter.hasNext(); )
+        {
+            Bullet b = iter.next();
+
+            if( b.isOnScreen() )
+                b.update(gc , sbg , delta, this.getPlayerVelocity().getX());
+            else
+                iter.remove();
         }
     }
 
@@ -333,65 +341,40 @@ public class Player extends Entity {
     }
 
     public void moveStop() {
-        //setPlayerVelocity(new Vector(0.0f, playerVelocity.getY()));
+        setPlayerVelocity(new Vector(0.0f, playerVelocity.getY()));
     }
 
     public void moveLeft( int delta ) {
         playerPosition = this.getPosition().subtract( ContraGame.VIEWPORT.getViewPortOffsetTopLeft() );
-
-        //if( ContraGame.VIEWPORT.getWidth()/4 < getX() ) {
-            ContraGame.VIEWPORT.shiftViewPortOffset(new Vector(PLAYER_VELOCITY_X * delta, 0));
-       // }
-        //else {
-          //  setPlayerVelocity(new Vector( -DEFAULT_PLAYER_VELOCITY_X, 0.0f));
-        //}
+        playerVelocity = new Vector( PLAYER_VELOCITY_X * delta, this.getPlayerVelocity().getY() );
+        ContraGame.VIEWPORT.shiftViewPortOffset(new Vector( playerVelocity.getX(), 0));
     }
 
     public void moveRight( int delta ) {
         playerPosition = this.getPosition().subtract( ContraGame.VIEWPORT.getViewPortOffsetTopLeft() );
+        playerVelocity = new Vector( -PLAYER_VELOCITY_X * delta, this.getPlayerVelocity().getY() );
+        ContraGame.VIEWPORT.shiftViewPortOffset(new Vector( playerVelocity.getX(), 0));
 
-        //if( vp.getViewPortOffsetTopLeft().getX() < 5000 ) {
-          //  setPlayerVelocity(new Vector( DEFAULT_PLAYER_VELOCITY_X, 0.0f));
-        //}
-        //else {
-        ContraGame.VIEWPORT.shiftViewPortOffset(new Vector(- PLAYER_VELOCITY_X * delta, 0 ));
-        //}
+        //ContraGame.VIEWPORT.shiftViewPortOffset(new Vector(-PLAYER_VELOCITY_X * delta, 0 ));
     }
-
-
 
     public void updatePosition( int delta )
     {
         WorldBlock leftBlock  = playerWorld.getScreenBlock( this.getBottomLeftCorner() );
         WorldBlock rightBlock = playerWorld.getScreenBlock( this.getBottomRightCorner() );
 
-        switch ( playerMovement )
-        {
-            case RIGHT:
-                moveRight( delta ); break;
-            case LEFT:
-                moveLeft( delta ); break;
-            default:
-                moveStop(); break;
-        }
-
         if( leftBlock == null || rightBlock == null ) {
             this.playerPlatformed = false;
 
-            setPlayerVelocity(new Vector(0, playerVelocity.getY() + World.GRAVITY));
-
-            setPosition( getX() + playerVelocity.getX()*delta,
-                         getY() + playerVelocity.getY()*delta );
+            setPlayerVelocity(new Vector(playerVelocity.getX(), playerVelocity.getY() + World.GRAVITY));
+            setPosition( getX(), getY() + playerVelocity.getY()*delta );
         }
         else
         if (rightBlock.getBlockType() != WorldBlockType.PLATFORM && leftBlock.getBlockType() != WorldBlockType.PLATFORM) {
 
             this.playerPlatformed = false;
-            setPlayerVelocity(new Vector(0, playerVelocity.getY() + World.GRAVITY));
-
-
-            setPosition( getX() + playerVelocity.getX()*delta,
-                         getY() + playerVelocity.getY()*delta );
+            setPlayerVelocity(new Vector(playerVelocity.getX(), playerVelocity.getY() + World.GRAVITY));
+            setPosition( getX(), getY() + playerVelocity.getY()*delta );
         }
         else
         {
@@ -411,18 +394,26 @@ public class Player extends Entity {
                     if (collision == null)
                         continue;
 
-                        if (this.getPlayerVelocity().getY() > 0.03f) {
-                            this.setPosition(this.getPosition().add(collision.getMinPenetration()));
-                            this.setPlayerVelocity(new Vector(this.getPlayerVelocity().getX(), 0));
-                            this.playerPlatformed = true;
-                            break;
-                        }
+                    if (this.getPlayerVelocity().getY() > 0.03f) {
+                        this.setPosition(this.getPosition().add(collision.getMinPenetration()));
+                        this.setPlayerVelocity(new Vector(this.getPlayerVelocity().getX(), 0));
+                        this.playerPlatformed = true;
+                        return;
+                    }
 
                 }
-                setPlayerVelocity(new Vector(0, playerVelocity.getY() + World.GRAVITY));
-                setPosition(getX() + playerVelocity.getX() * delta,
-                            getY() + playerVelocity.getY() * delta);
+                setPlayerVelocity(new Vector(playerVelocity.getX(), playerVelocity.getY() + World.GRAVITY));
+                setPosition(getX(), getY() + playerVelocity.getY() * delta);
             }
+        }
+        switch ( playerMovement )
+        {
+            case RIGHT:
+                moveRight( delta ); break;
+            case LEFT:
+                moveLeft( delta ); break;
+            default:
+                moveStop(); break;
         }
     }
 

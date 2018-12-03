@@ -76,7 +76,9 @@ public class ResourceManager {
 
 		URL u = findResource(rscName);
 		try {
-			images.put(rscName, new Image(u.openStream(), rscName, false));
+			Image img = new Image(u.openStream(), rscName, false);
+			img.setFilter(Image.FILTER_NEAREST);
+			images.put(rscName, img);
 		} catch (Exception e) {
 
 			System.err.println("Failed to load the resource found by the spec " + rscName);

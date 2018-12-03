@@ -13,15 +13,14 @@ import org.newdawn.slick.state.StateBasedGame;
 
 class GameState extends BasicGameState
 {
-
 	private World    world;
-
 	private Player   player1;
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
 	{
 		world    = new World();
+		world.loadWorldFromFile( "one" );
 	}
 
 	@Override

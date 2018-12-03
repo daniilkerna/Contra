@@ -57,7 +57,7 @@ public class ViewPort
 
     public void render( final Graphics g )
     {
-        g.drawString( "ViewPort::Width = " +  width, 100, 10 );
-        g.drawString( "ViewPort::Height = " +  height, 100, 25 );
+        //g.drawString( "ViewPort::Width = " +  width, 100, 10 );
+        //g.drawString( "ViewPort::Height = " +  height, 100, 25 );
     }
 }
