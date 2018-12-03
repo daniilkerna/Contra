@@ -7,13 +7,13 @@ import org.newdawn.slick.state.StateBasedGame;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedList;
 
-public class Player extends Entity {
+public class NetworkPlayer extends Entity {
     private static float PLAYER_VELOCITY_X = 0.1f;
     private static float PLAYER_VELOCITY_Y = 0.1f;
     private static float PLAYER_JUMP_DELAY_TMER = 500; //ms
 
+    private Player                      playerLocal;
     private PlayerState                 playerState;
     private PlayerMovement              playerMovement;
     private PlayerHorizontalDirection   playerHorizontalDirection;
@@ -32,9 +32,10 @@ public class Player extends Entity {
 
     private ArrayList<Bullet>           bulletArrayList;
 
-    public Player( World world ) {
+    public NetworkPlayer(World world , Player player1 ) {
         super();
 
+        this.playerLocal = player1;
         // Not on a platform
         playerPlatformed = false;
         isPlayerShooting = false;
@@ -253,13 +254,13 @@ public class Player extends Entity {
 
     public void getNewState( GameContainer gc, StateBasedGame sbg, int delta ) {
         //LEFT or RIGHT
-        if (gc.getInput().isKeyDown(Input.KEY_A)) {
+        if (gc.getInput().isKeyDown(Input.KEY_NUMPAD4)) {
             playerState               = PlayerState.RUNNING;
             playerMovement            = PlayerMovement.LEFT;
             playerHorizontalDirection = PlayerHorizontalDirection.LEFT;
         }
         else
-        if (gc.getInput().isKeyDown(Input.KEY_D)) {
+        if (gc.getInput().isKeyDown(Input.KEY_NUMPAD6)) {
             playerState               = PlayerState.RUNNING;
             playerMovement            = PlayerMovement.RIGHT;
             playerHorizontalDirection = PlayerHorizontalDirection.RIGHT;
@@ -269,11 +270,11 @@ public class Player extends Entity {
         }
 
         //UP or DOWN
-        if (gc.getInput().isKeyDown(Input.KEY_W)) {
+        if (gc.getInput().isKeyDown(Input.KEY_NUMPAD8)) {
             playerVerticalDirection = PlayerVerticalDirection.UP;
         }
         else
-        if (gc.getInput().isKeyDown(Input.KEY_S)){
+        if (gc.getInput().isKeyDown(Input.KEY_NUMPAD5)){
             playerVerticalDirection = PlayerVerticalDirection.DOWN;
         }
         else {
@@ -281,7 +282,7 @@ public class Player extends Entity {
         }
 
         // Jump Logic
-        if (gc.getInput().isKeyDown(Input.KEY_J)) {
+        if (gc.getInput().isKeyDown(Input.KEY_NUMPAD1)) {
             if (isPLayerSwimming){
                 return;
             }
@@ -309,7 +310,7 @@ public class Player extends Entity {
         switch (playerState)
         {
             case IDLE:
-                moveStop();
+                moveStop( delta );
                 removeAllImages();
 
                 switch (playerVerticalDirection) {
@@ -450,44 +451,78 @@ public class Player extends Entity {
         }
     }
 
-    public void moveStop() {
-        setPlayerVelocity(new Vector(0.0f, playerVelocity.getY()));
+    public void moveStop( int delta ) {
+       // playerVelocity = new Vector( 0, this.getPlayerVelocity().getY() );
+        if (isPLayerSwimming || playerState == PlayerState.JUMPING)
+            this.setPosition( this.getPosition().getX() + this.playerLocal.getPlayerVelocity().getX(), this.getPosition().getY() + this.getPlayerVelocity().getY() );
+        else
+            this.setPosition( this.getPosition().getX() + this.playerLocal.getPlayerVelocity().getX() * 0.5f, this.getPosition().getY() + this.getPlayerVelocity().getY() );
     }
 
     public void moveLeft( int delta ) {
         playerPosition = this.getPosition().subtract( ContraGame.VIEWPORT.getViewPortOffsetTopLeft() );
-        playerVelocity = new Vector( PLAYER_VELOCITY_X * delta, this.getPlayerVelocity().getY() );
-        ContraGame.VIEWPORT.shiftViewPortOffset(new Vector( playerVelocity.getX(), 0));
+        playerVelocity = new Vector( -PLAYER_VELOCITY_X * delta, this.getPlayerVelocity().getY() );
+        //setPosition( new Vector( playerPosition.getX() + playerVelocity.getX(), playerPosition.getY() + playerVelocity.getY() ));
+       // getPosition().scale( delta );
+
+        this.setPosition( this.getPosition().getX() + this.playerVelocity.getX() +  this.playerLocal.getPlayerVelocity().getX(), this.getPosition().getY() + this.getPlayerVelocity().getY() );
     }
 
     public void moveRight( int delta ) {
         playerPosition = this.getPosition().subtract( ContraGame.VIEWPORT.getViewPortOffsetTopLeft() );
-        playerVelocity = new Vector( -PLAYER_VELOCITY_X * delta, this.getPlayerVelocity().getY() );
-        ContraGame.VIEWPORT.shiftViewPortOffset(new Vector( playerVelocity.getX(), 0));
+        playerVelocity = new Vector( +PLAYER_VELOCITY_X * delta, this.getPlayerVelocity().getY() );
+
+        this.setPosition( this.getPosition().getX() + this.playerVelocity.getX() + this.playerLocal.getPlayerVelocity().getX(), this.getPosition().getY() + this.getPlayerVelocity().getY() );
+       // setPosition( new Vector( playerPosition.getX() + playerVelocity.getX(), playerPosition.getY() + playerVelocity.getY() ));
+       // getPosition().scale( delta );
+
+        //ContraGame.VIEWPORT.shiftViewPortOffset(new Vector(-PLAYER_VELOCITY_X * delta, 0 ));
     }
 
     public void updatePosition( int delta )
     {
+        switch ( playerMovement )
+        {
+            case RIGHT:
+                moveRight( delta ); break;
+            case LEFT:
+                moveLeft( delta ); break;
+            default:
+                moveStop( delta ); break;
+        }
+
         WorldBlock leftBlock  = playerWorld.getScreenBlock( this.getBottomLeftCorner() );
         WorldBlock rightBlock = playerWorld.getScreenBlock( this.getBottomRightCorner() );
 
-        if(leftBlock.getBlockTexture().equals("WATER") && rightBlock.getBlockTexture().equals("WATER") )
+        if(leftBlock.getBlockTexture().equals("WATER") && rightBlock.getBlockTexture().equals("WATER") ) {
             this.isPLayerSwimming = true;
+        }
+
+        if (isPLayerSwimming){
+            ArrayList<WorldBlock> cornerBlocks = new ArrayList<>();
+            cornerBlocks.add(leftBlock);
+            cornerBlocks.add(rightBlock);
+            for (WorldBlock i : cornerBlocks) {
+                if ( !i.getBlockTexture().equals("WATER")){
+                    this.isPLayerSwimming = false;
+                    this.setPosition(getX() + 10, getY() - 37);
+                }
+            }
+        }
 
         if( leftBlock == null || rightBlock == null ) {
             this.playerPlatformed = false;
 
-            setPlayerVelocity(new Vector(playerVelocity.getX(), playerVelocity.getY() + World.GRAVITY));
+            setPlayerVelocity(new Vector( playerVelocity.getX() + playerLocal.getPlayerVelocity().getX(), playerVelocity.getY() + World.GRAVITY));
             setPosition( getX(), getY() + playerVelocity.getY()*delta );
         }
         else
         if (rightBlock.getBlockType() != WorldBlockType.PLATFORM && leftBlock.getBlockType() != WorldBlockType.PLATFORM) {
 
             this.playerPlatformed = false;
-            setPlayerVelocity(new Vector(playerVelocity.getX(), playerVelocity.getY() + World.GRAVITY));
+            setPlayerVelocity(new Vector( playerVelocity.getX() + playerLocal.getPlayerVelocity().getX(), playerVelocity.getY() + World.GRAVITY));
             setPosition( getX(), getY() + playerVelocity.getY()*delta );
         }
-
         else
         {
             if( !this.playerPlatformed ) {
@@ -499,7 +534,6 @@ public class Player extends Entity {
                     if (i == null)
                         continue;
 
-
                     if( this.getPosition().getY() > i.getCoarseGrainedMinY() )
                         continue;
 
@@ -509,38 +543,17 @@ public class Player extends Entity {
 
                     if (this.getPlayerVelocity().getY() > 0.03f) {
                         this.setPosition(this.getPosition().add(collision.getMinPenetration()));
-                        this.setPlayerVelocity(new Vector(this.getPlayerVelocity().getX(), 0));
+                        this.setPlayerVelocity(new Vector(playerVelocity.getX() + playerLocal.getPlayerVelocity().getX(), 0));
                         this.playerPlatformed = true;
                         return;
                     }
-
                 }
-                setPlayerVelocity(new Vector(playerVelocity.getX(), playerVelocity.getY() + World.GRAVITY));
-                setPosition(getX(), getY() + playerVelocity.getY() * delta);
-            }
-
-            if (isPLayerSwimming){
-                ArrayList<WorldBlock> cornerBlocks = new ArrayList<>();
-                cornerBlocks.add(leftBlock);
-                cornerBlocks.add(rightBlock);
-                for (WorldBlock i : cornerBlocks) {
-                    if ( !i.getBlockTexture().equals("WATER")){
-                        this.isPLayerSwimming = false;
-                        this.setPosition(getX() + 10, getY() - 37);
-                    }
-
-                }
+                setPlayerVelocity(new Vector( playerVelocity.getX() + playerLocal.getPlayerVelocity().getX(), playerVelocity.getY() + World.GRAVITY));
+                setPosition( getX(), getY() + playerVelocity.getY()*delta );
             }
         }
-        switch ( playerMovement )
-        {
-            case RIGHT:
-                moveRight( delta ); break;
-            case LEFT:
-                moveLeft( delta ); break;
-            default:
-                moveStop(); break;
-        }
+
+
     }
 
     public Vector getPlayerVelocity() {
