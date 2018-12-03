@@ -19,7 +19,7 @@ import org.newdawn.slick.*;
  * 
  */
 public class ContraGame extends StateBasedGame {
-	
+
 	public static final int STARTUPSTATE = 0;
 	public static final int PLAYINGSTATE = 1;
 	public static final int GAMEOVERSTATE = 3;
@@ -30,19 +30,7 @@ public class ContraGame extends StateBasedGame {
 	 */
 	public static final String Contra_Banner_RSC          = "resource/contra_banner.png";
 
-    /*Player swimming animations*/
-    public static final String PLAYER_WATER_RIGHT     		= "resource/player/animation_water_right.png";
-    public static final String PLAYER_WATER_LEFT   			= "resource/player/animation_water_left.png";
-	public static final String PLAYER_WATER_DOWN  			= "resource/player/animation_water_down.png";
-    public static final String PLAYER_WATER_GUN_UP_RIGHT    = "resource/player/animation_water_gun_up_rightfacing.png";
-    public static final String PLAYER_WATER_GUN_UP_LEFT    = "resource/player/animation_water_gun_up_leftfacing.png";
-    public static final String PLAYER_WATER_GUN_RIGHTUP    = "resource/player/animation_water_gun_rightup.png";
-    public static final String PLAYER_WATER_GUN_LEFTUP    = "resource/player/animation_water_gun_leftup.png";
-    public static final String PLAYER_WATER_FIRE_RIGHT    = "resource/player/animation_water_fire_right.png";
-    public static final String PLAYER_WATER_FIRE_LEFT    = "resource/player/animation_water_fire_left.png";
-
-
-    /* Player prone animations */
+	/* Player prone animations */
 	public static final String PLAYER_PRONE_LEFT_RSC      = "resource/player/animation_prone_left.png";
 	public static final String PLAYER_PRONE_RIGHT_RSC     = "resource/player/animation_prone_right.png";
 
@@ -70,6 +58,7 @@ public class ContraGame extends StateBasedGame {
 	public static final String PLAYER_FIRE_RUN_RIGHT_RSC   = "resource/player/animation_fire_run_right.png";
 
 
+	public static final String WORLD_BLOCK_BOSS                          = "resource/block/boss.png";
 	public static final String WORLD_BLOCK_GOLD_RSC      				 = "resource/block/gold_brick.png";
 	public static final String WORLD_BLOCK_GRASS_PLATFORM_LEFT_RSC       = "resource/block/grass_platform_left.png";
 	public static final String WORLD_BLOCK_GRASS_PLATFORM_RIGHT_RSC      = "resource/block/grass_platform_right.png";
@@ -80,24 +69,35 @@ public class ContraGame extends StateBasedGame {
 	public static final String WORLD_BLOCK_BRIDGE_PLATFORM_SUPPORT_RIGHT_RSC      = "resource/block/bridge_platform_support_right.png";
 	public static final String WORLD_BLOCK_BRIDGE_PLATFORM_SUPPORT_CENTER_RSC     = "resource/block/bridge_platform_support_center.png";
 
-
 	public static final String WORLD_BLOCK_CLIFF_TL                        = "resource/block/cliff_texture_tl.png";
 	public static final String WORLD_BLOCK_CLIFF_TR                        = "resource/block/cliff_texture_tr.png";
 	public static final String WORLD_BLOCK_CLIFF_BL                        = "resource/block/cliff_texture_bl.png";
 	public static final String WORLD_BLOCK_CLIFF_BR                        = "resource/block/cliff_texture_br.png";
 	public static final String WORLD_BLOCK_CLIFF_TBL                       = "resource/block/cliff_texture_tbl.png";
 	public static final String WORLD_BLOCK_CLIFF_TBR                       = "resource/block/cliff_texture_tbr.png";
-	public static final String WORLD_BLOCK_WATER                      	   = "resource/block/water.png";
-	public static final String WORLD_BLOCK_WATER_TOP                       = "resource/block/water_top.png";
-    public static final String WORLD_BLOCK_WATER_TOP_ANIMATION             = "resource/block/water_top_animation.png";
 
+	public static final String WORLD_BLOCK_VINE_BL                         = "resource/block/vine_texture_bl.png";
+	public static final String WORLD_BLOCK_VINE_BR                         = "resource/block/vine_texture_br.png";
+	public static final String WORLD_BLOCK_VINE_CL                         = "resource/block/vine_texture_cl.png";
+	public static final String WORLD_BLOCK_VINE_CR                         = "resource/block/vine_texture_cr.png";
+	public static final String WORLD_BLOCK_VINE_TL                         = "resource/block/vine_texture_tl.png";
+	public static final String WORLD_BLOCK_VINE_TR                         = "resource/block/vine_texture_tr.png";
+	public static final String WORLD_BLOCK_VINE_CCL                        = "resource/block/vine_texture_ccl.png";
+	public static final String WORLD_BLOCK_VINE_CCR                        = "resource/block/vine_texture_ccr.png";
+	public static final String WORLD_BLOCK_VINE_CCS                        = "resource/block/vine_texture_ccs.png";
 
-    public static final String WORLD_BLOCK_VINE_BOTTOM_LEFT                = "resource/block/vine_bottom_left.png";
-	public static final String WORLD_BLOCK_VINE_BOTTOM_RIGHT               = "resource/block/vine_bottom_right.png";
+	public static final String WORLD_BLOCK_JUNGLE_TL                       = "resource/block/jungle_texture_tl.png";
+	public static final String WORLD_BLOCK_JUNGLE_TR                       = "resource/block/jungle_texture_tr.png";
+	public static final String WORLD_BLOCK_JUNGLE_BL                       = "resource/block/jungle_texture_bl.png";
+	public static final String WORLD_BLOCK_JUNGLE_BR                       = "resource/block/jungle_texture_br.png";
+	public static final String WORLD_BLOCK_JUNGLE_CT                       = "resource/block/jungle_texture_ct.png";;
+	public static final String WORLD_BLOCK_JUNGLE_CB                       = "resource/block/jungle_texture_cb.png";;
 
 
 	public static final String WORLD_BLOCK_WATERFALL_ANIMATION             = "resource/block/waterfall_animation.png";
 	public static final String WORLD_BLOCK_WATERFALL_ANIMATION_TOP         = "resource/block/waterfall_animation_top.png";
+
+
 	//Bullet Images
 	public static final String BULLET_REGULAR_RSC                          = "resource/bullet/regular.png";
 	public static final String BULLET_UPGRADE_RSC                          = "resource/bullet/upgrade.png";
@@ -132,7 +132,7 @@ public class ContraGame extends StateBasedGame {
 
 	/**
 	 * Create the BounceGame frame, saving the width and height for later use.
-	 * 
+	 *
 	 * @param title
 	 *            the window's title
 
@@ -191,17 +191,6 @@ public class ContraGame extends StateBasedGame {
 	* */
 	private void loadPlayerAssets()
 	{
-        /*Player swimming animations*/
-        ResourceManager.loadImage( PLAYER_WATER_RIGHT     );
-        ResourceManager.loadImage( PLAYER_WATER_LEFT    );
-		ResourceManager.loadImage( PLAYER_WATER_DOWN    );
-        ResourceManager.loadImage( PLAYER_WATER_GUN_UP_RIGHT     );
-        ResourceManager.loadImage( PLAYER_WATER_GUN_UP_LEFT    );
-        ResourceManager.loadImage( PLAYER_WATER_GUN_RIGHTUP     );
-        ResourceManager.loadImage( PLAYER_WATER_GUN_LEFTUP    );
-        ResourceManager.loadImage( PLAYER_WATER_FIRE_RIGHT    );
-        ResourceManager.loadImage( PLAYER_WATER_FIRE_LEFT    );
-
 		/*Player prone animations*/
 		ResourceManager.loadImage( PLAYER_PRONE_LEFT_RSC     );
 		ResourceManager.loadImage( PLAYER_PRONE_RIGHT_RSC    );
@@ -226,62 +215,6 @@ public class ContraGame extends StateBasedGame {
 		//Bullet Images
 		ResourceManager.loadImage( BULLET_REGULAR_RSC  );
 		ResourceManager.loadImage( BULLET_UPGRADE_RSC  );
-
-		/* Set image filtering */
-        /**/
-        ResourceManager.getImage( PLAYER_WATER_RIGHT  ).setFilter(Image.FILTER_NEAREST);
-        ResourceManager.getImage( PLAYER_WATER_LEFT ).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage( PLAYER_WATER_DOWN ).setFilter(Image.FILTER_NEAREST);
-        ResourceManager.getImage( PLAYER_WATER_GUN_UP_RIGHT  ).setFilter(Image.FILTER_NEAREST);
-        ResourceManager.getImage( PLAYER_WATER_GUN_UP_LEFT ).setFilter(Image.FILTER_NEAREST);
-        ResourceManager.getImage( PLAYER_WATER_GUN_RIGHTUP  ).setFilter(Image.FILTER_NEAREST);
-        ResourceManager.getImage( PLAYER_WATER_GUN_LEFTUP ).setFilter(Image.FILTER_NEAREST);
-        /**/
-		ResourceManager.getImage( PLAYER_PRONE_LEFT_RSC     ).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage( PLAYER_PRONE_RIGHT_RSC    ).setFilter(Image.FILTER_NEAREST);
-		/**/
-		ResourceManager.getImage( PLAYER_RUN_LEFT_RSC       ).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage( PLAYER_RUN_LEFT_UP_RSC    ).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage( PLAYER_RUN_LEFT_DOWN_RSC  ).setFilter(Image.FILTER_NEAREST);
-		/**/
-		ResourceManager.getImage( PLAYER_RUN_RIGHT_RSC      ).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage( PLAYER_RUN_RIGHT_UP_RSC   ).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage( PLAYER_RUN_RIGHT_DOWN_RSC ).setFilter(Image.FILTER_NEAREST);
-		/**/
-		ResourceManager.getImage( PLAYER_RUN_JUMP_LEFT_RSC  ).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage( PLAYER_RUN_JUMP_RIGHT_RSC ).setFilter(Image.FILTER_NEAREST);
-		/**/
-		ResourceManager.getImage( PLAYER_FIRE_LEFT_RSC      ).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage( PLAYER_FIRE_RIGHT_RSC     ).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage( PLAYER_FIRE_LEFT_UP_RSC   ).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage( PLAYER_FIRE_RIGHT_UP_RSC  ).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage( PLAYER_FIRE_RUN_LEFT_RSC  ).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage( PLAYER_FIRE_RUN_RIGHT_RSC ).setFilter(Image.FILTER_NEAREST);
-		/**/
-		ResourceManager.getImage( BULLET_REGULAR_RSC  ).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage( BULLET_UPGRADE_RSC  ).setFilter(Image.FILTER_NEAREST);
-
-
-        /*Player swimming animations*/
-        spriteSheetHashMap.put( "PLAYER_WATER_RIGHT_SS"  ,
-                new SpriteSheet( ResourceManager.getImage( PLAYER_WATER_RIGHT     ), 16 , 16 ) );
-        spriteSheetHashMap.put( "PLAYER_WATER_DOWN_SS"  ,
-                new SpriteSheet( ResourceManager.getImage( PLAYER_WATER_DOWN    ), 16 , 16 ) );
-		spriteSheetHashMap.put( "PLAYER_WATER_LEFT_SS"  ,
-				new SpriteSheet( ResourceManager.getImage( PLAYER_WATER_LEFT    ), 16 , 16 ) );
-        spriteSheetHashMap.put( "PLAYER_WATER_GUN_UP_RIGHT_SS"  ,
-                new SpriteSheet( ResourceManager.getImage( PLAYER_WATER_GUN_UP_RIGHT    ), 17  , 27 ) );
-        spriteSheetHashMap.put( "PLAYER_WATER_GUN_UP_LEFT_SS"  ,
-                new SpriteSheet( ResourceManager.getImage( PLAYER_WATER_GUN_UP_LEFT   ), 17 , 27 ) );
-        spriteSheetHashMap.put( "PLAYER_WATER_GUN_RIGHTUP_SS"  ,
-                new SpriteSheet( ResourceManager.getImage( PLAYER_WATER_GUN_RIGHTUP    ), 19  , 17 ) );
-        spriteSheetHashMap.put( "PLAYER_WATER_GUN_LEFTUP_SS"  ,
-                new SpriteSheet( ResourceManager.getImage( PLAYER_WATER_GUN_LEFTUP   ), 19 , 17 ) );
-
-        spriteSheetHashMap.put( "PLAYER_WATER_FIRE_RIGHT_SS"  ,
-                new SpriteSheet( ResourceManager.getImage( PLAYER_WATER_FIRE_RIGHT    ), 25  , 16 ) );
-        spriteSheetHashMap.put( "PLAYER_WATER_FIRE_LEFT_SS"  ,
-                new SpriteSheet( ResourceManager.getImage( PLAYER_WATER_FIRE_LEFT   ), 25 , 16 ) );
 
 		/* Prone Animation */
 		spriteSheetHashMap.put( "PLAYER_PRONE_LEFT_SS"  ,
@@ -338,8 +271,9 @@ public class ContraGame extends StateBasedGame {
 	 */
 	private void loadWorldAssets()
 	{
-		ResourceManager.loadImage(WORLD_BLOCK_GOLD_RSC);
+		ResourceManager.loadImage(WORLD_BLOCK_BOSS);
 
+		ResourceManager.loadImage(WORLD_BLOCK_GOLD_RSC);
 		ResourceManager.loadImage(WORLD_BLOCK_GRASS_PLATFORM_LEFT_RSC);
 		ResourceManager.loadImage(WORLD_BLOCK_GRASS_PLATFORM_RIGHT_RSC);
 
@@ -356,40 +290,29 @@ public class ContraGame extends StateBasedGame {
 		ResourceManager.loadImage(WORLD_BLOCK_CLIFF_BR);
 		ResourceManager.loadImage(WORLD_BLOCK_CLIFF_TBL);
 		ResourceManager.loadImage(WORLD_BLOCK_CLIFF_TBR);
-		ResourceManager.loadImage(WORLD_BLOCK_WATER);
-		ResourceManager.loadImage(WORLD_BLOCK_WATER_TOP);
-        ResourceManager.loadImage(WORLD_BLOCK_WATER_TOP_ANIMATION);
 
+		ResourceManager.loadImage(WORLD_BLOCK_JUNGLE_TL);
+		ResourceManager.loadImage(WORLD_BLOCK_JUNGLE_TR);
+		ResourceManager.loadImage(WORLD_BLOCK_JUNGLE_BL);
+		ResourceManager.loadImage(WORLD_BLOCK_JUNGLE_BR);
+		ResourceManager.loadImage(WORLD_BLOCK_JUNGLE_CB);
+		ResourceManager.loadImage(WORLD_BLOCK_JUNGLE_CT);
 
+		ResourceManager.loadImage(WORLD_BLOCK_VINE_BL);
+		ResourceManager.loadImage(WORLD_BLOCK_VINE_BR);
+		ResourceManager.loadImage(WORLD_BLOCK_VINE_CL);
+		ResourceManager.loadImage(WORLD_BLOCK_VINE_CR);
+		ResourceManager.loadImage(WORLD_BLOCK_VINE_TL);
+		ResourceManager.loadImage(WORLD_BLOCK_VINE_TR);
+		ResourceManager.loadImage(WORLD_BLOCK_VINE_CCL);
+		ResourceManager.loadImage(WORLD_BLOCK_VINE_CCR);
+		ResourceManager.loadImage(WORLD_BLOCK_VINE_CCS);
+		ResourceManager.loadImage(WORLD_BLOCK_VINE_CCR);
 
-        ResourceManager.loadImage(WORLD_BLOCK_WATERFALL_ANIMATION);
+		ResourceManager.loadImage(WORLD_BLOCK_WATERFALL_ANIMATION);
 		ResourceManager.loadImage(WORLD_BLOCK_WATERFALL_ANIMATION_TOP);
 
-		ResourceManager.getImage(WORLD_BLOCK_GOLD_RSC).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage(WORLD_BLOCK_GRASS_PLATFORM_LEFT_RSC).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage(WORLD_BLOCK_GRASS_PLATFORM_RIGHT_RSC).setFilter(Image.FILTER_NEAREST);
-
-		ResourceManager.getImage(WORLD_BLOCK_BRIDGE_PLATFORM_LEFT_RSC).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage(WORLD_BLOCK_BRIDGE_PLATFORM_RIGHT_RSC).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage(WORLD_BLOCK_BRIDGE_PLATFORM_SUPPORT_LEFT_RSC).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage(WORLD_BLOCK_BRIDGE_PLATFORM_SUPPORT_RIGHT_RSC).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage(WORLD_BLOCK_BRIDGE_PLATFORM_SUPPORT_CENTER_RSC).setFilter(Image.FILTER_NEAREST);
-
-		ResourceManager.getImage(WORLD_BLOCK_CLIFF_TL).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage(WORLD_BLOCK_CLIFF_TR).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage(WORLD_BLOCK_CLIFF_BL).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage(WORLD_BLOCK_CLIFF_BR).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage(WORLD_BLOCK_CLIFF_TBL).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage(WORLD_BLOCK_CLIFF_TBR).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage(WORLD_BLOCK_WATER).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage(WORLD_BLOCK_WATER_TOP).setFilter(Image.FILTER_NEAREST);
-        ResourceManager.getImage(WORLD_BLOCK_WATER_TOP_ANIMATION).setFilter(Image.FILTER_NEAREST);
-
-
-
-
-        ResourceManager.getImage(WORLD_BLOCK_WATERFALL_ANIMATION).setFilter(Image.FILTER_NEAREST);
-		ResourceManager.getImage(WORLD_BLOCK_WATERFALL_ANIMATION_TOP).setFilter(Image.FILTER_NEAREST);
+		blockTextureHashMap.put( "BOSS"                , ResourceManager.getImage(WORLD_BLOCK_BOSS) );
 
 		blockTextureHashMap.put( "GOLD_BRICK"          , ResourceManager.getImage(WORLD_BLOCK_GOLD_RSC) );
 		blockTextureHashMap.put( "GRASS_PLATFORM_LEFT" , ResourceManager.getImage(WORLD_BLOCK_GRASS_PLATFORM_LEFT_RSC) );
@@ -407,14 +330,25 @@ public class ContraGame extends StateBasedGame {
 		blockTextureHashMap.put( "CLIFF_BR" , ResourceManager.getImage(WORLD_BLOCK_CLIFF_BR) );
 		blockTextureHashMap.put( "CLIFF_TBL" , ResourceManager.getImage(WORLD_BLOCK_CLIFF_TBL) );
 		blockTextureHashMap.put( "CLIFF_TBR" , ResourceManager.getImage(WORLD_BLOCK_CLIFF_TBR) );
-		blockTextureHashMap.put( "WATER" , ResourceManager.getImage(WORLD_BLOCK_WATER) );
-		blockTextureHashMap.put( "WATER_TOP" , ResourceManager.getImage(WORLD_BLOCK_WATER_TOP) );
 
+		blockTextureHashMap.put( "JUNGLE_TL" , ResourceManager.getImage(WORLD_BLOCK_JUNGLE_TL) );
+		blockTextureHashMap.put( "JUNGLE_TR" , ResourceManager.getImage(WORLD_BLOCK_JUNGLE_TR) );
+		blockTextureHashMap.put( "JUNGLE_BL" , ResourceManager.getImage(WORLD_BLOCK_JUNGLE_BL) );
+		blockTextureHashMap.put( "JUNGLE_BR" , ResourceManager.getImage(WORLD_BLOCK_JUNGLE_BR) );
+		blockTextureHashMap.put( "JUNGLE_CB" , ResourceManager.getImage(WORLD_BLOCK_JUNGLE_CB) );
+		blockTextureHashMap.put( "JUNGLE_CT" , ResourceManager.getImage(WORLD_BLOCK_JUNGLE_CT) );
 
+		blockTextureHashMap.put( "VINE_TL" ,ResourceManager.getImage(WORLD_BLOCK_VINE_BL) );
+		blockTextureHashMap.put( "VINE_TR" ,ResourceManager.getImage(WORLD_BLOCK_VINE_BR) );
+		blockTextureHashMap.put( "VINE_CL" ,ResourceManager.getImage(WORLD_BLOCK_VINE_CL) );
+		blockTextureHashMap.put( "VINE_CR" ,ResourceManager.getImage(WORLD_BLOCK_VINE_CR) );
+		blockTextureHashMap.put( "VINE_BL" ,ResourceManager.getImage(WORLD_BLOCK_VINE_TL) );
+		blockTextureHashMap.put( "VINE_BR" ,ResourceManager.getImage(WORLD_BLOCK_VINE_TR) );
+		blockTextureHashMap.put( "VINE_CCL" ,ResourceManager.getImage(WORLD_BLOCK_VINE_CCL) );
+		blockTextureHashMap.put( "VINE_CCR" ,ResourceManager.getImage(WORLD_BLOCK_VINE_CCR) );
+		blockTextureHashMap.put( "VINE_CCS" ,ResourceManager.getImage(WORLD_BLOCK_VINE_CCS) );
 
-		blockSpriteSheetHashMap.put( "WATERFALL_ANIMATION"    , new SpriteSheet( ResourceManager.getImage( WORLD_BLOCK_WATERFALL_ANIMATION ), 16 , 16 ) );
+		blockSpriteSheetHashMap.put( "WATERFALL_ANIMATION"    , new SpriteSheet( ResourceManager.getImage( WORLD_BLOCK_WATERFALL_ANIMATION )    , 16 , 16 ) );
 		blockSpriteSheetHashMap.put( "WATERFALL_ANIMATION_TOP", new SpriteSheet( ResourceManager.getImage( WORLD_BLOCK_WATERFALL_ANIMATION_TOP ), 16 , 16 ) );
-        blockSpriteSheetHashMap.put( "WATER_TOP_ANIMATION", new SpriteSheet( ResourceManager.getImage( WORLD_BLOCK_WATER_TOP_ANIMATION ), 16 , 16 ) );
-
-    }
+	}
 }
