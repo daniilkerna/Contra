@@ -7,6 +7,7 @@ public class WorldBlock extends Entity {
     private WorldBlockType blockType;
     private Vector         blockWorldPosition;
     private String         blockTexture;
+    private boolean        blockAnimation;
     private int            horizontalIndex;
     private int            verticalIndex;
 
@@ -15,6 +16,7 @@ public class WorldBlock extends Entity {
         this.horizontalIndex = hIndex;
         this.verticalIndex   = vIndex;
         this.blockTexture    = blockTexture;
+        this.blockAnimation  = false;
 
         Image i = ContraGame.getBlockTexture(blockTexture);
         if (i != null) {
@@ -26,6 +28,7 @@ public class WorldBlock extends Entity {
             if (ss != null) {
                 addAnimation(new Animation(ss, 0, 0, 1, 0, true, 150, true));
                 setScale(2.0f);
+                this.blockAnimation = true;
             }
         }
         setPosition( ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getX() + hIndex * World.BLOCK_WIDTH  + World.BLOCK_HEIGHT/2.0f,
@@ -48,14 +51,14 @@ public class WorldBlock extends Entity {
 
     public boolean isOnScreen()
     {
-        if( this.getX() > -50.0f && this.getX() < ContraGame.VIEWPORT.getWidth() + 50.0f )
+        if( this.getX() > -50.0f && this.getX() < ContraGame.VIEWPORT.getWidth() + 100.0f )
             return true;
         return  false;
     }
 
     public void render(final Graphics g)
     {
-        if( isOnScreen() )
+        if( isOnScreen() || blockAnimation )
             super.render(g);
     }
 

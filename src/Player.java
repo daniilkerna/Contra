@@ -25,6 +25,7 @@ public class Player extends Entity {
     private World                       playerWorld;
     private boolean                     playerPlatformed;
     private boolean                     isPlayerShooting;
+    private boolean                     isPLayerSwimming;
     private float                       playerYOffset;
 
     private HashMap<String, Animation>  playerAnimations;
@@ -37,6 +38,7 @@ public class Player extends Entity {
         // Not on a platform
         playerPlatformed = false;
         isPlayerShooting = false;
+        isPLayerSwimming = false;
 
         playerWorld = world;
 
@@ -47,6 +49,34 @@ public class Player extends Entity {
 
         playerAnimations = new HashMap<>();
         bulletArrayList = new ArrayList<>();
+
+
+        playerAnimations.put( "PLAYER_WATER_RIGHT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_RIGHT_SS") , 0, 0, 0, 0, true, 150, true));
+
+        playerAnimations.put( "PLAYER_WATER_LEFT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_LEFT_SS" ), 0,0, 0,0, true, 150, true ));
+
+        playerAnimations.put( "PLAYER_WATER_DOWN",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_DOWN_SS" ), 0,0, 0,0, true, 150, true ));
+
+        playerAnimations.put( "PLAYER_WATER_GUN_UP_RIGHT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_GUN_UP_RIGHT_SS") , 0, 0, 0, 0, true, 150, true));
+
+        playerAnimations.put( "PLAYER_WATER_GUN_UP_LEFT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_GUN_UP_LEFT_SS" ), 0,0, 0,0, true, 150, true ));
+
+        playerAnimations.put( "PLAYER_WATER_GUN_RIGHTUP",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_GUN_RIGHTUP_SS") , 0, 0, 0, 0, true, 150, true));
+
+        playerAnimations.put( "PLAYER_WATER_GUN_LEFTUP",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_GUN_LEFTUP_SS" ), 0,0, 0,0, true, 150, true ));
+
+        playerAnimations.put( "PLAYER_WATER_FIRE_RIGHT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_FIRE_RIGHT_SS") , 0, 0, 0, 0, true, 150, true));
+
+        playerAnimations.put( "PLAYER_WATER_FIRE_LEFT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_FIRE_LEFT_SS" ), 0,0, 0,0, true, 150, true ));
 
         playerAnimations.put( "PLAYER_PRONE_LEFT",
                 new Animation(ContraGame.getSpriteSheet("PLAYER_PRONE_LEFT_SS") , 0, 0, 0, 0, true, 150, true));
@@ -252,6 +282,10 @@ public class Player extends Entity {
 
         // Jump Logic
         if (gc.getInput().isKeyDown(Input.KEY_J)) {
+            if (isPLayerSwimming){
+                return;
+            }
+
             playerState      = PlayerState.JUMPING;
             if (playerPlatformed) {
                 playerVelocity = new Vector(0, -0.4f);
@@ -267,6 +301,10 @@ public class Player extends Entity {
     public void updateState( GameContainer gc, StateBasedGame sbg, int delta )
     {
         ContraGame contraGame = (ContraGame)sbg;
+        if (isPLayerSwimming){
+            this.playerState = PlayerState.SWIMMING;
+        }
+
 
         switch (playerState)
         {
@@ -359,6 +397,56 @@ public class Player extends Entity {
                         }
                         break;
                 }
+                break;
+
+            case SWIMMING:
+                switch (playerVerticalDirection){
+                    case NONE:
+                        switch (playerHorizontalDirection) {
+                            case LEFT:
+                                if (isPlayerShooting){
+                                    setAnimation("PLAYER_WATER_FIRE_LEFT");
+                                }
+                                else
+                                    setAnimation("PLAYER_WATER_LEFT");
+                                break;
+                            case RIGHT:
+                                if (isPlayerShooting)
+                                    setAnimation("PLAYER_WATER_FIRE_RIGHT");
+                                else
+                                    setAnimation("PLAYER_WATER_RIGHT");
+                                break;
+                        }
+                        break;
+
+                    case UP:
+                        switch (playerMovement) {
+                            case LEFT:
+                                setAnimation("PLAYER_WATER_GUN_LEFTUP");
+                                break;
+                            case RIGHT:
+                                setAnimation("PLAYER_WATER_GUN_RIGHTUP");
+                                break;
+                            case NONE:
+                                switch (playerHorizontalDirection) {
+                                    case LEFT:
+                                        setAnimation("PLAYER_WATER_GUN_UP_LEFT");
+                                        break;
+                                    case RIGHT:
+                                        setAnimation("PLAYER_WATER_GUN_UP_RIGHT");
+                                        break;
+                                }
+
+                        }
+                        break;
+
+                    case DOWN:
+                        setAnimation("PLAYER_WATER_DOWN");
+                        break;
+
+                }
+
+
         }
     }
 
@@ -399,6 +487,11 @@ public class Player extends Entity {
             setPosition( getX(), getY() + playerVelocity.getY()*delta );
         }
         else
+            if(leftBlock.getBlockTexture().equals("WATER") && rightBlock.getBlockTexture().equals("WATER") ){
+                    this.isPLayerSwimming = true;
+
+            }
+        else
         {
             if( !this.playerPlatformed ) {
                 ArrayList<WorldBlock> cornerBlocks = new ArrayList<>();
@@ -408,6 +501,7 @@ public class Player extends Entity {
                 for (WorldBlock i : cornerBlocks) {
                     if (i == null)
                         continue;
+
 
                     if( this.getPosition().getY() > i.getCoarseGrainedMinY() )
                         continue;
@@ -420,12 +514,28 @@ public class Player extends Entity {
                         this.setPosition(this.getPosition().add(collision.getMinPenetration()));
                         this.setPlayerVelocity(new Vector(this.getPlayerVelocity().getX(), 0));
                         this.playerPlatformed = true;
+
+
                         return;
                     }
 
                 }
                 setPlayerVelocity(new Vector(playerVelocity.getX(), playerVelocity.getY() + World.GRAVITY));
                 setPosition(getX(), getY() + playerVelocity.getY() * delta);
+            }
+
+            if (isPLayerSwimming){
+                ArrayList<WorldBlock> cornerBlocks = new ArrayList<>();
+                cornerBlocks.add(leftBlock);
+                cornerBlocks.add(rightBlock);
+                for (WorldBlock i : cornerBlocks) {
+                    if ( !i.getBlockTexture().equals("WATER")){
+                        this.isPLayerSwimming = false;
+                        this.setPosition(getX() + 10, getY() - 37);
+                    }
+
+                    System.out.println(i.getBlockTexture());
+                }
             }
         }
         switch ( playerMovement )
