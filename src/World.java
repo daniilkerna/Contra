@@ -127,71 +127,65 @@ public class World
 
         this.selectedScreenBlock = getScreenBlock( new Vector( mx, my ) );
 
-        if( input.isKeyPressed( Input.KEY_F5 ) ) {
-            this.saveWorldToFile( "one" );
+        if (input.isKeyPressed(Input.KEY_F5)) {
+            this.saveWorldToFile("one");
         }
 
-        if( input.isMouseButtonDown( Input.MOUSE_LEFT_BUTTON) )
+        if( this.selectedScreenBlock != null )
         {
-            this.worldBlocks[selectedScreenBlock.getHorizontalIndex()][selectedScreenBlock.getVerticalIndex()] =
-                    new WorldBlock( WorldBlockType.NONE, selectedScreenBlock.getHorizontalIndex(), selectedScreenBlock.getVerticalIndex(), null );
+            if (input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)) {
+                this.worldBlocks[selectedScreenBlock.getHorizontalIndex()][selectedScreenBlock.getVerticalIndex()] =
+                        new WorldBlock(WorldBlockType.NONE, selectedScreenBlock.getHorizontalIndex(), selectedScreenBlock.getVerticalIndex(), null);
+            }
+
+            if (input.isKeyDown(Input.KEY_3)) {
+                this.worldBlocks[selectedScreenBlock.getHorizontalIndex()][selectedScreenBlock.getVerticalIndex()] =
+                        new WorldBlock(WorldBlockType.NONE, selectedScreenBlock.getHorizontalIndex(), selectedScreenBlock.getVerticalIndex(), "CLIFF_TL");
+
+                this.worldBlocks[selectedScreenBlock.getHorizontalIndex() + 1][selectedScreenBlock.getVerticalIndex()] =
+                        new WorldBlock(WorldBlockType.NONE, selectedScreenBlock.getHorizontalIndex() + 1, selectedScreenBlock.getVerticalIndex(), "CLIFF_TR");
+            }
+
+
+            if (input.isKeyDown(Input.KEY_6)) {
+                this.worldBlocks[selectedScreenBlock.getHorizontalIndex()][selectedScreenBlock.getVerticalIndex()] =
+                        new WorldBlock(WorldBlockType.NONE, selectedScreenBlock.getHorizontalIndex(), selectedScreenBlock.getVerticalIndex(), "BOSS");
+            }
+
+
+            if (input.isKeyDown(Input.KEY_8)) {
+                this.worldBlocks[selectedScreenBlock.getHorizontalIndex()][selectedScreenBlock.getVerticalIndex()] =
+                        new WorldBlock(WorldBlockType.NONE, selectedScreenBlock.getHorizontalIndex(), selectedScreenBlock.getVerticalIndex(), "WATERFALL_ANIMATION_TOP");
+            }
+
+
+            if (input.isKeyDown(Input.KEY_1)) {
+                this.worldBlocks[selectedScreenBlock.getHorizontalIndex()][selectedScreenBlock.getVerticalIndex()] =
+                        new WorldBlock(WorldBlockType.PLATFORM, selectedScreenBlock.getHorizontalIndex(), selectedScreenBlock.getVerticalIndex(), "GRASS_PLATFORM_LEFT");
+
+                this.worldBlocks[selectedScreenBlock.getHorizontalIndex() + 1][selectedScreenBlock.getVerticalIndex()] =
+                        new WorldBlock(WorldBlockType.PLATFORM, selectedScreenBlock.getHorizontalIndex() + 1, selectedScreenBlock.getVerticalIndex(), "GRASS_PLATFORM_RIGHT");
+            }
+
+            if (input.isKeyDown(Input.KEY_2)) {
+                this.worldBlocks[selectedScreenBlock.getHorizontalIndex()][selectedScreenBlock.getVerticalIndex()] =
+                        new WorldBlock(WorldBlockType.PLATFORM, selectedScreenBlock.getHorizontalIndex(), selectedScreenBlock.getVerticalIndex(), "BRIDGE_PLATFORM_LEFT");
+
+                this.worldBlocks[selectedScreenBlock.getHorizontalIndex() + 1][selectedScreenBlock.getVerticalIndex()] =
+                        new WorldBlock(WorldBlockType.PLATFORM, selectedScreenBlock.getHorizontalIndex() + 1, selectedScreenBlock.getVerticalIndex(), "BRIDGE_PLATFORM_RIGHT");
+            }
+
+            if (input.isKeyDown(Input.KEY_9)) {
+                this.worldBlocks[selectedScreenBlock.getHorizontalIndex()][selectedScreenBlock.getVerticalIndex()] =
+                        new WorldBlock(WorldBlockType.PLATFORM, selectedScreenBlock.getHorizontalIndex(), selectedScreenBlock.getVerticalIndex(), "WATER");
+
+            }
+            if (input.isKeyDown(Input.KEY_0)) {
+                this.worldBlocks[selectedScreenBlock.getHorizontalIndex()][selectedScreenBlock.getVerticalIndex()] =
+                        new WorldBlock(WorldBlockType.NONE, selectedScreenBlock.getHorizontalIndex(), selectedScreenBlock.getVerticalIndex(), "WATER_TOP_ANIMATION");
+
+            }
         }
-
-        if( input.isKeyDown( Input.KEY_3 ) )
-        {
-            this.worldBlocks[selectedScreenBlock.getHorizontalIndex()][selectedScreenBlock.getVerticalIndex()] =
-                    new WorldBlock( WorldBlockType.NONE, selectedScreenBlock.getHorizontalIndex(), selectedScreenBlock.getVerticalIndex(), "CLIFF_TL" );
-
-            this.worldBlocks[selectedScreenBlock.getHorizontalIndex()+1][selectedScreenBlock.getVerticalIndex()] =
-                    new WorldBlock( WorldBlockType.NONE, selectedScreenBlock.getHorizontalIndex()+1, selectedScreenBlock.getVerticalIndex(), "CLIFF_TR" );
-        }
-
-
-        if( input.isKeyDown( Input.KEY_6 ) )
-        {
-            this.worldBlocks[selectedScreenBlock.getHorizontalIndex()][selectedScreenBlock.getVerticalIndex()] =
-                    new WorldBlock( WorldBlockType.NONE, selectedScreenBlock.getHorizontalIndex(), selectedScreenBlock.getVerticalIndex(), "BOSS" );
-        }
-
-
-        if( input.isKeyDown( Input.KEY_8 ) )
-        {
-            this.worldBlocks[selectedScreenBlock.getHorizontalIndex()][selectedScreenBlock.getVerticalIndex()] =
-                    new WorldBlock( WorldBlockType.NONE, selectedScreenBlock.getHorizontalIndex(), selectedScreenBlock.getVerticalIndex(), "WATERFALL_ANIMATION_TOP" );
-        }
-
-
-        if( input.isKeyDown( Input.KEY_1 ))
-        {
-            this.worldBlocks[selectedScreenBlock.getHorizontalIndex()][selectedScreenBlock.getVerticalIndex()] =
-                    new WorldBlock( WorldBlockType.PLATFORM, selectedScreenBlock.getHorizontalIndex(), selectedScreenBlock.getVerticalIndex(), "GRASS_PLATFORM_LEFT" );
-
-            this.worldBlocks[selectedScreenBlock.getHorizontalIndex()+1][selectedScreenBlock.getVerticalIndex()] =
-                    new WorldBlock( WorldBlockType.PLATFORM, selectedScreenBlock.getHorizontalIndex()+1, selectedScreenBlock.getVerticalIndex(), "GRASS_PLATFORM_RIGHT" );
-        }
-
-        if( input.isKeyDown( Input.KEY_2 ))
-        {
-            this.worldBlocks[selectedScreenBlock.getHorizontalIndex()][selectedScreenBlock.getVerticalIndex()] =
-                    new WorldBlock( WorldBlockType.PLATFORM, selectedScreenBlock.getHorizontalIndex(), selectedScreenBlock.getVerticalIndex(), "BRIDGE_PLATFORM_LEFT" );
-
-            this.worldBlocks[selectedScreenBlock.getHorizontalIndex()+1][selectedScreenBlock.getVerticalIndex()] =
-                    new WorldBlock( WorldBlockType.PLATFORM, selectedScreenBlock.getHorizontalIndex()+1, selectedScreenBlock.getVerticalIndex(), "BRIDGE_PLATFORM_RIGHT" );
-        }
-
-        if( input.isKeyDown( Input.KEY_9 ) )
-        {
-            this.worldBlocks[selectedScreenBlock.getHorizontalIndex()][selectedScreenBlock.getVerticalIndex()] =
-                    new WorldBlock( WorldBlockType.PLATFORM, selectedScreenBlock.getHorizontalIndex(), selectedScreenBlock.getVerticalIndex(), "WATER" );
-
-        }
-        if( input.isKeyDown( Input.KEY_0 ) )
-        {
-            this.worldBlocks[selectedScreenBlock.getHorizontalIndex()][selectedScreenBlock.getVerticalIndex()] =
-                    new WorldBlock( WorldBlockType.NONE, selectedScreenBlock.getHorizontalIndex(), selectedScreenBlock.getVerticalIndex(), "WATER_TOP_ANIMATION" );
-
-        }
-
         for( int x = 0; x < blockHorizontalCount; x++ ) {
             for( int y = 0; y < blockVerticalCount; y++ ) {
                 worldBlocks[x][y].update( gc, sbg, delta );
@@ -201,7 +195,7 @@ public class World
 
     public void render( final Graphics g )
     {
-        renderGrid( g );
+        //renderGrid( g );
 
         for( int x = 0; x < blockHorizontalCount; x++ ) {
             for( int y = 0; y < blockVerticalCount; y++ ) {

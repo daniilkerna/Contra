@@ -1,87 +1,99 @@
+import jig.ConvexPolygon;
 import jig.Entity;
 import jig.Vector;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.state.StateBasedGame;
 
-public class Bullet extends Entity {
-    private static float DEFAULT_BULLET_VELOCITY = 0.25f;
+public class Bullet extends Entity
+{
+    private static float BULLET_VELOCITY = 0.25f;
 
     private Vector      bulletVelocity;
     private BulletType  bulletType;
 
 
-    public Bullet (final float x, final float y , BulletType bulletType , PlayerHorizontalDirection playerHorizontalDirection,
-                   PlayerVerticalDirection playerVerticalDirection, PlayerState playerState , PlayerMovement playerMovement){
+    public Bullet (final float x, final float y , BulletType bulletType , Player.Descriptor pDesc ){
         super( x , y - 25);
 
         this.setScale(2f);
         this.bulletType = bulletType;
 
-        if (bulletType == BulletType.REGULAR)
-            addImageWithBoundingBox(ContraGame.getImageAsset("BULLET_REGULAR"));
-        else{
-            addImageWithBoundingBox(ContraGame.getImageAsset("BULLET_UPGRADE"));
+        switch ( bulletType )
+        {
+            case REGULAR:
+                addImageWithBoundingBox(ContraGame.getImageAsset("BULLET_REGULAR"));
+                break;
+            case UPGRADE:
+                addImageWithBoundingBox(ContraGame.getImageAsset("BULLET_UPGRADE"));
+                break;
+            default:
+                System.out.println( "[ Bullet ] Unknown ammo type" );
+                addShape( new ConvexPolygon( 5.0f, 5.0f ) );
+                break;
         }
 
-        if (playerVerticalDirection == PlayerVerticalDirection.UP ){
-            //shoot straight up
-            if (playerMovement == PlayerMovement.NONE)
-                this.bulletVelocity = new Vector(0 , -DEFAULT_BULLET_VELOCITY);
-
-            //shoot up and right
-            else if (playerHorizontalDirection == PlayerHorizontalDirection.RIGHT )
-                this.bulletVelocity = new Vector(DEFAULT_BULLET_VELOCITY , -DEFAULT_BULLET_VELOCITY);
-            //shoot up and left
-            else if (playerHorizontalDirection == PlayerHorizontalDirection.LEFT )
-                this.bulletVelocity = new Vector(-DEFAULT_BULLET_VELOCITY , -DEFAULT_BULLET_VELOCITY);
-            //shot up
-            else
-                this.bulletVelocity = new Vector(0 , -DEFAULT_BULLET_VELOCITY);
-        }
-        else if (playerVerticalDirection == PlayerVerticalDirection.NONE){
-            //shoot straight left
-            if (playerHorizontalDirection == PlayerHorizontalDirection.LEFT)
-                this.bulletVelocity = new Vector(-DEFAULT_BULLET_VELOCITY , 0);
-            //shoot straight right
-            else
-                this.bulletVelocity = new Vector(DEFAULT_BULLET_VELOCITY , 0);
-
-        }
-        else if (playerVerticalDirection == PlayerVerticalDirection.DOWN){
-
-            if (playerState == PlayerState.RUNNING || playerState == PlayerState.JUMPING) {
-                //shoot straight down
-                if (playerMovement == PlayerMovement.NONE)
-                    this.bulletVelocity = new Vector(0, DEFAULT_BULLET_VELOCITY);
-
-                //shoot down and left
-                else if (playerHorizontalDirection == PlayerHorizontalDirection.LEFT) {
-                    setPosition(x - 10, y - 25 );
-                    this.bulletVelocity = new Vector(-DEFAULT_BULLET_VELOCITY, DEFAULT_BULLET_VELOCITY);
-                }
-
-                //shoot down and right
-                else {
-                    setPosition(x + 10, y - 25 );
-                    this.bulletVelocity = new Vector(DEFAULT_BULLET_VELOCITY, DEFAULT_BULLET_VELOCITY);
-                }
-
-            }
-                //else prone
-            else {
-                setPosition( x , y - 6);
+        switch ( pDesc.vfd )
+        {
+            case NONE:
                 //shoot straight left
-                if (playerHorizontalDirection == PlayerHorizontalDirection.LEFT)
-                    this.bulletVelocity = new Vector(-DEFAULT_BULLET_VELOCITY, 0);
-                    //shoot straight right
-                else
-                    this.bulletVelocity = new Vector(DEFAULT_BULLET_VELOCITY, 0);
-            }
+                switch ( pDesc.hfd )
+                {
+                    case LEFT: bulletVelocity = new Vector(-BULLET_VELOCITY , 0); break;
+                    case RIGHT:  bulletVelocity = new Vector(BULLET_VELOCITY , 0); break;
+                }
+                break;
 
-        }
+            case UP:
+                //shoot straight up
+                if (pDesc.movement == Player.Movement.NONE) {
+                    this.bulletVelocity = new Vector(0, -BULLET_VELOCITY);
+                    break;
+                }
+                switch ( pDesc.hfd )
+                {
+                    case RIGHT: bulletVelocity = new Vector(BULLET_VELOCITY , -BULLET_VELOCITY);
+                        break;
+                    case LEFT:bulletVelocity = new Vector(-BULLET_VELOCITY , -BULLET_VELOCITY);
+                        break;
+                }
+                break;
 
-        else{
-            this.bulletVelocity = new Vector(DEFAULT_BULLET_VELOCITY , 0);
+            case DOWN:
+                switch ( pDesc.state )
+                {
+                    case JUMPING:
+                    case RUNNING:
+                        if (pDesc.movement == Player.Movement.NONE) {
+                            bulletVelocity = new Vector(0, BULLET_VELOCITY);
+                            break;
+                        }
+                        switch ( pDesc.hfd )
+                        {
+                            case LEFT:
+                                setPosition(x - 10, y - 25 );
+                                bulletVelocity = new Vector(-BULLET_VELOCITY, BULLET_VELOCITY);
+                                break;
+                            case RIGHT:
+                                setPosition(x + 10, y - 25 );
+                                bulletVelocity = new Vector(BULLET_VELOCITY, BULLET_VELOCITY);
+                                break;
+                        }
+                        break;
+                    default:
+                        switch ( pDesc.hfd )
+                        {
+                            case LEFT:
+                                setPosition(x - 10, y - 35 );
+                                bulletVelocity = new Vector(-BULLET_VELOCITY, 0);
+                                break;
+                            case RIGHT:
+                                setPosition(x + 10, y - 35 );
+                                bulletVelocity = new Vector(BULLET_VELOCITY, 0);
+                                break;
+                        }
+
+                }
+                break;
         }
     }
 
