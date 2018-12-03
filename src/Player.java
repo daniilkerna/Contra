@@ -147,6 +147,8 @@ public class Player extends Entity {
 
             if( b.isOnScreen() )
                 b.update(gc , sbg , delta, this.getPlayerVelocity().getX());
+            else
+                iter.remove();
         }
     }
 

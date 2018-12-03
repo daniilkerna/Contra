@@ -146,31 +146,13 @@ public class World
                     new WorldBlock( WorldBlockType.NONE, selectedScreenBlock.getHorizontalIndex()+1, selectedScreenBlock.getVerticalIndex(), "CLIFF_TR" );
         }
 
-        if( input.isKeyDown( Input.KEY_4 ) )
+
+        if( input.isKeyDown( Input.KEY_6 ) )
         {
             this.worldBlocks[selectedScreenBlock.getHorizontalIndex()][selectedScreenBlock.getVerticalIndex()] =
-                    new WorldBlock( WorldBlockType.NONE, selectedScreenBlock.getHorizontalIndex(), selectedScreenBlock.getVerticalIndex(), "CLIFF_BL" );
-
-            this.worldBlocks[selectedScreenBlock.getHorizontalIndex()+1][selectedScreenBlock.getVerticalIndex()] =
-                    new WorldBlock( WorldBlockType.NONE, selectedScreenBlock.getHorizontalIndex()+1, selectedScreenBlock.getVerticalIndex(), "CLIFF_BR" );
+                    new WorldBlock( WorldBlockType.NONE, selectedScreenBlock.getHorizontalIndex(), selectedScreenBlock.getVerticalIndex(), "BOSS" );
         }
 
-
-        if( input.isKeyDown( Input.KEY_5 ) )
-        {
-            this.worldBlocks[selectedScreenBlock.getHorizontalIndex()][selectedScreenBlock.getVerticalIndex()] =
-                    new WorldBlock( WorldBlockType.NONE, selectedScreenBlock.getHorizontalIndex(), selectedScreenBlock.getVerticalIndex(), "CLIFF_TBL" );
-
-            this.worldBlocks[selectedScreenBlock.getHorizontalIndex()+1][selectedScreenBlock.getVerticalIndex()] =
-                    new WorldBlock( WorldBlockType.NONE, selectedScreenBlock.getHorizontalIndex()+1, selectedScreenBlock.getVerticalIndex(), "CLIFF_TBR" );
-        }
-
-
-        if( input.isKeyDown( Input.KEY_7 ) )
-        {
-            this.worldBlocks[selectedScreenBlock.getHorizontalIndex()][selectedScreenBlock.getVerticalIndex()] =
-                    new WorldBlock( WorldBlockType.NONE, selectedScreenBlock.getHorizontalIndex(), selectedScreenBlock.getVerticalIndex(), "WATERFALL_ANIMATION" );
-        }
 
         if( input.isKeyDown( Input.KEY_8 ) )
         {
