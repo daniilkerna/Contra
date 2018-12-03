@@ -54,6 +54,9 @@ public class ContraGame extends StateBasedGame {
 	public static final String PLAYER_FIRE_LEFT_UP_RSC    = "resource/player/animation_fire_left_up.png";
 	public static final String PLAYER_FIRE_RIGHT_UP_RSC   = "resource/player/animation_fire_right_up.png";
 
+	public static final String PLAYER_FIRE_RUN_LEFT_RSC    = "resource/player/animation_fire_run_left.png";
+	public static final String PLAYER_FIRE_RUN_RIGHT_RSC   = "resource/player/animation_fire_run_right.png";
+
 
 	public static final String WORLD_BLOCK_BOSS                          = "resource/block/boss.png";
 	public static final String WORLD_BLOCK_GOLD_RSC      				 = "resource/block/gold_brick.png";
@@ -207,6 +210,8 @@ public class ContraGame extends StateBasedGame {
 		ResourceManager.loadImage( PLAYER_FIRE_RIGHT_RSC     );
 		ResourceManager.loadImage( PLAYER_FIRE_LEFT_UP_RSC   );
 		ResourceManager.loadImage( PLAYER_FIRE_RIGHT_UP_RSC  );
+		ResourceManager.loadImage( PLAYER_FIRE_RUN_LEFT_RSC  );
+		ResourceManager.loadImage( PLAYER_FIRE_RUN_RIGHT_RSC  );
 		//Bullet Images
 		ResourceManager.loadImage( BULLET_REGULAR_RSC  );
 		ResourceManager.loadImage( BULLET_UPGRADE_RSC  );
@@ -250,6 +255,11 @@ public class ContraGame extends StateBasedGame {
 				new SpriteSheet( ResourceManager.getImage( PLAYER_FIRE_LEFT_UP_RSC  ), 15 , 45 ) );
 		spriteSheetHashMap.put( "PLAYER_FIRE_RIGHT_UP_SS",
 				new SpriteSheet( ResourceManager.getImage( PLAYER_FIRE_RIGHT_UP_RSC ), 15 , 45 ) );
+
+		spriteSheetHashMap.put( "PLAYER_FIRE_RUN_LEFT_STRAIGHT_SS" ,
+				new SpriteSheet( ResourceManager.getImage( PLAYER_FIRE_RUN_LEFT_RSC  ), 25 , 35 ) );
+		spriteSheetHashMap.put( "PLAYER_FIRE_RUN_RIGHT_STRAIGHT_SS",
+				new SpriteSheet( ResourceManager.getImage( PLAYER_FIRE_RUN_RIGHT_RSC ), 25 , 35 ) );
 
 		// Bullet Assets
 		imageAssetHashMap.put( "BULLET_REGULAR", ResourceManager.getImage(BULLET_REGULAR_RSC) );
@@ -301,8 +311,6 @@ public class ContraGame extends StateBasedGame {
 
 		ResourceManager.loadImage(WORLD_BLOCK_WATERFALL_ANIMATION);
 		ResourceManager.loadImage(WORLD_BLOCK_WATERFALL_ANIMATION_TOP);
-
-
 
 		blockTextureHashMap.put( "BOSS"                , ResourceManager.getImage(WORLD_BLOCK_BOSS) );
 
