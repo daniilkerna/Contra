@@ -518,7 +518,7 @@ public class Player extends Entity {
                 for (WorldBlock i : cornerBlocks) {
                     if ( !i.getBlockTexture().equals("WATER")){
                         this.isPLayerSwimming = false;
-                        this.setPosition(getX() + 10, getY() - 35);
+                        this.setPosition(getX() + 10, getY() - 37);
                     }
 
                     System.out.println(i.getBlockTexture());
