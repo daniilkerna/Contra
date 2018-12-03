@@ -72,6 +72,12 @@ public class Player extends Entity {
         playerAnimations.put( "PLAYER_WATER_GUN_LEFTUP",
                 new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_GUN_LEFTUP_SS" ), 0,0, 0,0, true, 150, true ));
 
+        playerAnimations.put( "PLAYER_WATER_FIRE_RIGHT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_FIRE_RIGHT_SS") , 0, 0, 0, 0, true, 150, true));
+
+        playerAnimations.put( "PLAYER_WATER_FIRE_LEFT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_FIRE_LEFT_SS" ), 0,0, 0,0, true, 150, true ));
+
         playerAnimations.put( "PLAYER_PRONE_LEFT",
                 new Animation(ContraGame.getSpriteSheet("PLAYER_PRONE_LEFT_SS") , 0, 0, 0, 0, true, 150, true));
 
@@ -398,10 +404,17 @@ public class Player extends Entity {
                     case NONE:
                         switch (playerHorizontalDirection) {
                             case LEFT:
-                                setAnimation("PLAYER_WATER_LEFT");
+                                if (isPlayerShooting){
+                                    setAnimation("PLAYER_WATER_FIRE_LEFT");
+                                }
+                                else
+                                    setAnimation("PLAYER_WATER_LEFT");
                                 break;
                             case RIGHT:
-                                setAnimation("PLAYER_WATER_RIGHT");
+                                if (isPlayerShooting)
+                                    setAnimation("PLAYER_WATER_FIRE_RIGHT");
+                                else
+                                    setAnimation("PLAYER_WATER_RIGHT");
                                 break;
                         }
                         break;

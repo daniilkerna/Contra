@@ -38,6 +38,8 @@ public class ContraGame extends StateBasedGame {
     public static final String PLAYER_WATER_GUN_UP_LEFT    = "resource/player/animation_water_gun_up_leftfacing.png";
     public static final String PLAYER_WATER_GUN_RIGHTUP    = "resource/player/animation_water_gun_rightup.png";
     public static final String PLAYER_WATER_GUN_LEFTUP    = "resource/player/animation_water_gun_leftup.png";
+    public static final String PLAYER_WATER_FIRE_RIGHT    = "resource/player/animation_water_fire_right.png";
+    public static final String PLAYER_WATER_FIRE_LEFT    = "resource/player/animation_water_fire_left.png";
 
 
     /* Player prone animations */
@@ -197,6 +199,8 @@ public class ContraGame extends StateBasedGame {
         ResourceManager.loadImage( PLAYER_WATER_GUN_UP_LEFT    );
         ResourceManager.loadImage( PLAYER_WATER_GUN_RIGHTUP     );
         ResourceManager.loadImage( PLAYER_WATER_GUN_LEFTUP    );
+        ResourceManager.loadImage( PLAYER_WATER_FIRE_RIGHT    );
+        ResourceManager.loadImage( PLAYER_WATER_FIRE_LEFT    );
 
 		/*Player prone animations*/
 		ResourceManager.loadImage( PLAYER_PRONE_LEFT_RSC     );
@@ -273,6 +277,11 @@ public class ContraGame extends StateBasedGame {
                 new SpriteSheet( ResourceManager.getImage( PLAYER_WATER_GUN_RIGHTUP    ), 19  , 17 ) );
         spriteSheetHashMap.put( "PLAYER_WATER_GUN_LEFTUP_SS"  ,
                 new SpriteSheet( ResourceManager.getImage( PLAYER_WATER_GUN_LEFTUP   ), 19 , 17 ) );
+
+        spriteSheetHashMap.put( "PLAYER_WATER_FIRE_RIGHT_SS"  ,
+                new SpriteSheet( ResourceManager.getImage( PLAYER_WATER_FIRE_RIGHT    ), 25  , 16 ) );
+        spriteSheetHashMap.put( "PLAYER_WATER_FIRE_LEFT_SS"  ,
+                new SpriteSheet( ResourceManager.getImage( PLAYER_WATER_FIRE_LEFT   ), 25 , 16 ) );
 
 		/* Prone Animation */
 		spriteSheetHashMap.put( "PLAYER_PRONE_LEFT_SS"  ,
