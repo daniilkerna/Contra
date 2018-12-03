@@ -257,9 +257,9 @@ public class ContraGame extends StateBasedGame {
         spriteSheetHashMap.put( "PLAYER_WATER_GUN_LEFTUP_SS"  ,
                 new SpriteSheet( ResourceManager.getImage( PLAYER_WATER_GUN_LEFTUP   ), 19 , 17 ) );
         spriteSheetHashMap.put( "PLAYER_WATER_FIRE_RIGHT_SS"  ,
-                new SpriteSheet( ResourceManager.getImage( PLAYER_WATER_FIRE_RIGHT    ), 19  , 17 ) );
+                new SpriteSheet( ResourceManager.getImage( PLAYER_WATER_FIRE_RIGHT    ), 25  , 16 ) );
         spriteSheetHashMap.put( "PLAYER_WATER_FIRE_LEFT_SS"  ,
-                new SpriteSheet( ResourceManager.getImage( PLAYER_WATER_FIRE_LEFT   ), 19 , 17 ) );
+                new SpriteSheet( ResourceManager.getImage( PLAYER_WATER_FIRE_LEFT   ), 25 , 16 ) );
 
 
 		/* Prone Animation */
