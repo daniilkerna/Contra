@@ -9,28 +9,71 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public class Player extends Entity {
-    private static float PLAYER_VELOCITY_X = 0.1f;
-    private static float PLAYER_VELOCITY_Y = 0.1f;
-    private static float PLAYER_JUMP_DELAY_TMER = 500; //ms
+public class Player extends Entity
+{
+    public static float PLAYER_VELOCITY_X = 0.1f;
+    public static float PLAYER_VELOCITY_Y = 0.35f;
 
-    private PlayerState                 playerState;
-    private PlayerMovement              playerMovement;
-    private PlayerHorizontalDirection   playerHorizontalDirection;
-    private PlayerVerticalDirection     playerVerticalDirection;
+    public enum State
+    {
+        IDLE,
+        RUNNING,
+        JUMPING,
+        SWIMMING
+    }
 
-    private Vector                      playerPosition,
+    public enum Movement
+    {
+        NONE,
+        LEFT,
+        RIGHT
+    }
+
+    public enum HorizontalFacingDirection
+    {
+        LEFT,
+        RIGHT
+    }
+
+    public enum VerticalFacingDirection
+    {
+        NONE,
+        UP,
+        DOWN
+    }
+
+    public class Descriptor
+    {
+        public Descriptor( State state, Movement movement, HorizontalFacingDirection hfd, VerticalFacingDirection vfd )
+        {
+            this.state               = state;
+            this.movement            = movement;
+            this.hfd = hfd;
+            this.vfd   = vfd;
+        }
+        public State                       state;
+        public Movement                    movement;
+        public HorizontalFacingDirection   hfd;
+        public VerticalFacingDirection     vfd;
+    };
+
+    public Descriptor                  playerDesc;
+//    private PlayerState                 playerState;
+//    private PlayerMovement              playerMovement;
+//    private PlayerHorizontalDirection   playerHorizontalDirection;
+//    private PlayerVerticalDirection     playerVerticalDirection;
+
+    public Vector                      playerPosition,
                                         playerVelocity;
 
-    private World                       playerWorld;
-    private boolean                     playerPlatformed;
-    private boolean                     isPlayerShooting;
-    private boolean                     isPLayerSwimming;
-    private float                       playerYOffset;
+    public World                       playerWorld;
+    public boolean                     playerPlatformed;
+    public float                       playerYOffset;
+    public boolean                     isPlayerShooting;
+    public boolean                     isPLayerSwimming;
 
-    private HashMap<String, Animation>  playerAnimations;
-
-    private ArrayList<Bullet>           bulletArrayList;
+    public HashMap<String, Animation>  playerAnimations;
+    public ArrayList<Bullet>           bulletArrayList;
 
     public Player( World world ) {
         super();
@@ -43,7 +86,7 @@ public class Player extends Entity {
         playerWorld = world;
 
         setScale(2.0f);
-        setPosition( ContraGame.VIEWPORT.getWidth()/2 , ContraGame.VIEWPORT.getHeight()/2 - 100 );
+        setPosition(ContraGame.VIEWPORT.getWidth() / 2, ContraGame.VIEWPORT.getHeight() / 2 - 100);
 
         addImageWithBoundingBox(ContraGame.getSpriteSheet("PLAYER_RUN_RIGHT_SS").getSprite(1, 0));
 
@@ -51,93 +94,86 @@ public class Player extends Entity {
         bulletArrayList = new ArrayList<>();
 
 
-        playerAnimations.put( "PLAYER_WATER_RIGHT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_RIGHT_SS") , 0, 0, 0, 0, true, 150, true));
+        playerAnimations.put("PLAYER_WATER_RIGHT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_RIGHT_SS"), 0, 0, 0, 0, true, 150, true));
 
-        playerAnimations.put( "PLAYER_WATER_LEFT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_LEFT_SS" ), 0,0, 0,0, true, 150, true ));
+        playerAnimations.put("PLAYER_WATER_LEFT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_LEFT_SS"), 0, 0, 0, 0, true, 150, true));
 
-        playerAnimations.put( "PLAYER_WATER_DOWN",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_DOWN_SS" ), 0,0, 0,0, true, 150, true ));
+        playerAnimations.put("PLAYER_WATER_DOWN",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_DOWN_SS"), 0, 0, 0, 0, true, 150, true));
 
-        playerAnimations.put( "PLAYER_WATER_GUN_UP_RIGHT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_GUN_UP_RIGHT_SS") , 0, 0, 0, 0, true, 150, true));
+        playerAnimations.put("PLAYER_WATER_GUN_UP_RIGHT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_GUN_UP_RIGHT_SS"), 0, 0, 0, 0, true, 150, true));
 
-        playerAnimations.put( "PLAYER_WATER_GUN_UP_LEFT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_GUN_UP_LEFT_SS" ), 0,0, 0,0, true, 150, true ));
+        playerAnimations.put("PLAYER_WATER_GUN_UP_LEFT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_GUN_UP_LEFT_SS"), 0, 0, 0, 0, true, 150, true));
 
-        playerAnimations.put( "PLAYER_WATER_GUN_RIGHTUP",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_GUN_RIGHTUP_SS") , 0, 0, 0, 0, true, 150, true));
+        playerAnimations.put("PLAYER_WATER_GUN_RIGHTUP",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_GUN_RIGHTUP_SS"), 0, 0, 0, 0, true, 150, true));
 
-        playerAnimations.put( "PLAYER_WATER_GUN_LEFTUP",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_GUN_LEFTUP_SS" ), 0,0, 0,0, true, 150, true ));
+        playerAnimations.put("PLAYER_WATER_GUN_LEFTUP",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_GUN_LEFTUP_SS"), 0, 0, 0, 0, true, 150, true));
 
-        playerAnimations.put( "PLAYER_WATER_FIRE_RIGHT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_FIRE_RIGHT_SS") , 0, 0, 0, 0, true, 150, true));
+        playerAnimations.put("PLAYER_WATER_FIRE_RIGHT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_FIRE_RIGHT_SS"), 0, 0, 0, 0, true, 150, true));
 
-        playerAnimations.put( "PLAYER_WATER_FIRE_LEFT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_FIRE_LEFT_SS" ), 0,0, 0,0, true, 150, true ));
+        playerAnimations.put("PLAYER_WATER_FIRE_LEFT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_FIRE_LEFT_SS"), 0, 0, 0, 0, true, 150, true));
 
-        playerAnimations.put( "PLAYER_PRONE_LEFT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_PRONE_LEFT_SS") , 0, 0, 0, 0, true, 150, true));
+        playerAnimations.put("PLAYER_PRONE_LEFT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_PRONE_LEFT_SS"), 0, 0, 0, 0, true, 150, true));
 
-        playerAnimations.put( "PLAYER_PRONE_RIGHT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_PRONE_RIGHT_SS" ), 0,0, 0,0, true, 150, true ));
+        playerAnimations.put("PLAYER_PRONE_RIGHT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_PRONE_RIGHT_SS"), 0, 0, 0, 0, true, 150, true));
 
-        playerAnimations.put( "PLAYER_RUN_LEFT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_RUN_LEFT_SS") , 0, 0, 4, 0, true, 150, true));
+        playerAnimations.put("PLAYER_RUN_LEFT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_RUN_LEFT_SS"), 0, 0, 4, 0, true, 150, true));
 
-        playerAnimations.put( "PLAYER_RUN_LEFT_UP",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_RUN_LEFT_UP_SS" ), 0,0, 2,0, true, 150, true ));
+        playerAnimations.put("PLAYER_RUN_LEFT_UP",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_RUN_LEFT_UP_SS"), 0, 0, 2, 0, true, 150, true));
 
-        playerAnimations.put( "PLAYER_RUN_LEFT_DOWN",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_RUN_LEFT_DOWN_SS" ), 0,0, 2,0, true, 150, true ));
+        playerAnimations.put("PLAYER_RUN_LEFT_DOWN",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_RUN_LEFT_DOWN_SS"), 0, 0, 2, 0, true, 150, true));
 
-        playerAnimations.put( "PLAYER_RUN_RIGHT",
+        playerAnimations.put("PLAYER_RUN_RIGHT",
                 new Animation(ContraGame.getSpriteSheet("PLAYER_RUN_RIGHT_SS"), 0, 0, 4, 0, true, 150, true));
 
-        playerAnimations.put( "PLAYER_RUN_RIGHT_UP",
+        playerAnimations.put("PLAYER_RUN_RIGHT_UP",
                 new Animation(ContraGame.getSpriteSheet("PLAYER_RUN_RIGHT_UP_SS"), 0, 0, 2, 0, true, 150, true));
 
-        playerAnimations.put( "PLAYER_RUN_RIGHT_DOWN",
+        playerAnimations.put("PLAYER_RUN_RIGHT_DOWN",
                 new Animation(ContraGame.getSpriteSheet("PLAYER_RUN_RIGHT_DOWN_SS"), 0, 0, 2, 0, true, 150, true));
 
-        playerAnimations.put( "PLAYER_JUMP_LEFT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_JUMP_LEFT_SS" ), 0,0, 3,0, true, 150, true ));
+        playerAnimations.put("PLAYER_JUMP_LEFT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_JUMP_LEFT_SS"), 0, 0, 3, 0, true, 150, true));
 
-        playerAnimations.put( "PLAYER_JUMP_RIGHT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_JUMP_RIGHT_SS" ), 0,0, 3,0, true, 150, true ));
+        playerAnimations.put("PLAYER_JUMP_RIGHT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_JUMP_RIGHT_SS"), 0, 0, 3, 0, true, 150, true));
 
-        playerAnimations.put( "PLAYER_FIRE_LEFT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_LEFT_SS" ), 0,0, 1,0, true, 150, true ));
+        playerAnimations.put("PLAYER_FIRE_LEFT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_LEFT_SS"), 0, 0, 1, 0, true, 150, true));
 
-        playerAnimations.put( "PLAYER_FIRE_RIGHT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_RIGHT_SS" ), 0,0, 1,0, true, 150, true ));
+        playerAnimations.put("PLAYER_FIRE_RIGHT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_RIGHT_SS"), 0, 0, 1, 0, true, 150, true));
 
-        playerAnimations.put( "PLAYER_FIRE_LEFT_UP",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_LEFT_UP_SS" ), 0,0, 1,0, true, 150, true ));
+        playerAnimations.put("PLAYER_FIRE_LEFT_UP",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_LEFT_UP_SS"), 0, 0, 1, 0, true, 150, true));
 
-        playerAnimations.put( "PLAYER_FIRE_RIGHT_UP",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_RIGHT_UP_SS" ), 0,0, 1,0, true, 150, true ));
+        playerAnimations.put("PLAYER_FIRE_RIGHT_UP",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_RIGHT_UP_SS"), 0, 0, 1, 0, true, 150, true));
 
-        playerAnimations.put( "PLAYER_FIRE_RUN_LEFT_STRAIGHT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_RUN_LEFT_STRAIGHT_SS" ), 0,0, 2,0, true, 150, true ));
+        playerAnimations.put("PLAYER_FIRE_RUN_LEFT_STRAIGHT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_RUN_LEFT_STRAIGHT_SS"), 0, 0, 2, 0, true, 150, true));
 
-        playerAnimations.put( "PLAYER_FIRE_RUN_RIGHT_STRAIGHT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_RUN_RIGHT_STRAIGHT_SS" ), 0,0, 2,0, true, 150, true ));
+        playerAnimations.put("PLAYER_FIRE_RUN_RIGHT_STRAIGHT",
+                new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_RUN_RIGHT_STRAIGHT_SS"), 0, 0, 2, 0, true, 150, true));
 
 
-        //setAnimationFrame("PLAYER_RUN_RIGHT_SS",0 );
+        playerPosition = new Vector(0, 0);
+        playerVelocity = new Vector(0, 0);
 
-        playerPosition            = new Vector( 0 ,0 );
-        playerVelocity            = new Vector( 0, 0 );
-        playerState               = PlayerState.IDLE;
-        /*
-        *
-        * */
-        playerMovement            = PlayerMovement.NONE;
-        playerVerticalDirection   = PlayerVerticalDirection.NONE;
-        playerHorizontalDirection = PlayerHorizontalDirection.RIGHT;
+        playerDesc = new Player.Descriptor(State.IDLE, Movement.NONE, HorizontalFacingDirection.RIGHT, VerticalFacingDirection.NONE);
     }
 
     @Override
@@ -154,9 +190,9 @@ public class Player extends Entity {
         g.drawOval( brc.getX() - 2.5f, brc.getY() - 2.5f, 5, 5 );
 
         /* Player Information */
-        g.drawString( "Player Screen Position:(" + this.getX() + "," + this.getY() + ")", 400, 10 );
-        g.drawString( "Player World Position:(" + this.playerPosition.getX() + "," + this.playerPosition.getY() + ")", 400, 25 );
-        g.drawString( "Player World Velocity:(" + this.playerVelocity.getX() + "," + this.playerVelocity.getY() + ")", 400, 40 );
+        //g.drawString( "Player Screen Position:(" + this.getX() + "," + this.getY() + ")", 400, 10 );
+        g.drawString( "Player World Position:(" + this.playerPosition.getX() + "," + this.playerPosition.getY() + ")", 400, 10 );
+        //g.drawString( "Player World Velocity:(" + this.playerVelocity.getX() + "," + this.playerVelocity.getY() + ")", 400, 40 );
 
         // render all the bullets
         for (Bullet b : bulletArrayList){
@@ -167,14 +203,14 @@ public class Player extends Entity {
 
     public void update(GameContainer gc, StateBasedGame sbg, int delta) {
         fireAndUpdateBullets(gc , sbg , delta);
-        getNewState( gc, sbg, delta );
-        updateState( gc, sbg, delta );
+        getState( gc, sbg, delta );
+        updateAnimation( gc, sbg, delta );
         updatePosition( delta );
     }
 
     private void fireAndUpdateBullets(GameContainer gc, StateBasedGame sbg, int delta){
         if (gc.getInput().isKeyPressed(Input.KEY_K)) {
-            bulletArrayList.add(new Bullet(getX() , getY() , BulletType.REGULAR , playerHorizontalDirection , playerVerticalDirection , playerState , playerMovement));
+            bulletArrayList.add(new Bullet(getX() , getY() , BulletType.REGULAR , playerDesc ) );
         }
 
         Iterator<Bullet> iter = bulletArrayList.iterator();
@@ -188,21 +224,15 @@ public class Player extends Entity {
             else
                 iter.remove();
         }
-
-        if (gc.getInput().isKeyDown(Input.KEY_K)){
-            isPlayerShooting = true;
-        }
-        else{
-            isPlayerShooting = false;
-        }
+        isPlayerShooting = gc.getInput().isKeyDown(Input.KEY_K);
     }
 
-    public Vector getBottomLeftCorner()
+    private Vector getBottomLeftCorner()
     {
         return new Vector( this.getX() - this.getCoarseGrainedWidth()/2, this.getY() + this.getCoarseGrainedHeight()/2);
     }
 
-    public Vector getBottomRightCorner()
+    private Vector getBottomRightCorner()
     {
         return new Vector( this.getX() + this.getCoarseGrainedWidth()/2, this.getY() + this.getCoarseGrainedHeight()/2 );
     }
@@ -234,7 +264,7 @@ public class Player extends Entity {
     }
 
 
-    public void setAnimationFrame( String key, int frame ) {
+    private void setAnimationFrame( String key, int frame ) {
         Animation a = playerAnimations.get(key);
         if (a == null) {
             System.out.println(String.format("[Player: Class] Animation %s, not found!", key));
@@ -251,70 +281,65 @@ public class Player extends Entity {
         addImage(a.getImage(frame), new Vector(0, playerYOffset/2 ));
     }
 
-    public void getNewState( GameContainer gc, StateBasedGame sbg, int delta ) {
-        //LEFT or RIGHT
+    public void getState(GameContainer gc, StateBasedGame sbg, int delta )
+    {
         if (gc.getInput().isKeyDown(Input.KEY_A)) {
-            playerState               = PlayerState.RUNNING;
-            playerMovement            = PlayerMovement.LEFT;
-            playerHorizontalDirection = PlayerHorizontalDirection.LEFT;
+            playerDesc.state          = State.RUNNING;
+            playerDesc.movement       = Movement.LEFT;
+            playerDesc.hfd            = HorizontalFacingDirection.LEFT;
         }
         else
         if (gc.getInput().isKeyDown(Input.KEY_D)) {
-            playerState               = PlayerState.RUNNING;
-            playerMovement            = PlayerMovement.RIGHT;
-            playerHorizontalDirection = PlayerHorizontalDirection.RIGHT;
+            playerDesc.state          = State.RUNNING;
+            playerDesc.movement       = Movement.RIGHT;
+            playerDesc.hfd            = HorizontalFacingDirection.RIGHT;
         } else {
-            playerState               = PlayerState.IDLE;
-            playerMovement            = PlayerMovement.NONE;
+            playerDesc.state          = State.IDLE;
+            playerDesc.movement       = Movement.NONE;
         }
 
-        //UP or DOWN
         if (gc.getInput().isKeyDown(Input.KEY_W)) {
-            playerVerticalDirection = PlayerVerticalDirection.UP;
+            playerDesc.vfd = VerticalFacingDirection.UP;
         }
         else
         if (gc.getInput().isKeyDown(Input.KEY_S)){
-            playerVerticalDirection = PlayerVerticalDirection.DOWN;
+            playerDesc.vfd = VerticalFacingDirection.DOWN;
         }
         else {
-            playerVerticalDirection = PlayerVerticalDirection.NONE;
+            playerDesc.vfd = VerticalFacingDirection.NONE;
         }
 
-        // Jump Logic
         if (gc.getInput().isKeyDown(Input.KEY_J)) {
             if (isPLayerSwimming){
                 return;
             }
 
-            playerState      = PlayerState.JUMPING;
+            playerDesc.state  = State.JUMPING;
             if (playerPlatformed) {
-                playerVelocity = new Vector(0, -0.4f);
+                playerVelocity = new Vector(0, -PLAYER_VELOCITY_Y);
                 playerPlatformed = false;
             }
         }
         else if( !playerPlatformed )
         {
-            playerState      = PlayerState.JUMPING;
+            playerDesc.state  = State.JUMPING;
         }
     }
 
-    public void updateState( GameContainer gc, StateBasedGame sbg, int delta )
+    public void updateAnimation( GameContainer gc, StateBasedGame sbg, int delta )
     {
         ContraGame contraGame = (ContraGame)sbg;
         if (isPLayerSwimming){
-            this.playerState = PlayerState.SWIMMING;
+            playerDesc.state  = State.SWIMMING;
         }
 
 
-        switch (playerState)
+        switch (playerDesc.state )
         {
             case IDLE:
-                moveStop();
-                removeAllImages();
-
-                switch (playerVerticalDirection) {
+                switch (playerDesc.vfd) {
                     case NONE:
-                        switch (playerHorizontalDirection) {
+                        switch (playerDesc.hfd) {
                             case LEFT:
                                 setAnimationFrame("PLAYER_FIRE_LEFT", 1);
                                 break;
@@ -324,7 +349,7 @@ public class Player extends Entity {
                         }
                         break;
                     case UP:
-                        switch (playerHorizontalDirection) {
+                        switch (playerDesc.hfd) {
                             case LEFT:
                                 setAnimationFrame("PLAYER_FIRE_LEFT_UP", 1);
                                 break;
@@ -334,7 +359,7 @@ public class Player extends Entity {
                         }
                         break;
                     case DOWN:
-                        switch (playerHorizontalDirection) {
+                        switch (playerDesc.hfd) {
                             case LEFT:
                                 setAnimationFrame("PLAYER_PRONE_LEFT", 0);
                                 break;
@@ -348,7 +373,7 @@ public class Player extends Entity {
                 break;
 
             case JUMPING:
-                switch (playerHorizontalDirection) {
+                switch (playerDesc.hfd) {
                     case LEFT:
                         setAnimation("PLAYER_JUMP_LEFT");
                         break;
@@ -359,9 +384,9 @@ public class Player extends Entity {
                 break;
 
             case RUNNING:
-                switch (playerVerticalDirection) {
+                switch (playerDesc.vfd) {
                     case NONE:
-                        switch (playerMovement) {
+                        switch (playerDesc.movement) {
                             case LEFT:
                                 if (isPlayerShooting)
                                     setAnimation("PLAYER_FIRE_RUN_LEFT_STRAIGHT");
@@ -377,7 +402,7 @@ public class Player extends Entity {
                         }
                         break;
                     case UP:
-                        switch (playerMovement) {
+                        switch (playerDesc.hfd) {
                             case LEFT:
                                 setAnimation("PLAYER_RUN_LEFT_UP");
                                 break;
@@ -387,7 +412,7 @@ public class Player extends Entity {
                         }
                         break;
                     case DOWN:
-                        switch (playerMovement) {
+                        switch (playerDesc.hfd) {
                             case LEFT:
                                 setAnimation("PLAYER_RUN_LEFT_DOWN");
                                 break;
@@ -400,9 +425,9 @@ public class Player extends Entity {
                 break;
 
             case SWIMMING:
-                switch (playerVerticalDirection){
+                switch (playerDesc.vfd){
                     case NONE:
-                        switch (playerHorizontalDirection) {
+                        switch (playerDesc.hfd) {
                             case LEFT:
                                 if (isPlayerShooting){
                                     setAnimation("PLAYER_WATER_FIRE_LEFT");
@@ -420,7 +445,7 @@ public class Player extends Entity {
                         break;
 
                     case UP:
-                        switch (playerMovement) {
+                        switch (playerDesc.movement) {
                             case LEFT:
                                 setAnimation("PLAYER_WATER_GUN_LEFTUP");
                                 break;
@@ -428,7 +453,7 @@ public class Player extends Entity {
                                 setAnimation("PLAYER_WATER_GUN_RIGHTUP");
                                 break;
                             case NONE:
-                                switch (playerHorizontalDirection) {
+                                switch (playerDesc.hfd) {
                                     case LEFT:
                                         setAnimation("PLAYER_WATER_GUN_UP_LEFT");
                                         break;
@@ -436,17 +461,13 @@ public class Player extends Entity {
                                         setAnimation("PLAYER_WATER_GUN_UP_RIGHT");
                                         break;
                                 }
-
                         }
                         break;
 
                     case DOWN:
                         setAnimation("PLAYER_WATER_DOWN");
                         break;
-
                 }
-
-
         }
     }
 
@@ -455,13 +476,17 @@ public class Player extends Entity {
     }
 
     public void moveLeft( int delta ) {
+        // Position of player
         playerPosition = this.getPosition().subtract( ContraGame.VIEWPORT.getViewPortOffsetTopLeft() );
+
         playerVelocity = new Vector( PLAYER_VELOCITY_X * delta, this.getPlayerVelocity().getY() );
         ContraGame.VIEWPORT.shiftViewPortOffset(new Vector( playerVelocity.getX(), 0));
     }
 
     public void moveRight( int delta ) {
+        // Position of player
         playerPosition = this.getPosition().subtract( ContraGame.VIEWPORT.getViewPortOffsetTopLeft() );
+
         playerVelocity = new Vector( -PLAYER_VELOCITY_X * delta, this.getPlayerVelocity().getY() );
         ContraGame.VIEWPORT.shiftViewPortOffset(new Vector( playerVelocity.getX(), 0));
     }
@@ -471,25 +496,27 @@ public class Player extends Entity {
         WorldBlock leftBlock  = playerWorld.getScreenBlock( this.getBottomLeftCorner() );
         WorldBlock rightBlock = playerWorld.getScreenBlock( this.getBottomRightCorner() );
 
-        if(leftBlock.getBlockTexture().equals("WATER") && rightBlock.getBlockTexture().equals("WATER") )
-            this.isPLayerSwimming = true;
-
         if( leftBlock == null || rightBlock == null ) {
             this.playerPlatformed = false;
-
-            setPlayerVelocity(new Vector(playerVelocity.getX(), playerVelocity.getY() + World.GRAVITY));
-            setPosition( getX(), getY() + playerVelocity.getY()*delta );
+            updateGravity( delta );
         }
         else
         if (rightBlock.getBlockType() != WorldBlockType.PLATFORM && leftBlock.getBlockType() != WorldBlockType.PLATFORM) {
 
             this.playerPlatformed = false;
-            setPlayerVelocity(new Vector(playerVelocity.getX(), playerVelocity.getY() + World.GRAVITY));
-            setPosition( getX(), getY() + playerVelocity.getY()*delta );
+            updateGravity( delta );
         }
 
         else
         {
+            if( leftBlock.getBlockTexture() != null  )
+                if(leftBlock.getBlockTexture().equals("WATER") )
+                    this.isPLayerSwimming = true;
+
+            if( rightBlock.getBlockTexture() != null  )
+                if( rightBlock.getBlockTexture().equals("WATER") )
+                    this.isPLayerSwimming = true;
+
             if( !this.playerPlatformed ) {
                 ArrayList<WorldBlock> cornerBlocks = new ArrayList<>();
                 cornerBlocks.add(leftBlock);
@@ -515,24 +542,29 @@ public class Player extends Entity {
                     }
 
                 }
-                setPlayerVelocity(new Vector(playerVelocity.getX(), playerVelocity.getY() + World.GRAVITY));
-                setPosition(getX(), getY() + playerVelocity.getY() * delta);
+                updateGravity( delta );
             }
 
-            if (isPLayerSwimming){
+            if (isPLayerSwimming)
+            {
                 ArrayList<WorldBlock> cornerBlocks = new ArrayList<>();
                 cornerBlocks.add(leftBlock);
                 cornerBlocks.add(rightBlock);
-                for (WorldBlock i : cornerBlocks) {
+                for (WorldBlock i : cornerBlocks)
+                {
+                    if( i.getBlockTexture() == null )
+                        continue;
+
                     if ( !i.getBlockTexture().equals("WATER")){
                         this.isPLayerSwimming = false;
-                        this.setPosition(getX() + 10, getY() - 37);
+                        this.setPosition(getX(), getY() - 37);
+                        ContraGame.VIEWPORT.shiftViewPortOffset( new Vector( 10, 0 ) );
                     }
-
                 }
             }
         }
-        switch ( playerMovement )
+
+        switch ( playerDesc.movement )
         {
             case RIGHT:
                 moveRight( delta ); break;
@@ -541,6 +573,15 @@ public class Player extends Entity {
             default:
                 moveStop(); break;
         }
+    }
+
+    public void updateGravity( int delta )
+    {
+        Vector v = new Vector( playerVelocity.getX(),
+                            playerVelocity.getY() + World.GRAVITY);
+
+        setPlayerVelocity( v );
+        setPosition( getX(), getY() + playerVelocity.getY()*delta );
     }
 
     public Vector getPlayerVelocity() {
