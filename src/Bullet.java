@@ -12,7 +12,7 @@ public class Bullet extends Entity
     private BulletType  bulletType;
 
 
-    public Bullet (final float x, final float y , BulletType bulletType , Player.Descriptor pDesc ){
+    public Bullet (final float x, final float y , BulletType bulletType , PlayerDescriptor pDesc ){
         super( x , y - 25);
 
         this.setScale(2f);
@@ -45,7 +45,7 @@ public class Bullet extends Entity
 
             case UP:
                 //shoot straight up
-                if (pDesc.movement == Player.Movement.NONE) {
+                if (pDesc.movement == PlayerDescriptor.Movement.NONE) {
                     this.bulletVelocity = new Vector(0, -BULLET_VELOCITY);
                     break;
                 }
@@ -63,7 +63,7 @@ public class Bullet extends Entity
                 {
                     case JUMPING:
                     case RUNNING:
-                        if (pDesc.movement == Player.Movement.NONE) {
+                        if (pDesc.movement == PlayerDescriptor.Movement.NONE) {
                             bulletVelocity = new Vector(0, BULLET_VELOCITY);
                             break;
                         }

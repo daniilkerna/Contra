@@ -4,6 +4,7 @@ import jig.Vector;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.StateBasedGame;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -11,60 +12,19 @@ import java.util.LinkedList;
 
 public class Player extends Entity
 {
+    enum Type
+    {
+        BLUE,
+        PINK
+    };
+
     public static float PLAYER_VELOCITY_X = 0.1f;
     public static float PLAYER_VELOCITY_Y = 0.35f;
 
-    public enum State
-    {
-        IDLE,
-        RUNNING,
-        JUMPING,
-        SWIMMING
-    }
 
-    public enum Movement
-    {
-        NONE,
-        LEFT,
-        RIGHT
-    }
-
-    public enum HorizontalFacingDirection
-    {
-        LEFT,
-        RIGHT
-    }
-
-    public enum VerticalFacingDirection
-    {
-        NONE,
-        UP,
-        DOWN
-    }
-
-    public class Descriptor
-    {
-        public Descriptor( State state, Movement movement, HorizontalFacingDirection hfd, VerticalFacingDirection vfd )
-        {
-            this.state               = state;
-            this.movement            = movement;
-            this.hfd = hfd;
-            this.vfd   = vfd;
-        }
-        public State                       state;
-        public Movement                    movement;
-        public HorizontalFacingDirection   hfd;
-        public VerticalFacingDirection     vfd;
-    };
-
-    public Descriptor                  playerDesc;
-//    private PlayerState                 playerState;
-//    private PlayerMovement              playerMovement;
-//    private PlayerHorizontalDirection   playerHorizontalDirection;
-//    private PlayerVerticalDirection     playerVerticalDirection;
-
+    public PlayerDescriptor            playerDesc;
     public Vector                      playerPosition,
-                                        playerVelocity;
+                                       playerVelocity;
 
     public World                       playerWorld;
     public boolean                     playerPlatformed;
@@ -75,7 +35,7 @@ public class Player extends Entity
     public HashMap<String, Animation>  playerAnimations;
     public ArrayList<Bullet>           bulletArrayList;
 
-    public Player( World world ) {
+    public Player( World world, Type color ) {
         super();
 
         // Not on a platform
@@ -86,7 +46,7 @@ public class Player extends Entity
         playerWorld = world;
 
         setScale(2.0f);
-        setPosition(ContraGame.VIEWPORT.getWidth() / 2, ContraGame.VIEWPORT.getHeight() / 2 - 100);
+        setPosition(ContraGame.VIEWPORT.getWidth() / 2, ContraGame.VIEWPORT.getHeight() / 2 - 70 );
 
         addImageWithBoundingBox(ContraGame.getSpriteSheet("PLAYER_RUN_RIGHT_SS").getSprite(1, 0));
 
@@ -121,59 +81,112 @@ public class Player extends Entity
         playerAnimations.put("PLAYER_WATER_FIRE_LEFT",
                 new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_FIRE_LEFT_SS"), 0, 0, 0, 0, true, 150, true));
 
-        playerAnimations.put("PLAYER_PRONE_LEFT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_PRONE_LEFT_SS"), 0, 0, 0, 0, true, 150, true));
+        switch ( color )
+        {
+            case BLUE:
+                playerAnimations.put("PLAYER_PRONE_LEFT",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER_PRONE_LEFT_SS"), 0, 0, 0, 0, true, 150, true));
 
-        playerAnimations.put("PLAYER_PRONE_RIGHT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_PRONE_RIGHT_SS"), 0, 0, 0, 0, true, 150, true));
+                playerAnimations.put("PLAYER_PRONE_RIGHT",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER_PRONE_RIGHT_SS"), 0, 0, 0, 0, true, 150, true));
 
-        playerAnimations.put("PLAYER_RUN_LEFT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_RUN_LEFT_SS"), 0, 0, 4, 0, true, 150, true));
+                playerAnimations.put("PLAYER_RUN_LEFT",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER_RUN_LEFT_SS"), 0, 0, 4, 0, true, 150, true));
 
-        playerAnimations.put("PLAYER_RUN_LEFT_UP",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_RUN_LEFT_UP_SS"), 0, 0, 2, 0, true, 150, true));
+                playerAnimations.put("PLAYER_RUN_LEFT_UP",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER_RUN_LEFT_UP_SS"), 0, 0, 2, 0, true, 150, true));
 
-        playerAnimations.put("PLAYER_RUN_LEFT_DOWN",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_RUN_LEFT_DOWN_SS"), 0, 0, 2, 0, true, 150, true));
+                playerAnimations.put("PLAYER_RUN_LEFT_DOWN",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER_RUN_LEFT_DOWN_SS"), 0, 0, 2, 0, true, 150, true));
 
-        playerAnimations.put("PLAYER_RUN_RIGHT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_RUN_RIGHT_SS"), 0, 0, 4, 0, true, 150, true));
+                playerAnimations.put("PLAYER_RUN_RIGHT",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER_RUN_RIGHT_SS"), 0, 0, 4, 0, true, 150, true));
 
-        playerAnimations.put("PLAYER_RUN_RIGHT_UP",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_RUN_RIGHT_UP_SS"), 0, 0, 2, 0, true, 150, true));
+                playerAnimations.put("PLAYER_RUN_RIGHT_UP",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER_RUN_RIGHT_UP_SS"), 0, 0, 2, 0, true, 150, true));
 
-        playerAnimations.put("PLAYER_RUN_RIGHT_DOWN",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_RUN_RIGHT_DOWN_SS"), 0, 0, 2, 0, true, 150, true));
+                playerAnimations.put("PLAYER_RUN_RIGHT_DOWN",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER_RUN_RIGHT_DOWN_SS"), 0, 0, 2, 0, true, 150, true));
 
-        playerAnimations.put("PLAYER_JUMP_LEFT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_JUMP_LEFT_SS"), 0, 0, 3, 0, true, 150, true));
+                playerAnimations.put("PLAYER_JUMP_LEFT",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER_JUMP_LEFT_SS"), 0, 0, 3, 0, true, 150, true));
 
-        playerAnimations.put("PLAYER_JUMP_RIGHT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_JUMP_RIGHT_SS"), 0, 0, 3, 0, true, 150, true));
+                playerAnimations.put("PLAYER_JUMP_RIGHT",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER_JUMP_RIGHT_SS"), 0, 0, 3, 0, true, 150, true));
 
-        playerAnimations.put("PLAYER_FIRE_LEFT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_LEFT_SS"), 0, 0, 1, 0, true, 150, true));
+                playerAnimations.put("PLAYER_FIRE_LEFT",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_LEFT_SS"), 0, 0, 1, 0, true, 150, true));
 
-        playerAnimations.put("PLAYER_FIRE_RIGHT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_RIGHT_SS"), 0, 0, 1, 0, true, 150, true));
+                playerAnimations.put("PLAYER_FIRE_RIGHT",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_RIGHT_SS"), 0, 0, 1, 0, true, 150, true));
 
-        playerAnimations.put("PLAYER_FIRE_LEFT_UP",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_LEFT_UP_SS"), 0, 0, 1, 0, true, 150, true));
+                playerAnimations.put("PLAYER_FIRE_LEFT_UP",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_LEFT_UP_SS"), 0, 0, 1, 0, true, 150, true));
 
-        playerAnimations.put("PLAYER_FIRE_RIGHT_UP",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_RIGHT_UP_SS"), 0, 0, 1, 0, true, 150, true));
+                playerAnimations.put("PLAYER_FIRE_RIGHT_UP",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_RIGHT_UP_SS"), 0, 0, 1, 0, true, 150, true));
 
-        playerAnimations.put("PLAYER_FIRE_RUN_LEFT_STRAIGHT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_RUN_LEFT_STRAIGHT_SS"), 0, 0, 2, 0, true, 150, true));
+                playerAnimations.put("PLAYER_FIRE_RUN_LEFT_STRAIGHT",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_RUN_LEFT_STRAIGHT_SS"), 0, 0, 2, 0, true, 150, true));
 
-        playerAnimations.put("PLAYER_FIRE_RUN_RIGHT_STRAIGHT",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_RUN_RIGHT_STRAIGHT_SS"), 0, 0, 2, 0, true, 150, true));
+                playerAnimations.put("PLAYER_FIRE_RUN_RIGHT_STRAIGHT",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER_FIRE_RUN_RIGHT_STRAIGHT_SS"), 0, 0, 2, 0, true, 150, true));
+                break;
 
+            case PINK:
+                playerAnimations.put("PLAYER_PRONE_LEFT",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER2_PRONE_LEFT_SS"), 0, 0, 0, 0, true, 150, true));
 
+                playerAnimations.put("PLAYER_PRONE_RIGHT",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER2_PRONE_RIGHT_SS"), 0, 0, 0, 0, true, 150, true));
+
+                playerAnimations.put("PLAYER_RUN_LEFT",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER2_RUN_LEFT_SS"), 0, 0, 4, 0, true, 150, true));
+
+                playerAnimations.put("PLAYER_RUN_LEFT_UP",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER2_RUN_LEFT_UP_SS"), 0, 0, 2, 0, true, 150, true));
+
+                playerAnimations.put("PLAYER_RUN_LEFT_DOWN",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER2_RUN_LEFT_DOWN_SS"), 0, 0, 2, 0, true, 150, true));
+
+                playerAnimations.put("PLAYER_RUN_RIGHT",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER2_RUN_RIGHT_SS"), 0, 0, 4, 0, true, 150, true));
+
+                playerAnimations.put("PLAYER_RUN_RIGHT_UP",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER2_RUN_RIGHT_UP_SS"), 0, 0, 2, 0, true, 150, true));
+
+                playerAnimations.put("PLAYER_RUN_RIGHT_DOWN",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER2_RUN_RIGHT_DOWN_SS"), 0, 0, 2, 0, true, 150, true));
+
+                playerAnimations.put("PLAYER_JUMP_LEFT",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER2_JUMP_LEFT_SS"), 0, 0, 3, 0, true, 150, true));
+
+                playerAnimations.put("PLAYER_JUMP_RIGHT",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER2_JUMP_RIGHT_SS"), 0, 0, 3, 0, true, 150, true));
+
+                playerAnimations.put("PLAYER_FIRE_LEFT",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER2_FIRE_LEFT_SS"), 0, 0, 1, 0, true, 150, true));
+
+                playerAnimations.put("PLAYER_FIRE_RIGHT",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER2_FIRE_RIGHT_SS"), 0, 0, 1, 0, true, 150, true));
+
+                playerAnimations.put("PLAYER_FIRE_LEFT_UP",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER2_FIRE_LEFT_UP_SS"), 0, 0, 1, 0, true, 150, true));
+
+                playerAnimations.put("PLAYER_FIRE_RIGHT_UP",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER2_FIRE_RIGHT_UP_SS"), 0, 0, 1, 0, true, 150, true));
+
+                playerAnimations.put("PLAYER_FIRE_RUN_LEFT_STRAIGHT",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER2_FIRE_RUN_LEFT_STRAIGHT_SS"), 0, 0, 2, 0, true, 150, true));
+
+                playerAnimations.put("PLAYER_FIRE_RUN_RIGHT_STRAIGHT",
+                        new Animation(ContraGame.getSpriteSheet("PLAYER2_FIRE_RUN_RIGHT_STRAIGHT_SS"), 0, 0, 2, 0, true, 150, true));
+                break;
+        }
         playerPosition = new Vector(0, 0);
         playerVelocity = new Vector(0, 0);
 
-        playerDesc = new Player.Descriptor(State.IDLE, Movement.NONE, HorizontalFacingDirection.RIGHT, VerticalFacingDirection.NONE);
+        playerDesc = new PlayerDescriptor(PlayerDescriptor.State.IDLE, PlayerDescriptor.Movement.NONE, PlayerDescriptor.HorizontalFacingDirection.RIGHT, PlayerDescriptor.VerticalFacingDirection.NONE);
     }
 
     @Override
@@ -181,7 +194,7 @@ public class Player extends Entity
 
         /* Draw Collision box */
         g.setColor( Color.green );
-        g.drawRect( this.getX() - this.getCoarseGrainedWidth()/2, this.getY() - this.getCoarseGrainedHeight()/2 + playerYOffset/2,  this.getCoarseGrainedWidth(),  this.getCoarseGrainedHeight() + playerYOffset/2 );
+        //g.drawRect( this.getX() - this.getCoarseGrainedWidth()/2, this.getY() - this.getCoarseGrainedHeight()/2 + playerYOffset/2,  this.getCoarseGrainedWidth(),  this.getCoarseGrainedHeight() + playerYOffset/2 );
 
         Vector blc = this.getBottomLeftCorner();
         Vector brc = this.getBottomRightCorner();
@@ -191,7 +204,7 @@ public class Player extends Entity
 
         /* Player Information */
         //g.drawString( "Player Screen Position:(" + this.getX() + "," + this.getY() + ")", 400, 10 );
-        g.drawString( "Player World Position:(" + this.playerPosition.getX() + "," + this.playerPosition.getY() + ")", 400, 10 );
+        //g.drawString( "Player World Position:(" + this.playerPosition.getX() + "," + this.playerPosition.getY() + ")", 400, 10 );
         //g.drawString( "Player World Velocity:(" + this.playerVelocity.getX() + "," + this.playerVelocity.getY() + ")", 400, 40 );
 
         // render all the bullets
@@ -208,7 +221,8 @@ public class Player extends Entity
         updatePosition( delta );
     }
 
-    private void fireAndUpdateBullets(GameContainer gc, StateBasedGame sbg, int delta){
+    public void fireAndUpdateBullets(GameContainer gc, StateBasedGame sbg, int delta){
+
         if (gc.getInput().isKeyPressed(Input.KEY_K)) {
             bulletArrayList.add(new Bullet(getX() , getY() , BulletType.REGULAR , playerDesc ) );
         }
@@ -227,12 +241,12 @@ public class Player extends Entity
         isPlayerShooting = gc.getInput().isKeyDown(Input.KEY_K);
     }
 
-    private Vector getBottomLeftCorner()
+    public Vector getBottomLeftCorner()
     {
-        return new Vector( this.getX() - this.getCoarseGrainedWidth()/2, this.getY() + this.getCoarseGrainedHeight()/2);
+        return new Vector( this.getX() - this.getCoarseGrainedWidth()/2 , this.getY() + this.getCoarseGrainedHeight()/2);
     }
 
-    private Vector getBottomRightCorner()
+    public Vector getBottomRightCorner()
     {
         return new Vector( this.getX() + this.getCoarseGrainedWidth()/2, this.getY() + this.getCoarseGrainedHeight()/2 );
     }
@@ -284,29 +298,29 @@ public class Player extends Entity
     public void getState(GameContainer gc, StateBasedGame sbg, int delta )
     {
         if (gc.getInput().isKeyDown(Input.KEY_A)) {
-            playerDesc.state          = State.RUNNING;
-            playerDesc.movement       = Movement.LEFT;
-            playerDesc.hfd            = HorizontalFacingDirection.LEFT;
+            playerDesc.state          = PlayerDescriptor.State.RUNNING;
+            playerDesc.movement       = PlayerDescriptor.Movement.LEFT;
+            playerDesc.hfd            = PlayerDescriptor.HorizontalFacingDirection.LEFT;
         }
         else
         if (gc.getInput().isKeyDown(Input.KEY_D)) {
-            playerDesc.state          = State.RUNNING;
-            playerDesc.movement       = Movement.RIGHT;
-            playerDesc.hfd            = HorizontalFacingDirection.RIGHT;
+            playerDesc.state          = PlayerDescriptor.State.RUNNING;
+            playerDesc.movement       = PlayerDescriptor.Movement.RIGHT;
+            playerDesc.hfd            = PlayerDescriptor.HorizontalFacingDirection.RIGHT;
         } else {
-            playerDesc.state          = State.IDLE;
-            playerDesc.movement       = Movement.NONE;
+            playerDesc.state          = PlayerDescriptor.State.IDLE;
+            playerDesc.movement       = PlayerDescriptor.Movement.NONE;
         }
 
         if (gc.getInput().isKeyDown(Input.KEY_W)) {
-            playerDesc.vfd = VerticalFacingDirection.UP;
+            playerDesc.vfd = PlayerDescriptor.VerticalFacingDirection.UP;
         }
         else
         if (gc.getInput().isKeyDown(Input.KEY_S)){
-            playerDesc.vfd = VerticalFacingDirection.DOWN;
+            playerDesc.vfd = PlayerDescriptor.VerticalFacingDirection.DOWN;
         }
         else {
-            playerDesc.vfd = VerticalFacingDirection.NONE;
+            playerDesc.vfd = PlayerDescriptor.VerticalFacingDirection.NONE;
         }
 
         if (gc.getInput().isKeyDown(Input.KEY_J)) {
@@ -314,7 +328,7 @@ public class Player extends Entity
                 return;
             }
 
-            playerDesc.state  = State.JUMPING;
+            playerDesc.state  = PlayerDescriptor.State.JUMPING;
             if (playerPlatformed) {
                 playerVelocity = new Vector(0, -PLAYER_VELOCITY_Y);
                 playerPlatformed = false;
@@ -322,18 +336,16 @@ public class Player extends Entity
         }
         else if( !playerPlatformed )
         {
-            playerDesc.state  = State.JUMPING;
+            playerDesc.state  = PlayerDescriptor.State.JUMPING;
+        }
+
+        if (isPLayerSwimming){
+            playerDesc.state  = PlayerDescriptor.State.SWIMMING;
         }
     }
 
     public void updateAnimation( GameContainer gc, StateBasedGame sbg, int delta )
     {
-        ContraGame contraGame = (ContraGame)sbg;
-        if (isPLayerSwimming){
-            playerDesc.state  = State.SWIMMING;
-        }
-
-
         switch (playerDesc.state )
         {
             case IDLE:
@@ -471,22 +483,22 @@ public class Player extends Entity
         }
     }
 
-    public void moveStop() {
+    public void moveStop()
+    {
+        playerPosition = this.getPosition().subtract( ContraGame.VIEWPORT.getViewPortOffsetTopLeft() );
         setPlayerVelocity(new Vector(0.0f, playerVelocity.getY()));
     }
 
-    public void moveLeft( int delta ) {
-        // Position of player
+    public void moveLeft( int delta )
+    {
         playerPosition = this.getPosition().subtract( ContraGame.VIEWPORT.getViewPortOffsetTopLeft() );
-
         playerVelocity = new Vector( PLAYER_VELOCITY_X * delta, this.getPlayerVelocity().getY() );
         ContraGame.VIEWPORT.shiftViewPortOffset(new Vector( playerVelocity.getX(), 0));
     }
 
-    public void moveRight( int delta ) {
-        // Position of player
+    public void moveRight( int delta )
+    {
         playerPosition = this.getPosition().subtract( ContraGame.VIEWPORT.getViewPortOffsetTopLeft() );
-
         playerVelocity = new Vector( -PLAYER_VELOCITY_X * delta, this.getPlayerVelocity().getY() );
         ContraGame.VIEWPORT.shiftViewPortOffset(new Vector( playerVelocity.getX(), 0));
     }
@@ -517,15 +529,16 @@ public class Player extends Entity
                 if( rightBlock.getBlockTexture().equals("WATER") )
                     this.isPLayerSwimming = true;
 
-            if( !this.playerPlatformed ) {
+            if( !this.playerPlatformed )
+            {
                 ArrayList<WorldBlock> cornerBlocks = new ArrayList<>();
                 cornerBlocks.add(leftBlock);
                 cornerBlocks.add(rightBlock);
 
-                for (WorldBlock i : cornerBlocks) {
+                for (WorldBlock i : cornerBlocks)
+                {
                     if (i == null)
                         continue;
-
 
                     if( this.getPosition().getY() > i.getCoarseGrainedMinY() )
                         continue;
