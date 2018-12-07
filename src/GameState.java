@@ -2,6 +2,7 @@ import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.SocketAddress;
 import java.nio.channels.ServerSocketChannel;
+import java.util.ArrayList;
 import java.util.Random;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
@@ -34,9 +35,10 @@ class GameState extends BasicGameState
 	private World    		world;
 	private Player   		player1;
 	private NetworkPlayer   player2;
-	private ServerSocketChannel clientConnection;
-	private ServerSocket clientSocket;
-	private InetSocketAddress clientAddress;
+	private ArrayList<Player>	enemyArrayList;
+	private ServerSocketChannel clientServerSocketChannel;
+	private SocketChannel 		clientSocket;
+	private InetSocketAddress 	clientAddress;
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
@@ -51,13 +53,16 @@ class GameState extends BasicGameState
 	@Override
 	public void enter(GameContainer container, StateBasedGame game)
 	{
-		createConnection();
+		//createConnection();
 
 		container.setSoundOn(true);
 		ContraGame cg = (ContraGame) game;
 
 		player1 = new Player( world );
 		player2 = new NetworkPlayer( world , player1 );
+
+		enemyArrayList = new ArrayList<>();
+		enemyArrayList.add(new enemyRunner(world , player1));
 
 
 	}
@@ -70,8 +75,10 @@ class GameState extends BasicGameState
 		player1.render(g);
 		player2.render(g);
 
-		//SpriteSheet ss = new SpriteSheet( ResourceManager.getImage( ContraGame.PLAYER_RUN_RIGHT_RSC ).getFlippedCopy( true, false ), 37, 45 );
-		//ss.getSprite( 3, 0).draw( 100, 100 );
+		for (Player p : enemyArrayList)
+			p.render(g);
+
+
 	}
 
 	@Override
@@ -82,6 +89,9 @@ class GameState extends BasicGameState
 		world.update(container,game, delta);
 		player1.update(container, game, delta );
 		player2.update(container, game, delta );
+
+		for (Player p : enemyArrayList)
+			p.update(container , game , delta);
 	}
 
 	@Override
@@ -104,17 +114,19 @@ class GameState extends BasicGameState
 			Selector selector = Selector.open(); // selector is open here
 
 			// ServerSocketChannel: selectable channel for stream-oriented listening sockets
-			ServerSocketChannel crunchifySocket = ServerSocketChannel.open();
-			InetSocketAddress crunchifyAddr = new InetSocketAddress("127.0.0.1", 8001);
+			clientServerSocketChannel = ServerSocketChannel.open();
+			clientAddress = new InetSocketAddress( 49998);
+			//ServerSocketChannel crunchifySocket = ServerSocketChannel.open();
+			//InetSocketAddress crunchifyAddr = new InetSocketAddress( 49998);
 
 			// Binds the channel's socket to a local address and configures the socket to listen for connections
-			crunchifySocket.bind(crunchifyAddr);
+			clientServerSocketChannel.bind(clientAddress);
 
 			// Adjusts this channel's blocking mode.
-			crunchifySocket.configureBlocking(false);
+			clientServerSocketChannel.configureBlocking(false);
 
-			int ops = crunchifySocket.validOps();
-			SelectionKey selectKy = crunchifySocket.register(selector, ops, null);
+			int ops =  clientServerSocketChannel.validOps();
+			SelectionKey selectKy = clientServerSocketChannel.register(selector, ops, null);
 
 
 			// Infinite loop..
@@ -133,15 +145,16 @@ class GameState extends BasicGameState
 
 					// Tests whether this key's channel is ready to accept a new socket connection
 					if (myKey.isAcceptable()) {
-						SocketChannel crunchifyClient = crunchifySocket.accept();
+						clientSocket = clientServerSocketChannel.accept();
 
 						// Adjusts this channel's blocking mode to false
-						crunchifyClient.configureBlocking(false);
+						clientSocket.configureBlocking(false);
 
 						// Operation-set bit for read operations
-						crunchifyClient.register(selector, SelectionKey.OP_READ);
-						System.out.println("Connection Accepted: " + crunchifyClient.getLocalAddress() + "\n");
-						break;
+						 clientSocket.register(selector, SelectionKey.OP_READ | SelectionKey.OP_WRITE);
+
+						System.out.println("Connection Accepted: " + clientSocket.getLocalAddress() + "\n");
+						return;
 
 						// Tests whether this key's channel is ready for reading
 					} else if (myKey.isReadable()) {

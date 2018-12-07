@@ -48,8 +48,8 @@ public class Player extends Entity
         {
             this.state               = state;
             this.movement            = movement;
-            this.hfd = hfd;
-            this.vfd   = vfd;
+            this.hfd                 = hfd;
+            this.vfd                 = vfd;
         }
         public State                       state;
         public Movement                    movement;

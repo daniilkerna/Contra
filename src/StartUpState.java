@@ -39,8 +39,7 @@ class StartUpState extends BasicGameState {
 			Graphics g) throws SlickException {
 		ContraGame bg = (ContraGame)game;
 
-		//g.drawImage(ResourceManager.getImage(ContraGame.STARTUP_BANNER_RSC), bg.ScreenWidth/2 - 150, bg.ScreenHeight/2 + 150);
-		ResourceManager.getImage(ContraGame.Contra_Banner_RSC).draw( 100, 50);
+		ResourceManager.getImage(ContraGame.Contra_Banner_RSC).draw( container.getWidth() /2 - 175, 50);
 		g.drawString(message, container.getWidth()  /2 - 50 , 400);
 
 	}
@@ -50,10 +49,13 @@ class StartUpState extends BasicGameState {
 			int delta) throws SlickException {
 
 		Input input = container.getInput();
-		ContraGame bg = (ContraGame)game;
+		ContraGame bg = (ContraGame) game;
 
-		if (input.isKeyPressed(Input.KEY_SPACE))
+		if (input.isKeyPressed(Input.KEY_SPACE)) {
+			message = "Waiting For Connection";
+
 			bg.enterState(ContraGame.PLAYINGSTATE);
+		}
 		
 
 		printCooldown -= delta;
