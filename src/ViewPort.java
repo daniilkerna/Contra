@@ -55,9 +55,13 @@ public class ViewPort
         return new Vector( ContraGame.VIEWPORT.getViewPortOffsetTopLeft().add( v ) );
     }
 
+    public void setViewPortOffset( Vector v )
+    {
+        this.x = v.getX();
+        this.y = v.getY();
+    }
+
     public void render( final Graphics g )
     {
-        //g.drawString( "ViewPort::Width = " +  width, 100, 10 );
-        //g.drawString( "ViewPort::Height = " +  height, 100, 25 );
     }
 }

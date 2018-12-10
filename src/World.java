@@ -40,8 +40,6 @@ public class World
         this.worldWidth           = horizontalBlockCount*BLOCK_WIDTH;
         this.worldHeight          = verticalBlockCount  *BLOCK_HEIGHT;
 
-        ContraGame.VIEWPORT.shiftViewPortOffset( new Vector( 0, (ContraGame.VIEWPORT.getHeight() - this.worldHeight)/2) );
-
         for( int x = 0; x < blockHorizontalCount; x++ ) {
             for( int y = 0; y < blockVerticalCount; y++ ) {
                 worldBlocks[x][y] = new WorldBlock( WorldBlockType.NONE, x, y, null  );

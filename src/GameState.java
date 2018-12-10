@@ -34,31 +34,33 @@ class GameState extends BasicGameState
 	private World    		world;
 	private Player   		player1;
 	private NetworkPlayer   player2;
+	private Server          server;
+	private Client          client;
+
 	private ServerSocketChannel clientConnection;
-	private ServerSocket clientSocket;
-	private InetSocketAddress clientAddress;
+	private ServerSocket        clientSocket;
+	private InetSocketAddress   clientAddress;
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
 	{
 		world    = new World();
 		world.loadWorldFromFile( "one" );
-
-
-
 	}
 
 	@Override
 	public void enter(GameContainer container, StateBasedGame game)
 	{
-
 		container.setSoundOn(true);
 		ContraGame cg = (ContraGame) game;
 
-		player1 = new Player( world );
-		player2 = new NetworkPlayer( world , player1 );
+		player1 = new Player( world,  Player.Type.PINK  );
+		player2 = new NetworkPlayer( world , player1, server );
 
+		server  = new Server(9999 );
+		server.start();
 
+		client  = new Client("localhost", 9999 );
 	}
 	@Override
 	public void render(GameContainer container, StateBasedGame game, Graphics g) throws SlickException {
@@ -95,7 +97,4 @@ class GameState extends BasicGameState
 
 		return number;
 	}
-
-
-	
 }

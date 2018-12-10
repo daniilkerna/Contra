@@ -19,7 +19,7 @@ import org.newdawn.slick.state.StateBasedGame;
  */
 class StartUpState extends BasicGameState {
 
-	String message = "Press Space";
+	String message = "Press H to host \nPress C to become client";
 	boolean messageOn = true;
 	int printCooldown = 750;
 
@@ -40,7 +40,7 @@ class StartUpState extends BasicGameState {
 		ContraGame bg = (ContraGame)game;
 
 		//g.drawImage(ResourceManager.getImage(ContraGame.STARTUP_BANNER_RSC), bg.ScreenWidth/2 - 150, bg.ScreenHeight/2 + 150);
-		ResourceManager.getImage(ContraGame.Contra_Banner_RSC).draw( 100, 50);
+		ResourceManager.getImage(ContraGame.Contra_Banner_RSC).draw( 20, 50);
 		g.drawString(message, container.getWidth()  /2 - 50 , 400);
 
 	}
@@ -52,19 +52,21 @@ class StartUpState extends BasicGameState {
 		Input input = container.getInput();
 		ContraGame bg = (ContraGame)game;
 
-		if (input.isKeyPressed(Input.KEY_SPACE))
-			bg.enterState(ContraGame.PLAYINGSTATE);
-		
+		if (input.isKeyPressed(Input.KEY_H))
+			bg.enterState(ContraGame.HOST);
+
+        if (input.isKeyPressed(Input.KEY_C))
+            bg.enterState(ContraGame.CLIENT);
 
 		printCooldown -= delta;
 		if( printCooldown < 0 ){
 			printCooldown = 750;
 			if(messageOn){
-				message = "";
+				//message = "";
 				messageOn = !messageOn;
 			}
 			else{
-				message = "Press Space";
+				//message = "Press Space";
 				messageOn = !messageOn;
 			}
 		}
