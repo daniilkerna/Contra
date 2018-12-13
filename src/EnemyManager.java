@@ -3,9 +3,11 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class EnemyManager {
+public class EnemyManager implements Serializable
+{
 
     private ArrayList<Player>       enemyArrayList;
     private ArrayList<enemyTurret>  turretArrayList;
@@ -25,7 +27,6 @@ public class EnemyManager {
         enemyArrayList.add(new EnemySniper(world , player1 , 5346 , 450));
         enemyArrayList.add(new EnemySniper(world , player1 , 6285 , 325));
         enemyArrayList.add(new EnemySniper(world , player1 , 6952 , 210));
-
 
 
         //add Turrets
