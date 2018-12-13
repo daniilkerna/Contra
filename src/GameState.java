@@ -35,10 +35,8 @@ class GameState extends BasicGameState
 	private World    		world;
 	private Player   		player1;
 	private NetworkPlayer   player2;
-	private ArrayList<Player>	enemyArrayList;
-	private ServerSocketChannel clientServerSocketChannel;
-	private SocketChannel 		clientSocket;
-	private InetSocketAddress 	clientAddress;
+	private EnemyManager	enemyManager;
+
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
@@ -61,8 +59,9 @@ class GameState extends BasicGameState
 		player1 = new Player( world );
 		player2 = new NetworkPlayer( world , player1 );
 
-		enemyArrayList = new ArrayList<>();
-		enemyArrayList.add(new enemyRunner(world , player1));
+		enemyManager = new EnemyManager(world , player1);
+
+
 
 
 	}
@@ -73,11 +72,11 @@ class GameState extends BasicGameState
 		ContraGame.VIEWPORT.render(g);
 		world.render(g);
 		player1.render(g);
+		player1.renderPosition(g);
 		player2.render(g);
 
-		for (Player p : enemyArrayList)
-			p.render(g);
 
+		enemyManager.render(container , game , g);
 
 	}
 
@@ -90,8 +89,9 @@ class GameState extends BasicGameState
 		player1.update(container, game, delta );
 		player2.update(container, game, delta );
 
-		for (Player p : enemyArrayList)
-			p.update(container , game , delta);
+		enemyManager.update(container , game , delta);
+
+
 	}
 
 	@Override
@@ -106,83 +106,6 @@ class GameState extends BasicGameState
 
 		return number;
 	}
-
-
-	public void createConnection(){
-		try {
-			// Selector: multiplexor of SelectableChannel objects
-			Selector selector = Selector.open(); // selector is open here
-
-			// ServerSocketChannel: selectable channel for stream-oriented listening sockets
-			clientServerSocketChannel = ServerSocketChannel.open();
-			clientAddress = new InetSocketAddress( 49998);
-			//ServerSocketChannel crunchifySocket = ServerSocketChannel.open();
-			//InetSocketAddress crunchifyAddr = new InetSocketAddress( 49998);
-
-			// Binds the channel's socket to a local address and configures the socket to listen for connections
-			clientServerSocketChannel.bind(clientAddress);
-
-			// Adjusts this channel's blocking mode.
-			clientServerSocketChannel.configureBlocking(false);
-
-			int ops =  clientServerSocketChannel.validOps();
-			SelectionKey selectKy = clientServerSocketChannel.register(selector, ops, null);
-
-
-			// Infinite loop..
-			// Keep server running
-			while (true) {
-
-				// Selects a set of keys whose corresponding channels are ready for I/O operations
-				selector.select();
-
-				// token representing the registration of a SelectableChannel with a Selector
-				Set<SelectionKey> crunchifyKeys = selector.selectedKeys();
-				Iterator<SelectionKey> crunchifyIterator = crunchifyKeys.iterator();
-
-				while (crunchifyIterator.hasNext()) {
-					SelectionKey myKey = crunchifyIterator.next();
-
-					// Tests whether this key's channel is ready to accept a new socket connection
-					if (myKey.isAcceptable()) {
-						clientSocket = clientServerSocketChannel.accept();
-
-						// Adjusts this channel's blocking mode to false
-						clientSocket.configureBlocking(false);
-
-						// Operation-set bit for read operations
-						 clientSocket.register(selector, SelectionKey.OP_READ | SelectionKey.OP_WRITE);
-
-						System.out.println("Connection Accepted: " + clientSocket.getLocalAddress() + "\n");
-						return;
-
-						// Tests whether this key's channel is ready for reading
-					} else if (myKey.isReadable()) {
-
-						SocketChannel crunchifyClient = (SocketChannel) myKey.channel();
-						ByteBuffer crunchifyBuffer = ByteBuffer.allocate(256);
-						crunchifyClient.read(crunchifyBuffer);
-						String result = new String(crunchifyBuffer.array()).trim();
-
-						System.out.println("Message received: " + result);
-
-						if (result.equals("Crunchify")) {
-							crunchifyClient.close();
-							System.out.println("\nIt's time to close connection as we got last company name 'Crunchify'");
-							System.out.println("\nServer will keep running. Try running client again to establish new connection");
-						}
-					}
-					crunchifyIterator.remove();
-				}
-			}
-
-		}
-		catch (Exception e){
-			System.out.println(e);
-		}
-
-	}
-
 
 	
 }

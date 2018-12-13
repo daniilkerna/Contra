@@ -63,6 +63,8 @@ public class Player extends Entity
 //    private PlayerHorizontalDirection   playerHorizontalDirection;
 //    private PlayerVerticalDirection     playerVerticalDirection;
 
+
+
     public Vector                      playerPosition,
                                         playerVelocity;
 
@@ -110,7 +112,7 @@ public class Player extends Entity
                 new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_GUN_UP_LEFT_SS"), 0, 0, 0, 0, true, 150, true));
 
         playerAnimations.put("PLAYER_WATER_GUN_RIGHTUP",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_GUN_RIGHTUP_SS"), 0, 0, 0, 0, true, 150, true));
+                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_GUN_RIGHTUP_SS"), 0, 0, 0, 0, true,  150, true));
 
         playerAnimations.put("PLAYER_WATER_GUN_LEFTUP",
                 new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_GUN_LEFTUP_SS"), 0, 0, 0, 0, true, 150, true));
@@ -191,7 +193,7 @@ public class Player extends Entity
 
         /* Player Information */
         //g.drawString( "Player Screen Position:(" + this.getX() + "," + this.getY() + ")", 400, 10 );
-        g.drawString( "Player World Position:(" + this.playerPosition.getX() + "," + this.playerPosition.getY() + ")", 400, 10 );
+        //g.drawString( "Player World Position:(" + this.playerPosition.getX() + "," + this.playerPosition.getY() + ")", 400, 10 );
         //g.drawString( "Player World Velocity:(" + this.playerVelocity.getX() + "," + this.playerVelocity.getY() + ")", 400, 40 );
 
         // render all the bullets
@@ -199,6 +201,10 @@ public class Player extends Entity
             b.render(g);
         }
         super.render(g);
+    }
+
+    public void renderPosition(final Graphics g){
+        g.drawString( "Player World Position:(" + this.playerPosition.getX() + "," + this.playerPosition.getY() + ")", 400, 10 );
     }
 
     public void update(GameContainer gc, StateBasedGame sbg, int delta) {
@@ -535,7 +541,8 @@ public class Player extends Entity
                         continue;
 
                     if (this.getPlayerVelocity().getY() > 0.03f) {
-                        this.setPosition(this.getPosition().add(collision.getMinPenetration()));
+                        Vector v = collision.getMinPenetration();
+                        this.setPosition( this.getPosition().add(  new Vector( 0 , v.getY() )) );
                         this.setPlayerVelocity(new Vector(this.getPlayerVelocity().getX(), 0));
                         this.playerPlatformed = true;
                         return;
@@ -590,5 +597,13 @@ public class Player extends Entity
 
     public void setPlayerVelocity(Vector playerVelocity) {
         this.playerVelocity = playerVelocity;
+    }
+
+    public Vector getPlayerPosition() {
+        return playerPosition;
+    }
+
+    public void setPlayerPosition(Vector playerPosition) {
+        this.playerPosition = playerPosition;
     }
 }

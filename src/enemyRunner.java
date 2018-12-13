@@ -3,11 +3,15 @@ import org.newdawn.slick.Animation;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.state.StateBasedGame;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class enemyRunner extends Player {
     public static float PLAYER_VELOCITY_X = 0.04f;
     public static float PLAYER_VELOCITY_Y = 0.35f;
 
     private Player refPlayer;
+
 
     public enemyRunner (World world , Player p1){
         super(world);
@@ -21,7 +25,7 @@ public class enemyRunner extends Player {
 
         addImageWithBoundingBox(ContraGame.getSpriteSheet("ENEMY_RUNNER_SS").getSprite(0, 0));
         setAnimation("ENEMY_RUNNER");
-        setPosition(ContraGame.VIEWPORT.getWidth()  , ContraGame.VIEWPORT.getHeight() / 2);
+        setPosition(ContraGame.VIEWPORT.getWidth()  , 0 );
         playerPosition = getPosition();
 
     }
@@ -32,6 +36,25 @@ public class enemyRunner extends Player {
         //moveLeft( delta );
         updateAnimation( gc, sbg, delta );
         updatePosition( delta );
+    }
+
+    @Override
+    public void setAnimation( String key )
+    {
+        Animation a = playerAnimations.get( key );
+        if( a ==  null ){
+            System.out.println(String.format("[Player: Class] Animation %s, not found!", key ) );
+            return;
+        }
+        playerYOffset = (a.getHeight() -  this.getCoarseGrainedHeight())/2;
+
+        this.setCoarseGrainedMaxX(  a.getWidth()/2.0f  );
+        this.setCoarseGrainedMinX( -a.getWidth()/2.0f  );
+        this.setCoarseGrainedMaxY(  a.getHeight()/2.0f );
+        this.setCoarseGrainedMinY( -a.getHeight()/2.0f );
+
+        removeAllImages();
+        addAnimation( a );
     }
 
     @Override

@@ -116,6 +116,9 @@ public class ContraGame extends StateBasedGame {
 
 	// Enemy Assets
 	public static final String ENEMY_RUNNER_RSC = "resource/enemy/runner.png";
+	public static final String ENEMY_TURRET_RSC = "resource/enemy/turret.png";
+	public static final String ENEMY_SNIPER_LEFT_RSC = "resource/enemy/sniperLeft.png";
+	public static final String ENEMY_SNIPER_RIGHT_RSC = "resource/enemy/sniperRight.png";
 
 	/*
 	 *  Game Scale Factor :
@@ -409,7 +412,16 @@ public class ContraGame extends StateBasedGame {
 	// Load Enemy Assets
 	private void loadEnemyAssets() {
 		ResourceManager.loadImage(ENEMY_RUNNER_RSC);
+		ResourceManager.loadImage(ENEMY_TURRET_RSC);
+		ResourceManager.loadImage(ENEMY_SNIPER_LEFT_RSC);
+		ResourceManager.loadImage(ENEMY_SNIPER_RIGHT_RSC);
+
 		spriteSheetHashMap.put("ENEMY_RUNNER_SS" , new SpriteSheet(ResourceManager.getImage(ENEMY_RUNNER_RSC), 18, 34));
+		spriteSheetHashMap.put("ENEMY_TURRET_SS" , new SpriteSheet(ResourceManager.getImage(ENEMY_TURRET_RSC), 34, 34));
+		spriteSheetHashMap.put("ENEMY_SNIPER_LEFT_SS" , new SpriteSheet(ResourceManager.getImage(ENEMY_SNIPER_LEFT_RSC), 23, 39));
+		spriteSheetHashMap.put("ENEMY_SNIPER_RIGHT_SS" , new SpriteSheet(ResourceManager.getImage(ENEMY_SNIPER_RIGHT_RSC), 23, 39));
+
+
 	}
 
 }
