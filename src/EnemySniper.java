@@ -5,11 +5,12 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.state.StateBasedGame;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-public class EnemySniper extends Player {
+public class EnemySniper extends Player implements Serializable {
 
     private Player          refPlayer;
     private int             livesLeft = 1;

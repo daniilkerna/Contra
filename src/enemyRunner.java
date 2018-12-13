@@ -3,10 +3,11 @@ import org.newdawn.slick.Animation;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.state.StateBasedGame;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class enemyRunner extends Player {
+public class enemyRunner extends Player implements Serializable {
     public static float PLAYER_VELOCITY_X = 0.04f;
     public static float PLAYER_VELOCITY_Y = 0.35f;
 

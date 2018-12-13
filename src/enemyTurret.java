@@ -6,11 +6,12 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.state.StateBasedGame;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-public class enemyTurret extends Entity {
+public class enemyTurret extends Entity implements Serializable {
     private int livesLeft = 5;
     private Player          refPlayer;
     private TurretState     turretState;
