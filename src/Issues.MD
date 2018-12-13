@@ -11,6 +11,7 @@ Issues to Work On:
 4. Background, make the world pretty
 5. Ability To swim
 6. Add Networking
+7. Enemies
 
 
 Things To Polish:

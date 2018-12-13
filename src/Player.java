@@ -12,12 +12,10 @@ import java.util.LinkedList;
 
 public class Player extends Entity
 {
-    enum Type
-    {
+    enum Type {
         BLUE,
         PINK
-    };
-
+    }
     public static float PLAYER_VELOCITY_X = 0.1f;
     public static float PLAYER_VELOCITY_Y = 0.35f;
 
@@ -70,7 +68,7 @@ public class Player extends Entity
                 new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_GUN_UP_LEFT_SS"), 0, 0, 0, 0, true, 150, true));
 
         playerAnimations.put("PLAYER_WATER_GUN_RIGHTUP",
-                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_GUN_RIGHTUP_SS"), 0, 0, 0, 0, true, 150, true));
+                new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_GUN_RIGHTUP_SS"), 0, 0, 0, 0, true,  150, true));
 
         playerAnimations.put("PLAYER_WATER_GUN_LEFTUP",
                 new Animation(ContraGame.getSpriteSheet("PLAYER_WATER_GUN_LEFTUP_SS"), 0, 0, 0, 0, true, 150, true));
@@ -212,6 +210,10 @@ public class Player extends Entity
             b.render(g);
         }
         super.render(g);
+    }
+
+    public void renderPosition(final Graphics g){
+        g.drawString( "Player World Position:(" + this.playerPosition.getX() + "," + this.playerPosition.getY() + ")", 400, 10 );
     }
 
     public void update(GameContainer gc, StateBasedGame sbg, int delta) {
@@ -548,7 +550,8 @@ public class Player extends Entity
                         continue;
 
                     if (this.getPlayerVelocity().getY() > 0.03f) {
-                        this.setPosition(this.getPosition().add(collision.getMinPenetration()));
+                        Vector v = collision.getMinPenetration();
+                        this.setPosition( this.getPosition().add(  new Vector( 0 , v.getY() )) );
                         this.setPlayerVelocity(new Vector(this.getPlayerVelocity().getX(), 0));
                         this.playerPlatformed = true;
                         return;
@@ -603,5 +606,13 @@ public class Player extends Entity
 
     public void setPlayerVelocity(Vector playerVelocity) {
         this.playerVelocity = playerVelocity;
+    }
+
+    public Vector getPlayerPosition() {
+        return playerPosition;
+    }
+
+    public void setPlayerPosition(Vector playerPosition) {
+        this.playerPosition = playerPosition;
     }
 }

@@ -2,6 +2,7 @@ import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.SocketAddress;
 import java.nio.channels.ServerSocketChannel;
+import java.util.ArrayList;
 import java.util.Random;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
@@ -34,12 +35,17 @@ class GameState extends BasicGameState
 	private World    		world;
 	private Player   		player1;
 	private NetworkPlayer   player2;
+
 	private Server          server;
 	private Client          client;
 
 	private ServerSocketChannel clientConnection;
 	private ServerSocket        clientSocket;
 	private InetSocketAddress   clientAddress;
+
+	private EnemyManager	enemyManager;
+
+
 
 	@Override
 	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
@@ -60,6 +66,8 @@ class GameState extends BasicGameState
 		server  = new Server(9999 );
 		server.start();
 
+		enemyManager = new EnemyManager(world , player1);
+
 		client  = new Client("localhost", 9999 );
 	}
 	@Override
@@ -69,10 +77,12 @@ class GameState extends BasicGameState
 		ContraGame.VIEWPORT.render(g);
 		world.render(g);
 		player1.render(g);
+		player1.renderPosition(g);
 		player2.render(g);
 
-		//SpriteSheet ss = new SpriteSheet( ResourceManager.getImage( ContraGame.PLAYER_RUN_RIGHT_RSC ).getFlippedCopy( true, false ), 37, 45 );
-		//ss.getSprite( 3, 0).draw( 100, 100 );
+
+		enemyManager.render(container , game , g);
+
 	}
 
 	@Override
@@ -83,6 +93,10 @@ class GameState extends BasicGameState
 		world.update(container,game, delta);
 		player1.update(container, game, delta );
 		player2.update(container, game, delta );
+
+		enemyManager.update(container , game , delta);
+
+
 	}
 
 	@Override
@@ -90,11 +104,4 @@ class GameState extends BasicGameState
 		return ContraGame.PLAYINGSTATE;
 	}
 
-	//return random int [0,maximum]
-	public int getRandomInt(int maximum){
-		Random random = new Random();
-		int number = random.nextInt(maximum + 1);
-
-		return number;
-	}
 }
