@@ -1,0 +1,159 @@
+import jig.Entity;
+import jig.Vector;
+import org.newdawn.slick.Animation;
+import org.newdawn.slick.Color;
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.state.StateBasedGame;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+
+public class enemyTurret extends Entity implements Serializable {
+    private int livesLeft = 5;
+    private Player          refPlayer;
+    private TurretState     turretState;
+    private int             booletCooldown = 1000;
+
+    public HashMap<String, Animation>   turretAnimations;
+    public ArrayList<Bullet>            turretBulletArrayList;
+
+    public enemyTurret(final float x, final float y, Player p1) {
+        super(x, y);
+        this.refPlayer = p1;
+        this.setScale(1.5f);
+
+        turretAnimations = new HashMap<>();
+        turretBulletArrayList = new ArrayList<>();
+
+        addImageWithBoundingBox(ContraGame.getSpriteSheet("ENEMY_TURRET_SS").getSprite(0, 2));
+
+
+        turretAnimations.put("WEST",
+                new Animation(ContraGame.getSpriteSheet("ENEMY_TURRET_SS"), 0, 2, 2, 2, true, 250, true));
+
+        turretAnimations.put("WEST_NORTH",
+                new Animation(ContraGame.getSpriteSheet("ENEMY_TURRET_SS"), 3, 2, 5, 2, true, 250, true));
+
+        turretAnimations.put("WEST_SOUTH",
+                new Animation(ContraGame.getSpriteSheet("ENEMY_TURRET_SS"), 6, 1, 8, 1, true, 250, true));
+
+        turretAnimations.put("EAST",
+                new Animation(ContraGame.getSpriteSheet("ENEMY_TURRET_SS"), 0, 0, 2, 0, true, 250, true));
+
+        turretAnimations.put("EAST_NORTH",
+                new Animation(ContraGame.getSpriteSheet("ENEMY_TURRET_SS"), 6, 3, 8, 3, true, 250, true));
+
+        turretAnimations.put("EAST_SOUTH",
+                new Animation(ContraGame.getSpriteSheet("ENEMY_TURRET_SS"), 3, 0, 5, 0, true, 250, true));
+
+        turretAnimations.put("NORTH",
+                new Animation(ContraGame.getSpriteSheet("ENEMY_TURRET_SS"), 0, 3, 2, 3, true, 250, true));
+
+        turretAnimations.put("NORTH_WEST",
+                new Animation(ContraGame.getSpriteSheet("ENEMY_TURRET_SS"), 6, 2, 8, 2, true, 250, true));
+
+        turretAnimations.put("NORTH_EAST",
+                new Animation(ContraGame.getSpriteSheet("ENEMY_TURRET_SS"), 3, 3, 5, 3, true, 250, true));
+
+        turretAnimations.put("SOUTH",
+                new Animation(ContraGame.getSpriteSheet("ENEMY_TURRET_SS"), 0, 1, 2, 1, true, 250, true));
+
+        turretAnimations.put("SOUTH_WEST",
+                new Animation(ContraGame.getSpriteSheet("ENEMY_TURRET_SS"), 3, 1, 5, 1, true, 250, true));
+
+        turretAnimations.put("SOUTH_EAST",
+                new Animation(ContraGame.getSpriteSheet("ENEMY_TURRET_SS"), 6, 0, 8, 0, true, 250, true));
+
+
+        turretState = TurretState.EAST;
+    }
+
+
+    public void update(GameContainer gc, StateBasedGame sbg, int delta) {
+        this.setPosition(this.getPosition().getX() + this.refPlayer.getPlayerVelocity().getX(), this.getPosition().getY());
+
+        updateState();
+        updateAnimation();
+        shootBoolets(gc , sbg , delta);
+    }
+
+    public void shootBoolets(GameContainer gc, StateBasedGame sbg, int delta){
+        booletCooldown -= delta;
+        if (booletCooldown < 0){
+            booletCooldown = 1000;
+            turretBulletArrayList.add(new Bullet(getX() , getY() , BulletType.REGULAR , turretState ) );
+        }
+
+        Iterator<Bullet> iter = turretBulletArrayList.iterator();
+
+        for ( ;iter.hasNext(); )
+        {
+            Bullet b = iter.next();
+
+            if( b.isOnScreen() )
+                b.update(gc , sbg , delta, this.refPlayer.getPlayerVelocity().getX());
+            else
+                iter.remove();
+        }
+
+    }
+
+    @Override
+    public void render(final Graphics g)  {
+        super.render(g);
+
+        // render all the bullets
+        for (Bullet b : turretBulletArrayList){
+            b.render(g);
+        }
+
+    }
+
+
+    public void setAnimation(String key) {
+        Animation a = turretAnimations.get(key);
+        if (a == null) {
+            System.out.println(String.format("[Player: Class] Animation %s, not found!", key));
+            return;
+        }
+
+        this.setCoarseGrainedMaxX(a.getWidth() / 2.0f);
+        this.setCoarseGrainedMinX(-a.getWidth() / 2.0f);
+        this.setCoarseGrainedMaxY(a.getHeight() / 2.0f);
+        this.setCoarseGrainedMinY(-a.getHeight() / 2.0f);
+
+        removeAllImages();
+        addAnimation(a);
+    }
+
+
+    public void updateAnimation(){
+        setAnimation(turretState.toString());
+    }
+
+    public void updateState(){
+        if (refPlayer.getCoarseGrainedMaxX() < getCoarseGrainedMinX()){
+            this.turretState = TurretState.WEST;
+
+        }
+        else if ( refPlayer.getCoarseGrainedMinX() > getCoarseGrainedMaxX() ){
+            this.turretState = TurretState.EAST;
+        }
+        else{
+            if ( refPlayer.getY() < getY() ){
+                this.turretState = TurretState.NORTH;
+            }
+            else {
+                this.turretState = TurretState.SOUTH;
+            }
+        }
+    }
+
+    public void updateReferencePlayer(Player p1){
+        this.refPlayer = p1;
+    }
+
+}

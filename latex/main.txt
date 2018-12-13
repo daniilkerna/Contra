@@ -1,0 +1,132 @@
+
+
+
+
+
+
+
+
+
+
+
+
+Bubble Bobble 
+Project 1 Proposal
+Aleksandr Khavarovskiy
+
+
+boxed 
+figure
+
+
+
+
+
+
+
+
+
+
+Basic Idea  
+
+The game I hope to create will be a clone/theme-clone of the game known as Bubble Bobble, which was released in 1988 for the Nintendo Entertainment System. The game has a very age friendly appeal with the mechanics of an arcade style platformer, like Donkey Kong and Mario Bros. The game involves a player interacting with the Bubble Dragon twins Bub and Bob. The game features both a single payer mode as well as a co-op mode. In the single player mode, a single player will interact with Bub and attempt to neutralize enemies with bubble projectiles. Once an enemy collides with a bubble projectile they will be contained in a bubble and become neutralized. Once in a bubble the enemies will make their way towards the top of the screen and simply float about until the player pops the bubble by colliding with it. Once all the enemies have been eliminated on any given level the player will have an allotted time to acquire pickups left by the eliminated enemies. Generally, these pickups take the form of fruit and various pastries and only give additional score to the player. Upon completion the player will move on to the next level to find himself in a level with a different theme, layout and enemies. The game becomes progressively more difficult with every level and with each level brings a sense of novelty that keeps the player wanting more. In co-op mode the game is virtually the identical with only the addition of a second Bubble Dragon know as Bob. The second dragon is controlled by a second player with their own life counter and point counter. My goal is to replicate the feel and theme of the game. Given the complexity of this challenge, I might change the core mechanics to better suit this assignment.
+
+UI  
+The games user interface will be as closely resembled to the original game as possible with a few possible additions or removals where I see fit. The original UI style of the game embedded the scoring system and live counter into the edges of the playing field. This allows the player to quickly check their progression without any additional distractions. 
+
+<Picture ss.png>
+
+
+Entities  
+Perhaps first and foremost is Bub the Bubble dragon controlled by the player. The dragon has various animations that change based on movement and state. Bub can launch bubble projectiles which uses its own animation to represent the action. Bubbles are themselves entities that can be used to neutralize enemies and can also be jumped on and used for vertical traversal. Bubbles can be popped by the player or the environment and have a unique animation representing the action. There is a large verity of enemies that attempt to neutralize the player all with varying characteristics and abilities. All of these enemies are susceptible to the players bubble projectiles which will place the enemy is a docile state. This change is always denoted by the enemy contained within a bubble which will require a unique sprite for every enemy. There is a second universal state for enemies, this is known as the agitated state, this is denoted by a sprite color change usually to a red color. There exists an invisible timer at every level. At the first stage the enemies will become more aggressive and gain an increase to their movement speed. At the second stage of the process an immortal Monsta will appear that will begin to chase the player without any type of collisions with the game barriers. This is a unique Monsta denoted by a red and white color scheme. This mechanic is designed to give the player a sense of urgency without using an explicit timer.
+
+Throughout a set of levels, the player can encounter unique bubbles with specific letters and color on them. The letters include E, X, T, E, N, D and as you may have guessed, they are used to spell extend. The player can collect these letters by simply colliding with them. Once the player collects all the letters he will be granted a score bonus as well as a life bonus. These letters always spawn on the bottom of the screen and slowly make their way to the top of the screen. This mechanics adds an additional risk factor to the game and if the player peruses this challenge they will be rewarded for doing so. After a pick-up of one of these letters they will become denoted on the left side of the screen. 
+
+<Picture extends.png> 
+
+
+
+After eliminating an enemy, they will drop items various food items that add to the players score count. The sprite of the item will denote the value of the pickup. Many unique items will spawn randomly on the level. These are often not power-ups but items that increase your score. Finally, there is a lightning bubble that will spawn at later levels. When the player burst this bubble via collision a lightning bolt will move horizontally capable of eliminating hard to reach enemies
+
+
+
+Enemies List
+
+
+	Zen-chan: No unique abilities and simply charge at the player.
+	
+		<Picture zenchan.png> 
+	
+	
+	Mighta: Charge at the enemy and are able of casting fire spells when aggravated.
+	
+		<Picture mighta.png> 
+	
+	
+	Monsta: Able to fly.
+	
+		<Picture monsta.png> 
+	
+	
+	
+	Pulpul: Use aerial abilities to attack player.
+	
+		<Picture pulpul.png> 
+	
+	
+	Banebou: Able to bounce using the spring attached to their bodies, also able to move quickly. 
+	
+		<Picture banebou.png> 
+	
+	
+	Invader: Able to fire a laser in a downward direction. 
+	
+		<Picture invader.png> 
+	
+	
+	Hidegons: Able to breath fireballs.
+	
+		<Picture hidegons.png> 
+	
+	
+	Drunk: Able to throw the bottles which they carry around. 
+	
+		<Picture drunk.png> 
+	
+	
+	Rascal: Able to move through walls and cannot be trapped by a bubble.
+	
+		<Picture rascal.png> 
+	
+
+
+
+Sticking Points  
+One of the biggest challenges I can foresee with this game is its sheer amount of levels and enemies. The game does a good job at providing the player with variety and novelty. Not only are the enemies varying so are their mechanics, implementing even half of them can become a time consuming and daunting task. The original game contains 100+ unique levels and replicating them all will be far outside the scope of the project. To overcome these challenges, I plan to implement bigger levels with more enemies and reduce the overall level count. I plan to implement at least three enemies with varied mechanics. More additions will be added if time permits. A big part of this project is to demonstrate path finding. This mechanic is difficult to discern in the original game. To make this more obvious I will introduce a bigger map with pockets that trap enemies with poor path finding abilities. There is an additional challenge with path-finding on a platformer as there exist paths that are mono directional and require different actions to traverse. Also, there exists pits which must be jumped over by enemies to chase the player effectively. This introduces and additional complexity to the path finding on a graph and will have to be accounted for. All these issues can be avoided if I choose to redesign the game to something resembling a Bomber-man or Pac-man style. 
+
+High Bar  
+
+	Very Difficult: Patformer abilities an path finding. 
+	Moderate: Varying enemies with varying characteristics.
+	Moderate: Multiple levels with different themes.
+	Easy: Varying power-ups through out the level.
+	Easy: Reproduce some of the original animations and sounds.
+	Easy/Moderate: Implement a map wrap around mechanic.
+
+
+
+Low Bar 
+The low bar goal represents more of a Pac-Man style game with a different themes, enemies and abilities. 
+
+	Menu: Game menu with title screen.
+	Mechanics: A 2D movement style game, like Pac-Man.
+	Enemy Mechanics: Implement enemies which effectively chase after the player.
+	Player Mechanics: Bubble projectiles that neutralizes enemies.
+	Game Mechanics: Enemy collisions that cause you to lose a life.
+	Game Mechanics: Collisions with neutralized enemies which eliminates them.
+	Design/Complexity: Design a level which effectively shows enemies path finding abilities.
+	Design/Complexity: A single map with increasing enemy count and difficulty. 
+ 
+
+
+
