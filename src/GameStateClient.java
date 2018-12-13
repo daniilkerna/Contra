@@ -14,6 +14,8 @@ class GameStateClient extends BasicGameState
     private Player          player2;
     private Client          client;
 
+    private EnemyManager    serverEnemyManager;
+
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
     {
@@ -30,7 +32,7 @@ class GameStateClient extends BasicGameState
         player1 = new Player( world,  Player.Type.PINK  );
         player2 = new Player( world,  Player.Type.BLUE  );
 
-        client  = new Client("localhost", 9999 );
+        client  = new Client("10.0.73.40", 9999 );
         try {
             client.start();
         }
@@ -46,6 +48,9 @@ class GameStateClient extends BasicGameState
         world.render(g);
         player1.render(g);
         player2.render(g);
+
+        if( serverEnemyManager != null )
+            serverEnemyManager.render(gc, sbg, g);
     }
 
     @Override
@@ -93,6 +98,7 @@ class GameStateClient extends BasicGameState
         ServerPacket c = client.readFromServer();
         if( c != null )
         {
+            serverEnemyManager = c.getServerEnemyManager();
             player1.playerDesc = c.getLocalPlayerDescriptor();
             player1.setPosition( player1.getX(), c.getLocalPlayerWorldPosition().getY() );
             ContraGame.VIEWPORT.setViewPortOffset( new Vector( player1.getX() - c.getLocalPlayerWorldPosition().getX(), 0 ) );
