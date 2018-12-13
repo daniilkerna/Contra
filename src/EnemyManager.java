@@ -21,9 +21,9 @@ public class EnemyManager {
         enemyArrayList.add(new EnemySniper(world , player1 , 634 , 438));
         enemyArrayList.add(new EnemySniper(world , player1 , 1275 , 476));
         enemyArrayList.add(new EnemySniper(world , player1 , 2554 , 255));
-        enemyArrayList.add(new EnemySniper(world , player1 , 4864 , 255));
-        enemyArrayList.add(new EnemySniper(world , player1 , 5346 , 470));
-        enemyArrayList.add(new EnemySniper(world , player1 , 6285 , 345));
+        enemyArrayList.add(new EnemySniper(world , player1 , 4864 , 235));
+        enemyArrayList.add(new EnemySniper(world , player1 , 5346 , 450));
+        enemyArrayList.add(new EnemySniper(world , player1 , 6285 , 325));
         enemyArrayList.add(new EnemySniper(world , player1 , 6952 , 210));
 
 
