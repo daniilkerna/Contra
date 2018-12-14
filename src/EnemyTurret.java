@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 public class EnemyTurret extends Entity implements Serializable {
-    private int livesLeft = 5;
+    private int             livesLeft = 5;
     private Player          refPlayer,
                             refPlayer2;
 
@@ -98,7 +98,7 @@ public class EnemyTurret extends Entity implements Serializable {
         if (Math.abs(this.getTurretWorldPos().subtract(this.refPlayer.getPlayerPosition()).getX()) <= 400 || Math.abs(this.getTurretWorldPos().subtract(this.refPlayer2.getPlayerPosition()).getX()) <= 400 ) {
             booletCooldown -= delta;
             if (booletCooldown < 0) {
-                booletCooldown = 1000;
+                booletCooldown = 2000;
                 turretBulletArrayList.add(new Bullet(turretWorldPos.getX(), turretWorldPos.getY(), BulletType.REGULAR, turretState));
             }
         }
@@ -112,6 +112,9 @@ public class EnemyTurret extends Entity implements Serializable {
             if( b.isInTheWorld() )
                 b.update(gc , sbg , delta, this.refPlayer.getPlayerVelocity().getX());
             else
+                iter.remove();
+
+            if(b.isBulletDead )
                 iter.remove();
         }
 
@@ -135,11 +138,6 @@ public class EnemyTurret extends Entity implements Serializable {
             System.out.println(String.format("[Player: Class] Animation %s, not found!", key));
             return;
         }
-
-        this.setCoarseGrainedMaxX(a.getWidth() / 2.0f);
-        this.setCoarseGrainedMinX(-a.getWidth() / 2.0f);
-        this.setCoarseGrainedMaxY(a.getHeight() / 2.0f);
-        this.setCoarseGrainedMinY(-a.getHeight() / 2.0f);
 
         removeAllImages();
         addAnimation(a);
@@ -182,6 +180,14 @@ public class EnemyTurret extends Entity implements Serializable {
 
     public void setTurretState(TurretState turretState) {
         this.turretState = turretState;
+    }
+
+    public void decrementLives(){
+        this.livesLeft--;
+    }
+
+    public int getLivesLeft(){
+        return  this.livesLeft;
     }
 
 }

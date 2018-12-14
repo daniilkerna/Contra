@@ -15,7 +15,7 @@ public class EnemySniper extends Player implements Serializable {
     private Player          refPlayer,
                             refPlayer2;
     private int             livesLeft = 2;
-    private int             booletCooldown = 1000;
+    private int             booletCooldown = 2000;
 
     public Vector                       sniperPosition;
     public HashMap<String, Animation>   sniperAnimations;
@@ -24,6 +24,11 @@ public class EnemySniper extends Player implements Serializable {
 
     public Vector getSniperPosition() {
         return sniperPosition;
+    }
+
+    public EnemySniper (World world , Player p1, Player p2 , final float x , final float y, PlayerDescriptor playerDescriptor){
+        this(world , p1, p2 , x , y);
+        this.playerDesc = playerDescriptor;
     }
 
     public EnemySniper (World world , Player p1, Player p2 , final float x , final float y){
@@ -78,7 +83,7 @@ public class EnemySniper extends Player implements Serializable {
         if (Math.abs(this.getSniperPosition().subtract(this.refPlayer.getPlayerPosition()).getX()) <= 400 || Math.abs(this.getSniperPosition().subtract(this.refPlayer2.getPlayerPosition()).getX()) <= 400 ) {
             booletCooldown -= delta;
             if (booletCooldown < 0) {
-                booletCooldown = 1000;
+                booletCooldown = 2000;
                 sniperBulletArrayList.add(new Bullet(sniperPosition.getX(), sniperPosition.getY(), BulletType.REGULAR, playerDesc, -20));
             }
         }
@@ -91,6 +96,9 @@ public class EnemySniper extends Player implements Serializable {
             if( b.isInTheWorld() )
                 b.update(gc , sbg , delta, this.refPlayer.getPlayerVelocity().getX());
             else
+                iter.remove();
+
+            if(b.isBulletDead )
                 iter.remove();
         }
     }
@@ -203,5 +211,17 @@ public class EnemySniper extends Player implements Serializable {
 
     public void setPlayerDesc(PlayerDescriptor playerDesc){
         this.playerDesc = playerDesc;
+    }
+
+    public PlayerDescriptor getSniperDesc(){
+        return this.playerDesc;
+    }
+
+    public void decrementLives(){
+        this.livesLeft--;
+    }
+
+    public int getLivesLeft(){
+        return  this.livesLeft;
     }
 }
