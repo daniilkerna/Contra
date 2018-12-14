@@ -35,9 +35,8 @@ public class NetworkPlayer extends Player
     public void fireAndUpdateBullets(GameContainer gc, StateBasedGame sbg, int delta)
     {
         if (isPlayerShooting) {
-            bulletArrayList.add(new Bullet(getX() , getY() , BulletType.REGULAR , playerDesc ) );
+            bulletArrayList.add(new Bullet(playerPosition.getX() , playerPosition.getY() , BulletType.REGULAR , playerDesc ) );
         }
-
         Iterator<Bullet> iter = bulletArrayList.iterator();
 
         for ( ;iter.hasNext(); )

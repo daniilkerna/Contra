@@ -70,7 +70,7 @@ public class EnemySniper extends Player implements Serializable {
         setPosition( sniperPosition.getX() - refPlayer.getPlayerVelocity().getX() + ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getX(), sniperPosition.getY() + ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getY());
         fireAndUpdateBullets(gc , sbg , delta);
         getState( gc, sbg, delta );
-        updateAnimation( gc, sbg, delta );
+        updateAnimation();
     }
 
 
@@ -118,7 +118,8 @@ public class EnemySniper extends Player implements Serializable {
         }
     }
 
-    public void updateAnimation( GameContainer gc, StateBasedGame sbg, int delta ){
+
+    public void updateAnimation(){
         switch (playerDesc.hfd){
             case LEFT:
                 switch (playerDesc.vfd){
@@ -198,5 +199,9 @@ public class EnemySniper extends Player implements Serializable {
             b.render(g);
         }
 
+    }
+
+    public void setPlayerDesc(PlayerDescriptor playerDesc){
+        this.playerDesc = playerDesc;
     }
 }

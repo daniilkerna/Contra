@@ -68,6 +68,8 @@ class GameStateServer extends BasicGameState
         networkEntityList.addRunners(enemyManager.getRunnerArrayList());
         networkEntityList.addTurrets(enemyManager.getTurretArrayList());
         networkEntityList.addBullets(enemyManager.getAllEnemyBullets());
+        networkEntityList.addBullets(localPlayer.bulletArrayList);
+        networkEntityList.addBullets(networkPlayer.bulletArrayList);
 //        networkEntityList.addPlayer(localPlayer);
 //        networkEntityList.addPlayer(networkPlayer);
        // System.out.println(enemyManager.getAllEnemyBullets().size());

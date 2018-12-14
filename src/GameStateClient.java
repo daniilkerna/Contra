@@ -34,7 +34,7 @@ class GameStateClient extends BasicGameState
         player1 = new Player( world,  Player.Type.PINK  );
         player2 = new Player( world,  Player.Type.BLUE  );
 
-        client  = new Client("10.0.68.120", 9999 );
+        client  = new Client("localhost", 9999 );
         try {
             client.start();
         }
@@ -68,8 +68,9 @@ class GameStateClient extends BasicGameState
                     break;
                 case SNIPER:
                     EnemySniper es = new EnemySniper(world , player1 , player2 , ne.getPosition().getX(), ne.getPosition().getY() );
-                    es.playerDesc = ne.getPlayerDesc();
+                    es.setPlayerDesc(ne.getPlayerDesc());
                     es.setPosition( ne.getPosition().getX() + ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getX(), ne.getPosition().getY() );
+                    es.updateAnimation();
                     //System.out.println( ne.getPosition().getX() + " - " +  ne.getPosition().getY() );
                     es.render(g);
                     break;
