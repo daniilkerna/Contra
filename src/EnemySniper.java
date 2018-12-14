@@ -22,6 +22,10 @@ public class EnemySniper extends Player implements Serializable {
     public ArrayList<Bullet>            sniperBulletArrayList;
 
 
+
+    private String                      currentAnimation;
+
+
     public Vector getSniperPosition() {
         return sniperPosition;
     }
@@ -29,6 +33,7 @@ public class EnemySniper extends Player implements Serializable {
     public EnemySniper (World world , Player p1, Player p2 , final float x , final float y, PlayerDescriptor playerDescriptor){
         this(world , p1, p2 , x , y);
         this.playerDesc = playerDescriptor;
+
     }
 
     public EnemySniper (World world , Player p1, Player p2 , final float x , final float y){
@@ -133,15 +138,15 @@ public class EnemySniper extends Player implements Serializable {
             case LEFT:
                 switch (playerDesc.vfd){
                     case DOWN:
-                        setAnimationFrame ("LEFT_DOWN"  , 0);
+                        setAnimationFrame1("LEFT_DOWN"  , 0);
                         break;
 
                     case UP:
-                        setAnimationFrame("LEFT_UP"  , 0);
+                        setAnimationFrame1("LEFT_UP"  , 0);
                         break;
 
                     case NONE:
-                        setAnimationFrame( "LEFT"  ,  0);
+                        setAnimationFrame1( "LEFT"  ,  0);
                         break;
                 }
                 break;
@@ -149,15 +154,15 @@ public class EnemySniper extends Player implements Serializable {
             case RIGHT:
                 switch (playerDesc.vfd){
                     case DOWN:
-                        setAnimationFrame("RIGHT_DOWN" , 0);
+                        setAnimationFrame1("RIGHT_DOWN" , 0);
                         break;
 
                     case UP:
-                        setAnimationFrame("RIGHT_UP" , 0);
+                        setAnimationFrame1("RIGHT_UP" , 0);
                         break;
 
                     case NONE:
-                        setAnimationFrame("RIGHT" , 0);
+                        setAnimationFrame1("RIGHT" , 0);
                         break;
 
                 }
@@ -180,9 +185,11 @@ public class EnemySniper extends Player implements Serializable {
 
         removeAllImages();
         addAnimation( a );
+        this.currentAnimation = key;
     }
 
-    private void setAnimationFrame( String key, int frame ) {
+
+    public void setAnimationFrame1( String key, int frame ) {
         Animation a = sniperAnimations.get(key);
         if (a == null) {
             System.out.println(String.format("[Player: Class] Animation %s, not found!", key));
@@ -197,6 +204,7 @@ public class EnemySniper extends Player implements Serializable {
 
         removeAllImages();
         addImage(a.getImage(frame));
+        this.currentAnimation = key;
     }
 
     @Override
@@ -234,5 +242,9 @@ public class EnemySniper extends Player implements Serializable {
 
     public int getLivesLeft(){
         return  this.livesLeft;
+    }
+
+    public String getCurrentAnimation() {
+        return currentAnimation;
     }
 }
