@@ -95,7 +95,7 @@ public class EnemyTurret extends Entity implements Serializable {
     }
 
     public void shootBoolets(GameContainer gc, StateBasedGame sbg, int delta){
-        if (this.getTurretWorldPos().subtract(this.refPlayer.getPlayerPosition()).getX() <= 400 || this.getTurretWorldPos().subtract(this.refPlayer2.getPlayerPosition()).getX() <= 400 ) {
+        if (Math.abs(this.getTurretWorldPos().subtract(this.refPlayer.getPlayerPosition()).getX()) <= 400 || Math.abs(this.getTurretWorldPos().subtract(this.refPlayer2.getPlayerPosition()).getX()) <= 400 ) {
             booletCooldown -= delta;
             if (booletCooldown < 0) {
                 booletCooldown = 1000;

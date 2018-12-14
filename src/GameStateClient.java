@@ -34,7 +34,7 @@ class GameStateClient extends BasicGameState
         player1 = new Player( world,  Player.Type.PINK  );
         player2 = new Player( world,  Player.Type.BLUE  );
 
-        client  = new Client("localhost", 9999 );
+        client  = new Client("10.0.68.120", 9999 );
         try {
             client.start();
         }

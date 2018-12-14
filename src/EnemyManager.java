@@ -97,6 +97,7 @@ public class EnemyManager implements Serializable
             for( Bullet b : enemy.turretBulletArrayList)
                 allEnemyBullets.add(b);
 
+        System.out.println("#of Bullets :"  + allEnemyBullets.size());
         return allEnemyBullets;
     }
 

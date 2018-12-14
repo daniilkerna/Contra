@@ -14,7 +14,7 @@ public class EnemySniper extends Player implements Serializable {
 
     private Player          refPlayer,
                             refPlayer2;
-    private int             livesLeft = 1;
+    private int             livesLeft = 2;
     private int             booletCooldown = 1000;
 
     public Vector                       sniperPosition;
@@ -75,7 +75,7 @@ public class EnemySniper extends Player implements Serializable {
 
 
     public void fireAndUpdateBullets(GameContainer gc, StateBasedGame sbg, int delta){
-        if (this.getSniperPosition().subtract(this.refPlayer.getPlayerPosition()).getX() <= 400 || this.getSniperPosition().subtract(this.refPlayer2.getPlayerPosition()).getX() <= 400 ) {
+        if (Math.abs(this.getSniperPosition().subtract(this.refPlayer.getPlayerPosition()).getX()) <= 400 || Math.abs(this.getSniperPosition().subtract(this.refPlayer2.getPlayerPosition()).getX()) <= 400 ) {
             booletCooldown -= delta;
             if (booletCooldown < 0) {
                 booletCooldown = 1000;
