@@ -493,8 +493,8 @@ public class ContraGame extends StateBasedGame {
 
 		spriteSheetHashMap.put("ENEMY_RUNNER_SS" , new SpriteSheet(ResourceManager.getImage(ENEMY_RUNNER_RSC), 18, 34));
 		spriteSheetHashMap.put("ENEMY_TURRET_SS" , new SpriteSheet(ResourceManager.getImage(ENEMY_TURRET_RSC), 34, 34));
-		spriteSheetHashMap.put("ENEMY_SNIPER_LEFT_SS" , new SpriteSheet(ResourceManager.getImage(ENEMY_SNIPER_LEFT_RSC), 23, 39));
-		spriteSheetHashMap.put("ENEMY_SNIPER_RIGHT_SS" , new SpriteSheet(ResourceManager.getImage(ENEMY_SNIPER_RIGHT_RSC), 23, 39));
+		spriteSheetHashMap.put("ENEMY_SNIPER_LEFT_SS" , new SpriteSheet(ResourceManager.getImage(ENEMY_SNIPER_LEFT_RSC), 26, 39));
+		spriteSheetHashMap.put("ENEMY_SNIPER_RIGHT_SS" , new SpriteSheet(ResourceManager.getImage(ENEMY_SNIPER_RIGHT_RSC), 26, 39));
 	}
 
 }

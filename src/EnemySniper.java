@@ -12,19 +12,27 @@ import java.util.Iterator;
 
 public class EnemySniper extends Player implements Serializable {
 
-    private Player          refPlayer;
+    private Player          refPlayer,
+                            refPlayer2;
     private int             livesLeft = 1;
     private int             booletCooldown = 1000;
 
+    public Vector                       sniperPosition;
     public HashMap<String, Animation>   sniperAnimations;
     public ArrayList<Bullet>            sniperBulletArrayList;
 
 
-    public EnemySniper (World world , Player p1 , final int x , final int y){
+    public Vector getSniperPosition() {
+        return sniperPosition;
+    }
+
+    public EnemySniper (World world , Player p1, Player p2 , final float x , final float y){
         super(world, Type.PINK);
-        this.setPosition( x , y);
+
+        sniperPosition = new Vector(x, y);
 
         this.refPlayer = p1;
+        this.refPlayer2 = p2;
 
         sniperAnimations = new HashMap<>();
         sniperBulletArrayList = new ArrayList<>();
@@ -59,8 +67,7 @@ public class EnemySniper extends Player implements Serializable {
 
 
     public void update(GameContainer gc, StateBasedGame sbg, int delta) {
-        this.setPosition(this.getPosition().getX() + this.refPlayer.getPlayerVelocity().getX(), this.getPosition().getY());
-
+        setPosition( sniperPosition.getX() - refPlayer.getPlayerVelocity().getX() + ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getX(), sniperPosition.getY() + ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getY());
         fireAndUpdateBullets(gc , sbg , delta);
         getState( gc, sbg, delta );
         updateAnimation( gc, sbg, delta );
@@ -68,24 +75,24 @@ public class EnemySniper extends Player implements Serializable {
 
 
     public void fireAndUpdateBullets(GameContainer gc, StateBasedGame sbg, int delta){
-        booletCooldown -= delta;
-        if (booletCooldown < 0){
-            booletCooldown = 1000;
-            sniperBulletArrayList.add(new Bullet(getX() , getY() , BulletType.REGULAR , playerDesc , -20 ) );
+        if (this.getSniperPosition().subtract(this.refPlayer.getPlayerPosition()).getX() <= 400 || this.getSniperPosition().subtract(this.refPlayer2.getPlayerPosition()).getX() <= 400 ) {
+            booletCooldown -= delta;
+            if (booletCooldown < 0) {
+                booletCooldown = 1000;
+                sniperBulletArrayList.add(new Bullet(sniperPosition.getX(), sniperPosition.getY(), BulletType.REGULAR, playerDesc, -20));
+            }
         }
 
         Iterator<Bullet> iter = sniperBulletArrayList.iterator();
-
         for ( ;iter.hasNext(); )
         {
             Bullet b = iter.next();
 
-            if( b.isOnScreen() )
+            if( b.isInTheWorld() )
                 b.update(gc , sbg , delta, this.refPlayer.getPlayerVelocity().getX());
             else
                 iter.remove();
         }
-
     }
 
     public void getState(GameContainer gc, StateBasedGame sbg, int delta ){

@@ -66,7 +66,7 @@ class GameState extends BasicGameState
 		server  = new Server(9999 );
 		server.start();
 
-		enemyManager = new EnemyManager(world , player1);
+		enemyManager = new EnemyManager(world , player1 , player2);
 
 		client  = new Client("localhost", 9999 );
 	}

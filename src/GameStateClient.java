@@ -9,12 +9,14 @@ import org.newdawn.slick.state.StateBasedGame;
  */
 class GameStateClient extends BasicGameState
 {
+    private int frameCount = 0;
     private World    		world;
     private Player   		player1;
     private Player          player2;
     private Client          client;
 
-    private EnemyManager    serverEnemyManager;
+    private Vector            localPlayerWorkPosition;
+    private NetworkEntityList networkEntityList;
 
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException
@@ -49,13 +51,48 @@ class GameStateClient extends BasicGameState
         player1.render(g);
         player2.render(g);
 
-        if( serverEnemyManager != null )
-            serverEnemyManager.render(gc, sbg, g);
+        if( networkEntityList == null )
+            return;
+
+        if(  networkEntityList.getEntities() == null )
+            return;
+
+        for( NetworkEntity ne : networkEntityList.getEntities() )
+        {
+            switch ( ne.getEntityType() )
+            {
+                case BULLET:
+                    Bullet b = new Bullet(ne.getPosition().getX() , ne.getPosition().getY());
+                    b.setPosition( ne.getPosition().getX()  + ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getX(), ne.getPosition().getY() );
+                    b.render(g);
+                    break;
+                case SNIPER:
+                    EnemySniper es = new EnemySniper(world , player1 , player2 , ne.getPosition().getX(), ne.getPosition().getY() );
+                    es.playerDesc = ne.getPlayerDesc();
+                    es.setPosition( ne.getPosition().getX() + ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getX(), ne.getPosition().getY() );
+                    //System.out.println( ne.getPosition().getX() + " - " +  ne.getPosition().getY() );
+                    es.render(g);
+                    break;
+                case RUNNER:
+                    //EnemyRunner er =  new EnemyRunner(world , player1);
+                    //er.playerDesc = ne.getPlayerDesc();
+                    //er.render(g);
+                    break;
+                case TURRET:
+                    EnemyTurret et = new EnemyTurret( ne.getPosition().getX() , ne.getPosition().getY() , player2 , player1);
+                    et.setPosition( ne.getPosition().getX() + ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getX(), ne.getPosition().getY() );
+                    et.setTurretState(ne.getTurretState());
+                    et.updateAnimation();
+                    et.render(g);
+                    break;
+            }
+        }
     }
 
     @Override
     public void update(GameContainer gc, StateBasedGame game, int delta) throws SlickException {
 
+        frameCount += 1;
         ClientPacket cp = new ClientPacket();
         if (gc.getInput().isKeyDown(Input.KEY_A)) {
             cp.setClientHorizontalControl(ClientPacket.ClientHorizontalControl.LEFT);
@@ -79,7 +116,7 @@ class GameStateClient extends BasicGameState
             cp.setClientVerticalControl(ClientPacket.ClientVerticalControl.NONE);
         }
 
-        if (gc.getInput().isKeyDown(Input.KEY_J)) {
+        if (gc.getInput().isKeyPressed(Input.KEY_J)) {
             cp.setClientJump( true );
         }
         else
@@ -87,28 +124,33 @@ class GameStateClient extends BasicGameState
             cp.setClientJump( false );
         }
 
-        if (gc.getInput().isKeyDown(Input.KEY_K)) {
+        if (gc.getInput().isKeyPressed(Input.KEY_K)) {
             cp.setClientFire( true );
         }
         else
         {
             cp.setClientFire( false );
         }
-        client.writeToServer( cp );
+
+        world.update(gc,game, delta);
+
+        client.writeToServer(cp);
+
+
         ServerPacket c = client.readFromServer();
-        if( c != null )
-        {
-            serverEnemyManager = c.getServerEnemyManager();
+        if (c != null) {
+            networkEntityList  = c.getServerEntityList();
             player1.playerDesc = c.getLocalPlayerDescriptor();
-            player1.setPosition( player1.getX(), c.getLocalPlayerWorldPosition().getY() );
-            ContraGame.VIEWPORT.setViewPortOffset( new Vector( player1.getX() - c.getLocalPlayerWorldPosition().getX(), 0 ) );
-            player1.updateAnimation(gc,game,delta);
+            localPlayerWorkPosition = c.getLocalPlayerWorldPosition();
+
+            player1.setPosition(player1.getX(), c.getLocalPlayerWorldPosition().getY());
+            ContraGame.VIEWPORT.setViewPortOffset(new Vector(player1.getX() - c.getLocalPlayerWorldPosition().getX(), 0));
+            player1.updateAnimation(gc, game, delta);
 
             player2.playerDesc = c.getServerPlayerDescriptor();
-            player2.setPosition( new Vector( c.getServerPlayerWorldPosition().getX() + ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getX(), c.getServerPlayerWorldPosition().getY() ) );
-            player2.updateAnimation(gc,game,delta);
+            player2.setPosition(new Vector(c.getServerPlayerWorldPosition().getX() + ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getX(), c.getServerPlayerWorldPosition().getY()));
+            player2.updateAnimation(gc, game, delta);
         }
-        world.update(gc,game, delta);
     }
 
     @Override

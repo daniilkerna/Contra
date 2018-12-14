@@ -11,18 +11,32 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-public class enemyTurret extends Entity implements Serializable {
+public class EnemyTurret extends Entity implements Serializable {
     private int livesLeft = 5;
-    private Player          refPlayer;
+    private Player          refPlayer,
+                            refPlayer2;
+
+
     private TurretState     turretState;
     private int             booletCooldown = 1000;
 
     public HashMap<String, Animation>   turretAnimations;
     public ArrayList<Bullet>            turretBulletArrayList;
 
-    public enemyTurret(final float x, final float y, Player p1) {
-        super(x, y);
+
+
+
+    private Vector                      turretWorldPos;
+
+
+    public EnemyTurret(final float x, final float y, Player p1 , Player p2) {
+        super();
+
+        turretWorldPos = new Vector(x,y);
+
         this.refPlayer = p1;
+        this.refPlayer2 = p2;
+
         this.setScale(1.5f);
 
         turretAnimations = new HashMap<>();
@@ -73,7 +87,7 @@ public class enemyTurret extends Entity implements Serializable {
 
 
     public void update(GameContainer gc, StateBasedGame sbg, int delta) {
-        this.setPosition(this.getPosition().getX() + this.refPlayer.getPlayerVelocity().getX(), this.getPosition().getY());
+        setPosition( turretWorldPos.getX() - refPlayer.getPlayerVelocity().getX() + ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getX(), turretWorldPos.getY() + ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getY());
 
         updateState();
         updateAnimation();
@@ -81,10 +95,12 @@ public class enemyTurret extends Entity implements Serializable {
     }
 
     public void shootBoolets(GameContainer gc, StateBasedGame sbg, int delta){
-        booletCooldown -= delta;
-        if (booletCooldown < 0){
-            booletCooldown = 1000;
-            turretBulletArrayList.add(new Bullet(getX() , getY() , BulletType.REGULAR , turretState ) );
+        if (this.getTurretWorldPos().subtract(this.refPlayer.getPlayerPosition()).getX() <= 400 || this.getTurretWorldPos().subtract(this.refPlayer2.getPlayerPosition()).getX() <= 400 ) {
+            booletCooldown -= delta;
+            if (booletCooldown < 0) {
+                booletCooldown = 1000;
+                turretBulletArrayList.add(new Bullet(turretWorldPos.getX(), turretWorldPos.getY(), BulletType.REGULAR, turretState));
+            }
         }
 
         Iterator<Bullet> iter = turretBulletArrayList.iterator();
@@ -93,7 +109,7 @@ public class enemyTurret extends Entity implements Serializable {
         {
             Bullet b = iter.next();
 
-            if( b.isOnScreen() )
+            if( b.isInTheWorld() )
                 b.update(gc , sbg , delta, this.refPlayer.getPlayerVelocity().getX());
             else
                 iter.remove();
@@ -154,6 +170,18 @@ public class enemyTurret extends Entity implements Serializable {
 
     public void updateReferencePlayer(Player p1){
         this.refPlayer = p1;
+    }
+
+    public Vector getTurretWorldPos() {
+        return turretWorldPos;
+    }
+
+    public TurretState getTurretState() {
+        return turretState;
+    }
+
+    public void setTurretState(TurretState turretState) {
+        this.turretState = turretState;
     }
 
 }
