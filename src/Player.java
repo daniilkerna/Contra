@@ -632,4 +632,9 @@ public class Player extends Entity implements Serializable
     public void setPlayerPosition(Vector playerPosition) {
         this.playerPosition = playerPosition;
     }
+
+    public void respawnPlayer(){
+        setPosition(getX(),  0);
+        playerPosition = new Vector(0, 0);
+    }
 }
