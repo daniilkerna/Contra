@@ -84,7 +84,7 @@ public class EnemySniper extends Player implements Serializable {
             booletCooldown -= delta;
             if (booletCooldown < 0) {
                 booletCooldown = 2000;
-                sniperBulletArrayList.add(new Bullet(sniperPosition.getX(), sniperPosition.getY(), BulletType.REGULAR, playerDesc, -20));
+                sniperBulletArrayList.add(new Bullet(sniperPosition.getX(), sniperPosition.getY(), BulletType.REGULAR, playerDesc, 20));
             }
         }
 
