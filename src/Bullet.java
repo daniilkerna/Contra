@@ -8,12 +8,18 @@ public class Bullet extends Entity
 {
     private static float BULLET_VELOCITY = 0.25f;
 
+    public Vector getBulletWorldPos() {
+        return bulletWorldPos;
+    }
+
+    private Vector      bulletWorldPos;
     private Vector      bulletVelocity;
     private BulletType  bulletType;
 
 
     public Bullet (final float x, final float y , BulletType bulletType , PlayerDescriptor pDesc ){
-        super( x , y - 25);
+        bulletWorldPos = new Vector(x, y);
+        //super( x , y - 25);
 
         this.setScale(2f);
         this.bulletType = bulletType;
@@ -98,7 +104,8 @@ public class Bullet extends Entity
     }
 
     public Bullet (final float x, final float y , BulletType bulletType , PlayerDescriptor pDesc , final int offSet){
-        super( x , y - 25 );
+        //super( x , y - 25 );
+        bulletWorldPos = new Vector(x, y);
 
         this.setScale(2f);
         this.bulletType = bulletType;
@@ -184,7 +191,8 @@ public class Bullet extends Entity
 
 
     public Bullet (final float x, final float y , BulletType bulletType , TurretState turretState){
-        super( x , y );
+        //super( x , y );
+        bulletWorldPos = new Vector(x, y);
 
         this.setScale(2f);
         this.bulletType = bulletType;
@@ -223,6 +231,16 @@ public class Bullet extends Entity
 
     }
 
+    public Bullet(final float x, final  float y){
+        //super(x , y);
+        bulletWorldPos = new Vector(x, y);
+
+        this.setScale(2f);
+        this.bulletType = BulletType.REGULAR;
+
+        addImageWithBoundingBox(ContraGame.getImageAsset("BULLET_REGULAR"));
+    }
+
     public boolean isOnScreen()
     {
         if( this.getX() < 0 || this.getX() > ContraGame.VIEWPORT.getWidth() ) {
@@ -236,6 +254,15 @@ public class Bullet extends Entity
 
     public void update(GameContainer gc, StateBasedGame sbg, int delta, float playerVelocity)
     {
-        setPosition( getX() + playerVelocity + bulletVelocity.getX()*delta, getY() + bulletVelocity.getY()*delta );
+        bulletWorldPos = bulletWorldPos.add( bulletVelocity.scale(delta) );
+        setPosition( bulletWorldPos.getX() + ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getX() , bulletWorldPos.getY() );
+    }
+
+    public boolean isInTheWorld(){
+        if ( this.getBulletWorldPos().getX() < 0 || this.getBulletWorldPos().getX() > 75000 || this.getBulletWorldPos().getY() < 0 || this.getBulletWorldPos().getY() > 800   ){
+            return false;
+        }
+
+        return true;
     }
 }

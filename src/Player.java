@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public class Player extends Entity
+public class Player extends Entity implements Serializable
 {
     enum Type {
         BLUE,
@@ -33,7 +33,20 @@ public class Player extends Entity
     public HashMap<String, Animation>  playerAnimations;
     public ArrayList<Bullet>           bulletArrayList;
 
+    public Player(){
+
+    }
+
     public Player( World world, Type color ) {
+        this( world, color,
+                new PlayerDescriptor(PlayerDescriptor.State.IDLE, PlayerDescriptor.Movement.NONE, PlayerDescriptor.HorizontalFacingDirection.RIGHT, PlayerDescriptor.VerticalFacingDirection.NONE));
+    }
+
+    public Player( World world, PlayerDescriptor descriptor ) {
+        this( world, Type.BLUE, descriptor );
+    }
+
+    public Player( World world, Type color, PlayerDescriptor descriptor ) {
         super();
 
         // Not on a platform
@@ -184,7 +197,8 @@ public class Player extends Entity
         playerPosition = new Vector(0, 0);
         playerVelocity = new Vector(0, 0);
 
-        playerDesc = new PlayerDescriptor(PlayerDescriptor.State.IDLE, PlayerDescriptor.Movement.NONE, PlayerDescriptor.HorizontalFacingDirection.RIGHT, PlayerDescriptor.VerticalFacingDirection.NONE);
+        playerDesc = descriptor;
+        //playerDesc = new PlayerDescriptor(PlayerDescriptor.State.IDLE, PlayerDescriptor.Movement.NONE, PlayerDescriptor.HorizontalFacingDirection.RIGHT, PlayerDescriptor.VerticalFacingDirection.NONE);
     }
 
     @Override
@@ -226,7 +240,7 @@ public class Player extends Entity
     public void fireAndUpdateBullets(GameContainer gc, StateBasedGame sbg, int delta){
 
         if (gc.getInput().isKeyPressed(Input.KEY_K)) {
-            bulletArrayList.add(new Bullet(getX() , getY() , BulletType.REGULAR , playerDesc ) );
+            bulletArrayList.add(new Bullet(playerPosition.getX() , playerPosition.getY() , BulletType.REGULAR , playerDesc ) );
         }
 
         Iterator<Bullet> iter = bulletArrayList.iterator();
@@ -235,7 +249,7 @@ public class Player extends Entity
         {
             Bullet b = iter.next();
 
-            if( b.isOnScreen() )
+            if( b.isInTheWorld() )
                 b.update(gc , sbg , delta, this.getPlayerVelocity().getX());
             else
                 iter.remove();

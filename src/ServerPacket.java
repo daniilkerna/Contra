@@ -10,20 +10,20 @@ public class ServerPacket implements Serializable
     private PlayerDescriptor localPlayerDescriptor;
     private Vector           localPlayerWorldPosition;
 
-    private EnemyManager     serverEnemyManager;
     private PlayerDescriptor serverPlayerDescriptor;
     private Vector           serverPlayerWorldPosition;
 
+    private NetworkEntityList serverEntityList;
 
     public ServerPacket(PlayerDescriptor localPlayerDescriptor, Vector localPlayerWorldPosition,
                         PlayerDescriptor serverPlayerDescriptor, Vector serverPlayerWorldPosition,
-                        EnemyManager     serverEnemyManager)
+                        NetworkEntityList     serverEnemyManager)
     {
         this.localPlayerDescriptor        = localPlayerDescriptor;
         this.localPlayerWorldPosition     = localPlayerWorldPosition;
         this.serverPlayerDescriptor       = serverPlayerDescriptor;
         this.serverPlayerWorldPosition    = serverPlayerWorldPosition;
-        this.serverEnemyManager           = serverEnemyManager;
+        this.serverEntityList           = serverEnemyManager;
     }
 
     public Vector getLocalPlayerWorldPosition() {
@@ -42,7 +42,7 @@ public class ServerPacket implements Serializable
         return serverPlayerWorldPosition;
     }
 
-    public EnemyManager getServerEnemyManager() {
-        return serverEnemyManager;
+    public NetworkEntityList getServerEntityList() {
+        return serverEntityList;
     }
 };
