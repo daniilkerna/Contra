@@ -7,16 +7,21 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class enemyRunner extends Player implements Serializable {
+public class EnemyRunner extends Player implements Serializable {
     public static float PLAYER_VELOCITY_X = 0.04f;
     public static float PLAYER_VELOCITY_Y = 0.35f;
 
     private Player refPlayer;
+    private Vector runnerWorldPossition;
 
+    public EnemyRunner(){
 
-    public enemyRunner (World world , Player p1){
+    }
+
+    public EnemyRunner(World world , Player p1, float worldPosX, float worldPosY){
         super(world, Type.PINK);
 
+        runnerWorldPossition = new Vector( worldPosX, worldPosY );
         this.refPlayer = p1;
 
         playerAnimations.put("ENEMY_RUNNER",

@@ -8,47 +8,54 @@ import java.util.ArrayList;
 
 public class EnemyManager implements Serializable
 {
+    private ArrayList<EnemySniper>       sniperArrayList;
+    private ArrayList<EnemyRunner>       runnerArrayList;
+    private ArrayList<EnemyTurret>       turretArrayList;
+    private ArrayList<Bullet>            allEnemyBullets;
 
-    private ArrayList<Player>       enemyArrayList;
-    private ArrayList<enemyTurret>  turretArrayList;
+    public EnemyManager(World world, Player player1 , Player player2){
+        runnerArrayList = new ArrayList<>();
+        turretArrayList = new ArrayList<>();
+        sniperArrayList = new ArrayList<>();
+        allEnemyBullets = new ArrayList<>();
 
-    public EnemyManager(World world, Player player1){
-        enemyArrayList = new ArrayList<>();
 
         //add Runners
-        enemyArrayList.add(new enemyRunner(world , player1));
-
+       // runnerArrayList.add(new EnemyRunner(world , player1));
 
         //add snipers
-        enemyArrayList.add(new EnemySniper(world , player1 , 634 , 438));
-        enemyArrayList.add(new EnemySniper(world , player1 , 1275 , 476));
-        enemyArrayList.add(new EnemySniper(world , player1 , 2554 , 255));
-        enemyArrayList.add(new EnemySniper(world , player1 , 4864 , 235));
-        enemyArrayList.add(new EnemySniper(world , player1 , 5346 , 450));
-        enemyArrayList.add(new EnemySniper(world , player1 , 6285 , 325));
-        enemyArrayList.add(new EnemySniper(world , player1 , 6952 , 210));
+        sniperArrayList.add(new EnemySniper(world , player1, player2 , 634 , 408));
+        sniperArrayList.add(new EnemySniper(world , player1 , player2 , 1275 , 446));
+        sniperArrayList.add(new EnemySniper(world , player1 , player2 , 2554 , 225));
+        sniperArrayList.add(new EnemySniper(world , player1 , player2 , 4864 , 225));
+        sniperArrayList.add(new EnemySniper(world , player1 ,player2 , 5346 , 450));
+        sniperArrayList.add(new EnemySniper(world , player1 , player2 ,6285 , 330));
+        sniperArrayList.add(new EnemySniper(world , player1 , player2 ,6952 , 210));
 
 
         //add Turrets
-        turretArrayList = new ArrayList<>();
-        turretArrayList.add(new enemyTurret(  795 ,  400 ,  player1));
-        turretArrayList.add(new enemyTurret(  1495, 370 ,  player1));
-        turretArrayList.add(new enemyTurret( 2430 , 320 ,  player1));
-        turretArrayList.add(new enemyTurret( 3305 , 396 ,  player1));
-        turretArrayList.add(new enemyTurret( 3690 , 396 ,  player1));
-        turretArrayList.add(new enemyTurret( 4200 , 425 ,  player1));
-        turretArrayList.add(new enemyTurret( 4452 , 200 ,  player1));
-        turretArrayList.add(new enemyTurret( 5864 , 363 ,  player1));
-        turretArrayList.add(new enemyTurret( 6260 , 490 ,  player1));
-        turretArrayList.add(new enemyTurret( 6600 , 494 ,  player1));
+
+        turretArrayList.add(new EnemyTurret(  795 ,  400 ,  player1 , player2));
+        turretArrayList.add(new EnemyTurret(  1495, 370 ,  player1 , player2));
+        turretArrayList.add(new EnemyTurret( 2430 , 320 ,  player1 , player2));
+        turretArrayList.add(new EnemyTurret( 3305 , 366 ,  player1 , player2));
+        turretArrayList.add(new EnemyTurret( 3690 , 366 ,  player1 , player2));
+        turretArrayList.add(new EnemyTurret( 4200 , 395 ,  player1 , player2));
+        turretArrayList.add(new EnemyTurret( 4452 , 170 ,  player1 , player2));
+        turretArrayList.add(new EnemyTurret( 5864 , 333 ,  player1 , player2));
+        turretArrayList.add(new EnemyTurret( 6260 , 460 ,  player1 , player2));
+        turretArrayList.add(new EnemyTurret( 6600 , 474 ,  player1 , player2));
     }
 
 
     public void render(GameContainer container, StateBasedGame game, final Graphics g){
-        for (Player p : enemyArrayList)
+        for (EnemySniper p : sniperArrayList)
             p.render(g);
 
-        for (enemyTurret enemy : turretArrayList)
+        for (EnemyTurret enemy : turretArrayList)
+            enemy.render(g);
+
+        for (EnemyRunner enemy : runnerArrayList)
             enemy.render(g);
     }
 
@@ -56,10 +63,41 @@ public class EnemyManager implements Serializable
     public void update(GameContainer container, StateBasedGame game,
                        int delta) throws SlickException {
 
-        for (Player p : enemyArrayList)
+        for (EnemySniper p : sniperArrayList)
             p.update(container , game , delta);
 
-        for (enemyTurret enemy : turretArrayList)
+        for (EnemyTurret enemy : turretArrayList)
+            enemy.update(container , game , delta);
+
+        for (EnemyRunner enemy : runnerArrayList)
             enemy.update(container , game , delta);
     }
+
+    public ArrayList<EnemySniper> getSniperArrayList() {
+        return sniperArrayList;
+    }
+
+    public ArrayList<EnemyRunner> getRunnerArrayList() {
+        return runnerArrayList;
+    }
+
+    public ArrayList<EnemyTurret> getTurretArrayList() {
+        return turretArrayList;
+    }
+
+    public ArrayList<Bullet> getAllEnemyBullets() {
+        allEnemyBullets = null;
+        allEnemyBullets = new ArrayList<>();
+
+        for (EnemySniper p : sniperArrayList)
+            for( Bullet b : p.sniperBulletArrayList)
+                allEnemyBullets.add(b);
+
+        for (EnemyTurret enemy : turretArrayList)
+            for( Bullet b : enemy.turretBulletArrayList)
+                allEnemyBullets.add(b);
+
+        return allEnemyBullets;
+    }
+
 }

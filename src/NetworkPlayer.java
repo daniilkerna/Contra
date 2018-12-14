@@ -44,7 +44,7 @@ public class NetworkPlayer extends Player
         {
             Bullet b = iter.next();
 
-            if( b.isOnScreen() )
+            if( b.isInTheWorld() )
                 b.update(gc , sbg , delta, this.getPlayerVelocity().getX());
             else
                 iter.remove();
