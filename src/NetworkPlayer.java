@@ -47,6 +47,9 @@ public class NetworkPlayer extends Player
                 b.update(gc , sbg , delta, this.getPlayerVelocity().getX());
             else
                 iter.remove();
+
+            if(b.isBulletDead )
+                iter.remove();
         }
     }
 

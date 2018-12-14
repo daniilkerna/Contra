@@ -59,8 +59,10 @@ class GameStateServer extends BasicGameState {
         world.update(gc, sbg, delta);
         localPlayer.update(gc, sbg, delta);
         networkPlayer.update(gc, sbg, delta);
+
         checkPlayerBulletCollsions(localPlayer.bulletArrayList);
         checkPlayerBulletCollsions(networkPlayer.bulletArrayList);
+
         checkIfEnemyHitPlayer();
 
         enemyManager.update(gc, sbg, delta);
