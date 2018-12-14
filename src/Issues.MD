@@ -7,10 +7,11 @@ Issues That Are Completed:
 5. Ability To swim
 6. Add Networking
 7. Enemies
+8. Send Data World Over the Network
 
 Issues to Work On:
 
-8. Send Data World Over the Network
+
 9. Add Game Logic
 
 
