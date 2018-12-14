@@ -92,6 +92,7 @@ public class EnemyTurret extends Entity implements Serializable {
         updateState();
         updateAnimation();
         shootBoolets(gc , sbg , delta);
+        updateReferencePlayer();
     }
 
     public void shootBoolets(GameContainer gc, StateBasedGame sbg, int delta){
@@ -166,8 +167,13 @@ public class EnemyTurret extends Entity implements Serializable {
         }
     }
 
-    public void updateReferencePlayer(Player p1){
-        this.refPlayer = p1;
+    public void updateReferencePlayer(){
+        Player temp;
+        if (Math.abs(this.getTurretWorldPos().subtract(this.refPlayer.getPlayerPosition()).getX()) > Math.abs(this.getTurretWorldPos().subtract(this.refPlayer2.getPlayerPosition()).getX())  ) {
+            temp = refPlayer;
+            refPlayer = refPlayer2;
+            refPlayer2 = temp;
+        }
     }
 
     public Vector getTurretWorldPos() {

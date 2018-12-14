@@ -6,7 +6,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class Bullet extends Entity
 {
-    private static float BULLET_VELOCITY = 0.25f;
+    private static float BULLET_VELOCITY = 0.20f;
 
     public Vector getBulletWorldPos() {
         return bulletWorldPos;

@@ -76,6 +76,7 @@ public class EnemySniper extends Player implements Serializable {
         fireAndUpdateBullets(gc , sbg , delta);
         getState( gc, sbg, delta );
         updateAnimation();
+        updateReferencePlayer();
     }
 
 
@@ -211,6 +212,16 @@ public class EnemySniper extends Player implements Serializable {
 
     public void setPlayerDesc(PlayerDescriptor playerDesc){
         this.playerDesc = playerDesc;
+    }
+
+    public void updateReferencePlayer(){
+        Player temp;
+        if (Math.abs(this.getSniperPosition().subtract(this.refPlayer.getPlayerPosition()).getX()) > Math.abs(this.getSniperPosition().subtract(this.refPlayer2.getPlayerPosition()).getX())  ) {
+            temp = refPlayer;
+            refPlayer = refPlayer2;
+            refPlayer2 = temp;
+        }
+
     }
 
     public PlayerDescriptor getSniperDesc(){
