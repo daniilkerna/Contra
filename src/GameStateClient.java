@@ -14,6 +14,7 @@ class GameStateClient extends BasicGameState
     private Player   		player1;
     private Player          player2;
     private Client          client;
+    private int             numberOfLives = 0;
 
     private Vector            localPlayerWorkPosition;
     private NetworkEntityList networkEntityList;
@@ -51,6 +52,8 @@ class GameStateClient extends BasicGameState
         player1.render(g);
         player2.render(g);
 
+        g.drawString("Lives Left:" + numberOfLives, 10 , 30);
+
         if( networkEntityList == null )
             return;
 
@@ -67,10 +70,9 @@ class GameStateClient extends BasicGameState
                     b.render(g);
                     break;
                 case SNIPER:
-                    EnemySniper es = new EnemySniper(world , player1 , player2 , ne.getPosition().getX(), ne.getPosition().getY() );
-                    es.playerDesc = ne.getPlayerDesc();
+                    EnemySniper es = new EnemySniper(world , player1 , player2 , ne.getPosition().getX(), ne.getPosition().getY() , ne.getPlayerDesc() );
                     es.setPosition( ne.getPosition().getX() + ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getX(), ne.getPosition().getY() );
-                    //System.out.println( ne.getPosition().getX() + " - " +  ne.getPosition().getY() );
+                    es.updateAnimation();
                     es.render(g);
                     break;
                 case RUNNER:
@@ -150,6 +152,7 @@ class GameStateClient extends BasicGameState
             player2.playerDesc = c.getServerPlayerDescriptor();
             player2.setPosition(new Vector(c.getServerPlayerWorldPosition().getX() + ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getX(), c.getServerPlayerWorldPosition().getY()));
             player2.updateAnimation(gc, game, delta);
+            numberOfLives = c.getNumberOfLives();
         }
     }
 

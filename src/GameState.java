@@ -94,7 +94,7 @@ class GameState extends BasicGameState
 		player1.update(container, game, delta );
 		player2.update(container, game, delta );
 
-		enemyManager.update(container , game , delta);
+		//enemyManager.update(container , game , delta , );
 
 
 	}

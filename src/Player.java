@@ -240,7 +240,7 @@ public class Player extends Entity implements Serializable
     public void fireAndUpdateBullets(GameContainer gc, StateBasedGame sbg, int delta){
 
         if (gc.getInput().isKeyPressed(Input.KEY_K)) {
-            bulletArrayList.add(new Bullet(playerPosition.getX() , playerPosition.getY() , BulletType.REGULAR , playerDesc ) );
+            bulletArrayList.add(new Bullet(playerPosition.getX() , playerPosition.getY() , BulletType.REGULAR , playerDesc, 20 ) );
         }
 
         Iterator<Bullet> iter = bulletArrayList.iterator();
@@ -252,6 +252,9 @@ public class Player extends Entity implements Serializable
             if( b.isInTheWorld() )
                 b.update(gc , sbg , delta, this.getPlayerVelocity().getX());
             else
+                iter.remove();
+
+            if(b.isBulletDead )
                 iter.remove();
         }
         isPlayerShooting = gc.getInput().isKeyDown(Input.KEY_K);

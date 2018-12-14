@@ -15,6 +15,7 @@ public class Bullet extends Entity
     private Vector      bulletWorldPos;
     private Vector      bulletVelocity;
     private BulletType  bulletType;
+    public  Boolean     isBulletDead = false;
 
 
     public Bullet (final float x, final float y , BulletType bulletType , PlayerDescriptor pDesc ){
@@ -105,7 +106,7 @@ public class Bullet extends Entity
 
     public Bullet (final float x, final float y , BulletType bulletType , PlayerDescriptor pDesc , final int offSet){
         //super( x , y - 25 );
-        bulletWorldPos = new Vector(x, y);
+        bulletWorldPos = new Vector(x, y - offSet);
 
         this.setScale(2f);
         this.bulletType = bulletType;
@@ -133,6 +134,9 @@ public class Bullet extends Entity
                     case LEFT: bulletVelocity = new Vector(-BULLET_VELOCITY , 0); break;
                     case RIGHT:  bulletVelocity = new Vector(BULLET_VELOCITY , 0); break;
                 }
+                if (pDesc.state == PlayerDescriptor.State.SWIMMING){
+                    bulletWorldPos = new Vector(getBulletWorldPos().getX() , getBulletWorldPos().getY() + 20);
+                }
                 break;
 
             case UP:
@@ -153,6 +157,10 @@ public class Bullet extends Entity
             case DOWN:
                 switch ( pDesc.state )
                 {
+                    case SWIMMING:
+                        isBulletDead = true;
+                        bulletVelocity = new Vector(0, BULLET_VELOCITY);
+                        break;
                     case JUMPING:
                     case RUNNING:
                         if (pDesc.movement == PlayerDescriptor.Movement.NONE) {
@@ -162,11 +170,11 @@ public class Bullet extends Entity
                         switch ( pDesc.hfd )
                         {
                             case LEFT:
-                                setPosition(x - 10, y - 25 - offSet );
+                                setPosition(x - 10, y - 40 - offSet  );
                                 bulletVelocity = new Vector(-BULLET_VELOCITY, BULLET_VELOCITY);
                                 break;
                             case RIGHT:
-                                setPosition(x + 10, y - 25 - offSet );
+                                setPosition(x + 10, y - 40 - offSet );
                                 bulletVelocity = new Vector(BULLET_VELOCITY, BULLET_VELOCITY);
                                 break;
                         }

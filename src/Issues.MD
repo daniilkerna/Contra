@@ -20,6 +20,11 @@ Issues to Work On:
 
 Things To Polish:
 
+1. More features of the original game
+2. Music 
+3. Gun Upgrades
+4. Make the Intro Screen Sexier
+
 
 
 
