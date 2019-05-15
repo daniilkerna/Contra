@@ -145,12 +145,19 @@ class GameStateServer extends BasicGameState {
 
     public void checkIfEnemyHitPlayer(){
         for (Bullet bullet : enemyManager.getAllEnemyBullets()) {
-            if (bullet.collides(networkPlayer) != null || bullet.collides(localPlayer) != null) {
+            if (bullet.collides(networkPlayer) != null) {
                 teamLivesNumber--;
                 bullet.isBulletDead = true;
+                networkPlayer.respawnPlayer();
+            }
+            if (bullet.collides(localPlayer) != null) {
+                teamLivesNumber--;
+                bullet.isBulletDead = true;
+                localPlayer.respawnPlayer();
             }
         }
 
     }
+
 
 }

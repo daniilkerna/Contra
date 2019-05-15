@@ -17,17 +17,22 @@ public class NetworkEntity implements Serializable
     private Vector             position;
     private TurretState         turretState;
 
+
+
+    private String              currentAnimation;
+
     public NetworkEntity()
     {
 
     }
 
-    public NetworkEntity( NetworkEntityType networkEntityType, PlayerDescriptor playerDesc, Vector worldPosition , TurretState turretState )
+    public NetworkEntity( NetworkEntityType networkEntityType, PlayerDescriptor playerDesc, Vector worldPosition , TurretState turretState, String currentAnimation )
     {
         this.entityType = networkEntityType;
         this.playerDesc = playerDesc;
         this.position   = worldPosition;
         this.turretState = turretState;
+        this.currentAnimation  = currentAnimation;
     }
 
     public PlayerDescriptor getPlayerDesc() {
@@ -42,4 +47,5 @@ public class NetworkEntity implements Serializable
     public TurretState getTurretState() {
         return turretState;
     }
+    public String getCurrentAnimation() { return currentAnimation; }
 }

@@ -72,7 +72,9 @@ class GameStateClient extends BasicGameState
                 case SNIPER:
                     EnemySniper es = new EnemySniper(world , player1 , player2 , ne.getPosition().getX(), ne.getPosition().getY() , ne.getPlayerDesc() );
                     es.setPosition( ne.getPosition().getX() + ContraGame.VIEWPORT.getViewPortOffsetTopLeft().getX(), ne.getPosition().getY() );
-                    es.updateAnimation();
+                    es.setPlayerDesc(ne.getPlayerDesc());
+                    //System.out.println("Animation: " + ne.getCurrentAnimation());
+                    es.setAnimationFrame1(ne.getCurrentAnimation() , 0);
                     es.render(g);
                     break;
                 case RUNNER:
