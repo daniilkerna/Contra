@@ -5,6 +5,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class EnemyManager implements Serializable
 {
@@ -24,7 +25,7 @@ public class EnemyManager implements Serializable
        // runnerArrayList.add(new EnemyRunner(world , player1));
 
         //add snipers
-        sniperArrayList.add(new EnemySniper(world , player1, player2 , 634 , 408));
+        sniperArrayList.add(new EnemySniper(world , player1, player2 , 1000 , 408));
         sniperArrayList.add(new EnemySniper(world , player1 , player2 , 1275 , 446));
         sniperArrayList.add(new EnemySniper(world , player1 , player2 , 2554 , 225));
         sniperArrayList.add(new EnemySniper(world , player1 , player2 , 4864 , 225));
@@ -61,13 +62,15 @@ public class EnemyManager implements Serializable
 
 
     public void update(GameContainer container, StateBasedGame game,
-                       int delta) throws SlickException {
+                       int delta ) throws SlickException {
 
-        for (EnemySniper p : sniperArrayList)
-            p.update(container , game , delta);
+        for (EnemySniper enemy : sniperArrayList)
+            enemy.update(container, game, delta);
+
 
         for (EnemyTurret enemy : turretArrayList)
-            enemy.update(container , game , delta);
+            enemy.update(container, game, delta);
+
 
         for (EnemyRunner enemy : runnerArrayList)
             enemy.update(container , game , delta);
@@ -97,6 +100,7 @@ public class EnemyManager implements Serializable
             for( Bullet b : enemy.turretBulletArrayList)
                 allEnemyBullets.add(b);
 
+        //System.out.println("#of Bullets :"  + allEnemyBullets.size());
         return allEnemyBullets;
     }
 

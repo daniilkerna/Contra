@@ -15,9 +15,6 @@ public class NetworkEntity implements Serializable
     private NetworkEntityType  entityType;
     private PlayerDescriptor   playerDesc;
     private Vector             position;
-
-
-
     private TurretState         turretState;
 
     public NetworkEntity()
